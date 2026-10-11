@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Reedy Creek Adventist Church</title>
+  <meta name="description" content="Get in touch with Reedy Creek Adventist Church on the Gold Coast — send a message, email, WhatsApp or call Pastor Andrew directly.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Great+Vibes&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Jost', sans-serif; box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+    a { text-decoration: none; }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E2811E;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #1a1a1a; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      background: #E2811E;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .nav-cta:hover { background: #c9721a; }
+    .footer-link { font-size: 13px; color: #888; }
+    .footer-link:hover { color: #ccc; }
+    .footer-logo { transition: opacity 0.2s ease; }
+    .footer-logo:hover { opacity: 0.75; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px; }
+    .nav-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+    .nav-dropdown-trigger .caret { font-size: 10px; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger .caret, .nav-dropdown:hover .nav-dropdown-trigger .caret { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 14px;
+      background: white; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      min-width: 200px; padding: 8px 0; display: none; flex-direction: column;
+      border-top: 2px solid #E2811E; z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item { padding: 11px 20px; font-size: 12px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-dropdown-item:hover { background: #F5F2EB; color: #E2811E; }
+
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #1a1a1a; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-panel { display: none; flex-direction: column; background: white; border-top: 1px solid #eee; padding: 8px 24px 24px; }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-link { padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-mobile-divider { height: 1px; background: #f0f0f0; margin: 6px 0; }
+    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #E2811E; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
+
+    @media (max-width: 860px) {
+      .nav-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .field-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      font-size: 0.9rem;
+      font-family: 'Jost', sans-serif;
+      outline: none;
+      background: white;
+      transition: border-color 0.2s;
+    }
+    .field-input:focus { border-color: #E2811E; }
+
+    .placeholder-box {
+      border: 2px dashed #d8d0c0;
+      background: #FAF8F3;
+      color: #9a8f78;
+      font-size: 0.65rem;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border: 1px solid #e2e2e2;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+    }
+    .contact-btn:hover { border-color: #E2811E; color: #E2811E; }
+  </style>
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div style="background:#1a1a1a;border-bottom:1px solid #2a2a2a;">
+  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
+      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+    </p>
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
+      <span style="margin:0 10px;color:#444;">|</span>
+      <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" style="color:#E2811E;text-decoration:none;">7 Bridgman Drive, Reedy Creek &nbsp;·&nbsp; Get Directions →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MAIN NAV ======= -->
+<nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">ABOUT US <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/about" class="nav-dropdown-item">Who We Are</a>
+          <a href="/beliefs" class="nav-dropdown-item">What We Believe</a>
+        </div>
+      </li>
+      <li><a href="/sermons" class="nav-link">Sermons</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">MINISTRIES <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/ministries" class="nav-dropdown-item">Ministries</a>
+          <a href="/sabbath-school" class="nav-dropdown-item">Sabbath School</a>
+        </div>
+      </li>
+    </ul>
+    <a href="/" style="display:flex;align-items:center;flex-shrink:0;line-height:0;position:absolute;left:50%;transform:translateX(-50%);">
+      <img src="rc%20logo%20branding%20images/rc%20logo%20fr.png" alt="Reedy Creek Adventist Church" style="height:44px;width:auto;display:block;" />
+    </a>
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li><a href="/contact" class="nav-link" style="color:#1a1a1a;">Contact</a></li>
+      <li><a href="/visit" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <a href="/about" class="nav-mobile-link">Who We Are</a>
+    <a href="/beliefs" class="nav-mobile-link">What We Believe</a>
+    <a href="/sermons" class="nav-mobile-link">Sermons</a>
+    <a href="/ministries" class="nav-mobile-link">Ministries</a>
+    <a href="/sabbath-school" class="nav-mobile-link">Sabbath School</a>
+    <a href="/contact" class="nav-mobile-link">Contact</a>
+    <div class="nav-mobile-divider"></div>
+    <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" class="nav-mobile-link">Give</a>
+    <a href="/visit" class="nav-mobile-cta">Plan Your Visit</a>
+  </div>
+</nav>
+
+<!-- ======= COMPACT HEADER ======= -->
+<section style="background:#F5F2EB;padding:44px 24px 40px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 12px;font-weight:600;">GET IN TOUCH</p>
+    <h1 style="font-size:clamp(1.9rem,3.2vw,2.6rem);font-weight:800;color:#1a1a1a;margin:0 0 10px;letter-spacing:0.08em;text-transform:uppercase;">CONTACT US</h1>
+    <p style="font-size:1rem;color:#666;margin:0;">Questions about visiting? We'll get back to you within 24 hours.</p>
+  </div>
+</section>
+
+<!-- ======= FORM + DIRECT CONTACT ======= -->
+<section style="background:white;padding:56px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start;">
+
+    <!-- Contact form -->
+    <form action="https://formspree.io/f/mdaqywwk" method="POST" style="display:flex;flex-direction:column;gap:16px;">
+      <input type="hidden" name="_subject" value="New message from the Reedy Creek website" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <div>
+        <label class="field-label" for="c-name">Name</label>
+        <input id="c-name" name="name" type="text" required class="field-input" />
+      </div>
+      <div>
+        <label class="field-label" for="c-email">Email Address</label>
+        <input id="c-email" name="email" type="email" required class="field-input" />
+      </div>
+      <div>
+        <label class="field-label" for="c-reason">What's this about?</label>
+        <select id="c-reason" name="reason" required class="field-input">
+          <option value="Planning a Visit">Planning a Visit</option>
+          <option value="General Question">General Question</option>
+          <option value="Prayer Request">Prayer Request</option>
+          <option value="Something Else">Something Else</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="c-message">Message</label>
+        <textarea id="c-message" name="message" required rows="5" class="field-input" style="resize:vertical;"></textarea>
+      </div>
+      <button type="submit" style="background:#E2811E;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background 0.2s;" onmouseover="this.style.background='#c9721a'" onmouseout="this.style.background='#E2811E'">SEND YOUR MESSAGE →</button>
+      <p style="font-size:0.85rem;color:#888;margin:0;">We aim to reply to all messages within 24 hours.</p>
+    </form>
+
+    <!-- Direct contact -->
+    <div style="display:flex;flex-direction:column;gap:32px;">
+
+      <div>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+          <!-- ⚠️ NEEDS INFO: replace this circle with a small, friendly photo of Pastor Andrew -->
+          <div class="placeholder-box" style="width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:4px;">PHOTO</div>
+          <div>
+            <p style="margin:0;font-weight:800;color:#1a1a1a;font-size:1.05rem;">Pastor Andrew Feaveai</p>
+            <p style="margin:0;color:#888;font-size:0.85rem;">Reedy Creek Adventist Church</p>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:AndrewFeaveai@adventist.org.au" class="contact-btn">Email →</a>
+          <a href="https://wa.me/61405684770" target="_blank" rel="noopener" class="contact-btn">WhatsApp →</a>
+          <a href="tel:+61405684770" class="contact-btn">Call →</a>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eee;padding-top:24px;">
+        <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E2811E;margin:0 0 12px;font-weight:700;">Every Saturday</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+            <span style="color:#777;">Sabbath School</span><span style="font-weight:700;color:#1a1a1a;">9:30am</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+            <span style="color:#777;">Church Service</span><span style="font-weight:700;color:#1a1a1a;">10:45am</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+            <span style="color:#777;">Fellowship Lunch</span><span style="font-weight:700;color:#1a1a1a;">After the service</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid #eee;padding-top:24px;">
+        <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:700;">Follow Us</p>
+        <div style="display:flex;gap:12px;">
+          <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#555;display:flex;" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M24,0v24H0V0H24z M20,2.7h-3.3c-2.5,0-4.7,2.1-4.7,4.7v3.3H9.3v4H12V24h4v-9.3h4v-4h-4V8c0-0.8,0.5-1.3,1.3-1.3H20V2.7z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#555;display:flex;" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#555;display:flex;" title="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <polygon fill="currentColor" points="10.7,9.1 14.5,12 10.7,14.9"/>
+              <path fill="currentColor" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= ADDRESS & MAP ======= -->
+<section style="background:#F5F2EB;padding:56px 24px;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:center;">
+    <div>
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">FIND US</p>
+      <p style="font-size:1.15rem;font-weight:700;color:#1a1a1a;margin:0 0 4px;">7 Bridgman Drive</p>
+      <p style="font-size:1rem;color:#555;margin:0 0 18px;">Reedy Creek QLD 4227</p>
+      <p style="font-size:0.9rem;color:#777;line-height:1.7;margin:0 0 20px;">Free on-site parking is available in two areas - along the driveway beside the church, and a larger car park at the rear.</p>
+      <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank"
+         style="display:inline-block;background:#1a1a1a;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
+    </div>
+    <div style="border-radius:2px;overflow:hidden;">
+      <iframe
+        src="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227&output=embed&z=15"
+        width="100%" height="280" style="border:0;display:block;"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer style="background-color:#2a2a2a;padding:40px 24px 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:20px;">
+      <a href="/" class="footer-logo" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;" aria-label="Reedy Creek Adventist Church - home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.13 132.98" style="height:70px;width:auto;">
+          <path fill="#E2811E" d="M88.1,76.92c-6,6-8.88,8.84-10.38,16.1-.11.54-.73.54-.73,0v-8.9c0-5.7,5.08-10.92,11.13-17L93,62.28c6.82-6.82,8.46-14.72,3-19.41-.45-.39-.22-.87.38-.6,6.76,3.08,12.09,14.28.5,25.87ZM77,99.78v9c0,.54.62.54.73,0,1.5-7.26,4.39-10.17,10.38-16.16l9.49-9.47c11.59-11.59,13.6-22.81,7.7-30-.39-.48-.82-.19-.56.39,3.9,8.82-5.45,18.17-9.9,22.62L88.1,82.81C82,88.86,77,94.08,77,99.78ZM51.26,71c-11.59,11.59-6.26,22.79.5,25.87.59.27.83-.21.38-.6-5.42-4.7-3.78-12.6,3-19.41L74.44,57.55c6.05-6.05,11.13-11.27,11.13-17v-8.9c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.11-10.38,16.1Zm34.34-46V16c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.17-10.38,16.16L50.6,56C39,67.58,37,78.79,42.9,86c.39.48.82.19.56-.39-3.9-8.82,5.45-18.17,9.9-22.62l21.1-21.1C80.52,35.84,85.6,30.63,85.6,24.92Zm-37.51,18c-10,10-11.36,20.51-9.23,27.39.18.58.69.62.68,0,0-5.78,1.61-10.75,12.16-21.29L74.44,26.27C80.49,20.22,85.58,15,85.58,9.3V.41c0-.54-.62-.54-.73,0-1.5,7.26-4.4,10.12-10.39,16.11ZM62,115a.36.36,0,0,1-.36-.36v-5.16a.36.36,0,0,1,.36-.36h8.73a.36.36,0,0,0,.36-.36c0-4.64-3.52-7.79-17.52-5.35l-30.24,5.2s-23,23-23.22,23.25a.48.48,0,0,0,.41.81c.42,0,50.31-8.66,50.31-8.66,11.45-1.93,17.7,3.52,19.56,8.62.17.45.7.38.7,0s0-17.22,0-17.22a.36.36,0,0,0-.36-.36Zm36.09-11-10,10C82.07,120.12,77,125.34,77,131v1.59c0,.43.54.5.7,0,1.87-5.11,8.11-10.56,19.56-8.62,0,0,49.89,8.62,50.31,8.66a.48.48,0,0,0,.41-.81c-.19-.22-23.22-23.25-23.22-23.25Zm11.19-35.25c-.18-.58-.69-.62-.68,0,0,5.78-1.61,10.75-12.16,21.29l-8.34,8.34c-3.8,3.8-7.21,7.26-9.23,10.73h8.24l1-1,12-12C110,86.24,111.44,75.69,109.31,68.81ZM77,124.3c0,.54.62.54.73,0a21.4,21.4,0,0,1,4-9.25h-4.4a.36.36,0,0,0-.36.36Z"/>
+        </svg>
+        <span style="color:#666;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">Reedy Creek SDA Church</span>
+      </a>
+      <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;align-items:center;">
+        <div style="width:100%;height:1px;background:#3a3a3a;"></div>
+        <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0;">7 Bridgman Drive, Reedy Creek QLD 4227, Australia</p>
+        <ul style="list-style:none;margin:0;padding:0;font-size:0.82rem;display:flex;gap:20px;flex-wrap:wrap;">
+          <li style="display:flex;gap:8px;"><span style="color:#aaa;">Sat, 9:30am</span><span style="color:#888;">Sabbath School</span></li>
+          <li style="display:flex;gap:8px;"><span style="color:#aaa;">Sat, 10:45am</span><span style="color:#888;">Church Service</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div style="background-color:#1e1e1e;padding:14px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:0.78rem;color:#555;">
+        © 2026 Reedy Creek Seventh-day Adventist Church
+        <span style="margin:0 6px;">|</span>
+        <a href="/privacy" style="color:#555;">Privacy Policy</a>
+        <span style="margin:0 6px;">|</span>
+        <a href="/admin" style="color:#555;">Login</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Your Visit | Reedy Creek Adventist Church</title>
+  <meta name="description" content="Everything you need to know before your first visit to Reedy Creek Adventist Church on the Gold Coast. No surprises — just a warm welcome.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Great+Vibes&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Jost', sans-serif; box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+    a { text-decoration: none; }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #E2811E;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #1a1a1a; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      background: #E2811E;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .nav-cta:hover { background: #c9721a; }
+    .footer-link { font-size: 13px; color: #888; }
+    .footer-link:hover { color: #ccc; }
+    .footer-logo { transition: opacity 0.2s ease; }
+    .footer-logo:hover { opacity: 0.75; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px; }
+    .nav-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+    .nav-dropdown-trigger .caret { font-size: 10px; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger .caret, .nav-dropdown:hover .nav-dropdown-trigger .caret { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 14px;
+      background: white; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      min-width: 200px; padding: 8px 0; display: none; flex-direction: column;
+      border-top: 2px solid #E2811E; z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item { padding: 11px 20px; font-size: 12px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-dropdown-item:hover { background: #F5F2EB; color: #E2811E; }
+
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #1a1a1a; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-panel { display: none; flex-direction: column; background: white; border-top: 1px solid #eee; padding: 8px 24px 24px; }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-link { padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-mobile-divider { height: 1px; background: #f0f0f0; margin: 6px 0; }
+    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #E2811E; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
+
+    @media (max-width: 860px) {
+      .nav-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    .faq-item { border-bottom: 1px solid #e8e8e8; }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 20px 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Jost', sans-serif;
+      letter-spacing: 0.01em;
+    }
+    .faq-question:hover { color: #E2811E; }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.8;
+      padding: 0 0 20px;
+      display: none;
+    }
+    .faq-answer.open { display: block; }
+    .faq-icon { flex-shrink: 0; font-size: 1.2rem; color: #E2811E; transition: transform 0.2s; }
+    .faq-icon.open { transform: rotate(45deg); }
+
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      cursor: zoom-out;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 88vh;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: white;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .step-row {
+      display: flex;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+    .step-row:last-child { border-bottom: none; }
+    .step-time {
+      min-width: 90px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #E2811E;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 3px;
+    }
+    .step-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 6px;
+    }
+    .step-content p {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.75;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div style="background:#1a1a1a;border-bottom:1px solid #2a2a2a;">
+  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
+      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+    </p>
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
+      <span style="margin:0 10px;color:#444;">|</span>
+      <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" style="color:#E2811E;text-decoration:none;">7 Bridgman Drive, Reedy Creek &nbsp;·&nbsp; Get Directions →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MAIN NAV ======= -->
+<nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">ABOUT US <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/about" class="nav-dropdown-item">Who We Are</a>
+          <a href="/beliefs" class="nav-dropdown-item">What We Believe</a>
+        </div>
+      </li>
+      <li><a href="/sermons" class="nav-link">Sermons</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">MINISTRIES <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="/ministries" class="nav-dropdown-item">Ministries</a>
+          <a href="/sabbath-school" class="nav-dropdown-item">Sabbath School</a>
+        </div>
+      </li>
+    </ul>
+    <a href="/" style="display:flex;align-items:center;flex-shrink:0;line-height:0;position:absolute;left:50%;transform:translateX(-50%);">
+      <img src="rc%20logo%20branding%20images/rc%20logo%20fr.png" alt="Reedy Creek Adventist Church" style="height:44px;width:auto;display:block;" />
+    </a>
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li><a href="/contact" class="nav-link">Contact</a></li>
+      <li><a href="/visit" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <a href="/about" class="nav-mobile-link">Who We Are</a>
+    <a href="/beliefs" class="nav-mobile-link">What We Believe</a>
+    <a href="/sermons" class="nav-mobile-link">Sermons</a>
+    <a href="/ministries" class="nav-mobile-link">Ministries</a>
+    <a href="/sabbath-school" class="nav-mobile-link">Sabbath School</a>
+    <a href="/contact" class="nav-mobile-link">Contact</a>
+    <div class="nav-mobile-divider"></div>
+    <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" class="nav-mobile-link">Give</a>
+    <a href="/visit" class="nav-mobile-cta">Plan Your Visit</a>
+  </div>
+</nav>
+
+<!-- ======= HERO ======= -->
+<section style="position:relative;width:100%;overflow:hidden;background:#141210;min-height:460px;display:flex;align-items:center;">
+  <img src="images/PXL_20260711_010827330.jpg" alt="" aria-hidden="true"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:blur(3px) brightness(0.28);transform:scale(1.04);" />
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.5);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#E2811E;z-index:2;"></div>
+  <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;padding:80px 24px 72px;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 20px;font-weight:600;">FIRST TIME?</p>
+    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:800;color:white;margin:0 0 24px;line-height:1.15;letter-spacing:0.06em;text-transform:uppercase;">YOU'RE WELCOME HERE</h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);line-height:1.8;margin:0 auto;max-width:560px;">New to Sabbath with us? Here's what to expect before you arrive, so you can walk in knowing exactly what's ahead.</p>
+  </div>
+</section>
+
+<!-- ======= WHEN & WHERE ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+
+    <div>
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">THE BASICS</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 32px;letter-spacing:0.1em;text-transform:uppercase;">WHEN & WHERE</h2>
+
+      <div style="display:flex;flex-direction:column;gap:0;">
+
+        <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #f0f0f0;">
+          <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">9:10am</div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Prayer Meeting</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">A relaxed opening session - prayer, hymns and a short Bible reflection. A gentle way to start the morning.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #f0f0f0;">
+          <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">9:30am</div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Sabbath School</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">Bible study and discussion in small groups - for all ages. You don't need any prior knowledge to join in. Kids and youth have their own groups too.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #f0f0f0;">
+          <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">10:30am</div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Intermission</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">A short break between sessions. A chance to refresh and meet some new people.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #f0f0f0;">
+          <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">10:45am</div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Church Service</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">The main gathering - worship music, a sermon and time to reflect. Runs approximately 60-75 minutes.</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:20px;padding:18px 0;">
+          <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">12:30pm</div>
+          <div>
+            <div style="font-size:0.95rem;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Fellowship Lunch</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">After the service, the congregation shares a meal together. It's one of the highlights of the day - and you're genuinely welcome to stay. It's not a members-only thing.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:24px;">
+
+      <div style="background:#F5F2EB;padding:32px;">
+        <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">ADDRESS</p>
+        <p style="font-size:1.1rem;font-weight:700;color:#1a1a1a;margin:0 0 4px;">7 Bridgman Drive</p>
+        <p style="font-size:1rem;color:#555;margin:0 0 20px;">Reedy Creek QLD 4227</p>
+        <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank"
+           style="display:inline-block;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
+      </div>
+
+      <div style="background:#F5F2EB;padding:32px;">
+        <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">PARKING</p>
+        <p style="font-size:0.9rem;color:#555;line-height:1.75;margin:0 0 14px;">Free on-site parking, with two driveway entrances off Bridgman Drive and several parking areas across the property. It can fill up on busy Saturdays, so arriving a little early is a good idea.</p>
+        <a href="#getting-in" style="font-size:0.8rem;font-weight:700;color:#1a1a1a;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #1a1a1a;padding-bottom:2px;">See photos of the entrances →</a>
+      </div>
+
+      <div style="border-radius:2px;overflow:hidden;">
+        <iframe
+          src="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227&output=embed&z=15"
+          width="100%" height="220" style="border:0;display:block;"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= GETTING IN & PARKING ======= -->
+<!-- ⚠️ Captions below use the labels from the filenames you uploaded. Worth a quick read-through to confirm each one matches the right spot, since this section is wayfinding - a wrong label sends someone to the wrong gate. -->
+<section id="getting-in" style="background:white;padding:72px 24px;border-bottom:3px solid #E2811E;scroll-margin-top:64px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="max-width:640px;margin:0 auto 44px;text-align:center;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">NO GUESSWORK</p>
+      <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#1a1a1a;margin:0 0 16px;letter-spacing:0.08em;text-transform:uppercase;">GETTING IN &amp; PARKING</h2>
+      <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">There are two driveways off Bridgman Drive and a few places to park once you're in. Here's what each one actually looks like, so you're not second-guessing at the gate.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-lower-entry-from-road.jpg" alt="The lower driveway entrance seen from Bridgman Drive" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Lower entrance, from the road.</strong> Coming along Bridgman Drive, this is the first driveway you'll reach.</figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-lower-gate.jpg" alt="The lower entrance gate, open, looking into the car park" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Through the lower gate.</strong> It opens straight onto a wide, flat car park - you'll usually spot the Lighthouse bus parked here.</figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-lower-carpark.jpg" alt="The lower level car park" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Lower car park.</strong> The largest of the parking areas, and the easiest to get in and out of.</figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-upper-entry.jpg" alt="The upper entrance at Gate 3, with the church sign" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Upper entrance - Gate 3.</strong> Look for the lit Seventh-day Adventist sign; the gate is marked "Gate 3".</figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-upper-carpark.jpg" alt="Parking along the upper level of the property" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Upper side parking.</strong> Along the upper level, closest to the top entrance.</figcaption>
+      </figure>
+
+      <figure style="margin:0;">
+        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
+          <img src="images/parking-back-carpark.jpg" alt="The car park at the rear of the property" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        </div>
+        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#1a1a1a;">Back car park.</strong> Extra space around the rear - handy when the front fills up.</figcaption>
+      </figure>
+
+    </div>
+
+    <p style="font-size:0.9rem;color:#666;line-height:1.8;text-align:center;max-width:640px;margin:36px auto 0;">Still not sure? Pull in anywhere and someone will point you in the right direction - there's always a greeter near the entrance on a Saturday morning.</p>
+  </div>
+</section>
+
+<!-- ======= PHOTO STRIP ======= -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);height:280px;">
+  <div style="overflow:hidden;">
+    <img src="images/507754603_1154602580041121_2879583699485074017_n.jpg" alt="" aria-hidden="true"
+         style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+  </div>
+  <div style="overflow:hidden;">
+    <img src="images/unnamed.jpg" alt="" aria-hidden="true"
+         style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+  </div>
+  <div style="overflow:hidden;">
+    <img src="images/727466497_1471721318329244_2356942570976319066_n.jpg" alt="" aria-hidden="true"
+         style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+  </div>
+</div>
+
+<!-- ======= WHAT TO EXPECT ======= -->
+<section style="background:#1a1a1a;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="max-width:680px;margin:0 auto 52px;text-align:center;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">YOUR FIRST MORNING</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:white;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT TO EXPECT</h2>
+      <p style="font-size:1rem;color:#aaa;line-height:1.8;margin:0;">A step-by-step of what actually happens from the moment you arrive - so there are no unknowns.</p>
+    </div>
+
+    <div style="max-width:720px;margin:0 auto;">
+
+      <div class="step-row" style="border-bottom:1px solid #2a2a2a;">
+        <div class="step-time">Arriving</div>
+        <div class="step-content">
+          <h4 style="color:white;">Someone will greet you at the door</h4>
+          <p style="color:#aaa;">You don't need to sign in or register - just walk in. Someone will be at the entrance to welcome you and point you in the right direction. You won't be left to figure it out on your own.</p>
+        </div>
+      </div>
+
+      <div class="step-row" style="border-bottom:1px solid #2a2a2a;">
+        <div class="step-time">9:10am</div>
+        <div class="step-content">
+          <h4 style="color:white;">Prayer Meeting</h4>
+          <p style="color:#aaa;">Head into the main hall and take a seat anywhere. This opening session is low-key - some singing, a short reflection and prayer. It's a warm way to settle in before the morning proper begins.</p>
+        </div>
+      </div>
+
+      <div class="step-row" style="border-bottom:1px solid #2a2a2a;">
+        <div class="step-time">9:30am</div>
+        <div class="step-content">
+          <h4 style="color:white;">Sabbath School - Bible Study Groups</h4>
+          <p style="color:#aaa;">The congregation splits into age-based groups for Bible discussion - Juniors, Teens, Young Adults and Adults each meet separately. Just let one of the people who greeted you at the door know you're new and they'll point you in the right direction. No prior knowledge required, and no one will put you on the spot.</p>
+        </div>
+      </div>
+
+      <div class="step-row" style="border-bottom:1px solid #2a2a2a;">
+        <div class="step-time">10:30am</div>
+        <div class="step-content">
+          <h4 style="color:white;">Break</h4>
+          <p style="color:#aaa;">A short break between sessions - a chance to stretch your legs and chat with people before the main service. Nobody will rush you.</p>
+        </div>
+      </div>
+
+      <div class="step-row" style="border-bottom:1px solid #2a2a2a;">
+        <div class="step-time">10:45am</div>
+        <div class="step-content">
+          <h4 style="color:white;">Church Service</h4>
+          <p style="color:#aaa;">The main service brings everyone back together. Music is led by our choir and a traditional ensemble - piano, strings and more - with hymns and songs displayed on screen so you don't need to know them in advance. There's scripture, a sermon, and time to reflect. The service runs around 60-75 minutes.</p>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-time">12:30pm</div>
+        <div class="step-content">
+          <h4 style="color:white;">Fellowship Lunch</h4>
+          <p style="color:#aaa;">After the service, we share a meal together - a tradition in Adventist churches and one of the best parts of the day. It's a relaxed, shared lunch and you're genuinely welcome to stay. There's no awkward invitation required - just come along.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= WHAT TO WEAR ======= -->
+<section style="display:flex;min-height:340px;border-bottom:3px solid #E2811E;flex-wrap:wrap;">
+  <div style="flex:1 1 360px;min-height:280px;overflow:hidden;">
+    <img src="images/WhatsApp%20Image%202026-06-07%20at%2009.49.56.jpeg" alt="A mix of casual and dressed-up outfits among the congregation"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;" />
+  </div>
+  <div style="flex:1 1 360px;background:#F5F2EB;display:flex;align-items:center;padding:56px 48px;">
+    <div style="max-width:420px;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">DRESS CODE</p>
+      <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#1a1a1a;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT TO WEAR</h2>
+      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">Come as you are. Some people dress formally, most are smart casual - wear whatever you're comfortable in. There is no dress code.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= WHY SATURDAY? ======= -->
+<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">THE SABBATH</p>
+    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">WHY SATURDAY?</h2>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Seventh-day Adventists worship on Saturday - the seventh day of the week - following the Biblical Sabbath, which runs from sundown Friday to sundown Saturday. It's a day set apart for rest, worship and community.</p>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">If you've always attended Sunday church, Saturday might feel different at first. Most people say it quickly becomes one of their favourite parts of the week.</p>
+  </div>
+</section>
+
+<!-- ======= CHILDREN & FAMILIES ======= -->
+<section style="background:#F5F2EB;padding:0 0 72px;border-bottom:3px solid #E2811E;">
+  <div style="height:320px;overflow:hidden;margin-bottom:52px;">
+    <img src="images/IMG-20260329-WA0002.jpg" alt="" aria-hidden="true"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <div style="max-width:680px;margin:0 0 48px;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">FAMILIES WELCOME</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">CHILDREN & FAMILIES</h2>
+      <p style="font-size:1rem;color:#555;line-height:1.8;">Kids are a valued part of our church, not an afterthought. Here's what's available for your family on a Saturday morning.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1100px;margin:0 auto 24px;">
+
+      <div style="background:white;padding:32px;">
+        <div style="width:40px;height:3px;background:#E2811E;margin-bottom:20px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#1a1a1a;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">During Sabbath School</h3>
+        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">At 9:30am, children and young people meet in their own age-group classes - Beginners, Primary, Juniors and Teens all run at the same time as the adult sessions. When you arrive, let one of our greeters know you have kids with you and they'll show you where to go.</p>
+      </div>
+
+      <div style="background:white;padding:32px;">
+        <div style="width:40px;height:3px;background:#E2811E;margin-bottom:20px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#1a1a1a;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">During the Service</h3>
+        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">Children are welcome in the main service. There's a children's story moment during the service - a short, age-appropriate talk just for the kids before they head to their own space or rejoin the family.</p>
+      </div>
+
+    </div>
+
+    <div style="display:flex;align-items:center;gap:32px;background:white;max-width:1100px;margin:0 auto;padding:32px;flex-wrap:wrap;">
+      <button type="button" onclick="openLightbox('rc%20logo%20branding%20images/Adsafe-Screening-2023-LowRes.jpg', 'Adsafe - supporting our church to promote a child safe environment')"
+              style="padding:0;border:1px solid #eee;background:none;cursor:zoom-in;flex-shrink:0;line-height:0;" title="Click to enlarge">
+        <img src="rc%20logo%20branding%20images/Adsafe-Screening-2023-LowRes.jpg" alt="Adsafe - supporting our church to promote a child safe environment"
+             style="width:140px;height:auto;display:block;" />
+      </button>
+      <div style="flex:1;min-width:240px;">
+        <div style="width:40px;height:3px;background:#E2811E;margin-bottom:20px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#1a1a1a;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">Keeping Kids Safe</h3>
+        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0 0 12px;">Our church operates under the <strong>Adsafe</strong> child-safe code of conduct - a framework endorsed by the Seventh-day Adventist Church in Australia. Safeguarding is taken seriously by everyone here.</p>
+        <a href="https://www.adsafe.org.au/who-we-are/commitment" target="_blank" rel="noopener" style="font-size:0.8rem;font-weight:700;color:#E2811E;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid #E2811E;padding-bottom:1px;">View our Adsafe commitment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= WHAT WE BELIEVE ======= -->
+<section style="position:relative;overflow:hidden;background:#0b0a09;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <img src="images/received_967592365758029.jpeg" alt="" aria-hidden="true"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.15;filter:blur(2px) brightness(0.7);transform:scale(1.04);" />
+  <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">WHO WE ARE</p>
+    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:white;margin:0 0 28px;letter-spacing:0.1em;text-transform:uppercase;">WHAT WE BELIEVE</h2>
+    <p style="font-size:1.05rem;color:#bbb;line-height:1.9;margin:0 0 20px;">We're a Seventh-day Adventist church - part of a global Christian denomination with around 22 million members worldwide. We're rooted in the Bible and believe in a God who loves people.</p>
+    <p style="font-size:1.05rem;color:#bbb;line-height:1.9;margin:0 0 20px;">We hold some distinctive beliefs - like Saturday worship and a focus on health and wholeness - but our door is open to everyone regardless of where you're at in your faith journey. Questions and doubts are welcome here.</p>
+    <p style="font-size:1.05rem;color:#bbb;line-height:1.9;margin:0 0 36px;">If you'd like to know more about what we believe, our pastor would love to have that conversation with you.</p>
+    <a href="/about" style="display:inline-block;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">LEARN MORE ABOUT US →</a>
+  </div>
+</section>
+
+<!-- ======= FIRST VISIT FORM ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+
+    <div>
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">LET US KNOW YOU'RE COMING</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 20px;letter-spacing:0.1em;text-transform:uppercase;">PLANNING TO VISIT?</h2>
+      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 16px;">You don't need to register to come along - just show up. But if you'd like us to know you're coming, fill in this form and our pastor will reach out personally before you arrive.</p>
+      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">No spam. Just a friendly hello and an offer to answer any questions you might have.</p>
+    </div>
+
+    <form style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#333;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Your Name</label>
+        <input type="text" placeholder="First name is fine" style="width:100%;padding:12px 16px;border:1px solid #ddd;font-size:0.9rem;font-family:'Jost',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#E2811E'" onblur="this.style.borderColor='#ddd'" />
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#333;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Email Address</label>
+        <input type="email" placeholder="you@example.com" style="width:100%;padding:12px 16px;border:1px solid #ddd;font-size:0.9rem;font-family:'Jost',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#E2811E'" onblur="this.style.borderColor='#ddd'" />
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#333;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Which Saturday are you planning to visit?</label>
+        <input type="date" style="width:100%;padding:12px 16px;border:1px solid #ddd;font-size:0.9rem;font-family:'Jost',sans-serif;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#E2811E'" onblur="this.style.borderColor='#ddd'" />
+      </div>
+      <div>
+        <label style="display:block;font-size:0.8rem;font-weight:600;color:#333;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Anything you'd like us to know? <span style="color:#aaa;font-weight:400;text-transform:none;">(optional)</span></label>
+        <textarea placeholder="Questions, dietary requirements for lunch, kids' ages - whatever's useful" rows="4" style="width:100%;padding:12px 16px;border:1px solid #ddd;font-size:0.9rem;font-family:'Jost',sans-serif;outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='#E2811E'" onblur="this.style.borderColor='#ddd'"></textarea>
+      </div>
+      <!-- ⚠️ NEEDS ACTION: This form needs a backend to send submissions to the pastor. Options: Formspree, Netlify Forms, or a mailto: action as a simple fallback. -->
+      <button type="submit" style="background:#E2811E;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background 0.2s;" onmouseover="this.style.background='#c9721a'" onmouseout="this.style.background='#E2811E'">RESERVE MY SPOT →</button>
+      <p style="font-size:0.8rem;color:#aaa;margin:0;line-height:1.6;">We'll reply within 24 hours. Your details won't be shared with anyone.</p>
+    </form>
+
+  </div>
+</section>
+
+<!-- ======= FAQ ======= -->
+<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #E2811E;">
+  <div style="max-width:760px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">COMMON QUESTIONS</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0;letter-spacing:0.1em;text-transform:uppercase;">FAQ</h2>
+    </div>
+
+    <div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I have to be Adventist to attend?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. Everyone is welcome regardless of background or belief. Many of our regular visitors come from different church backgrounds, or no church background at all.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will I be asked to stand up and introduce myself?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. You can observe quietly for as long as you like. Nobody will put you on the spot or draw attention to you being new - unless you want them to.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need to bring a Bible?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. Scripture references are displayed on screen during the service, and printed materials are available. Bring one if you have one, but it's not expected.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is there parking?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes - free on-site parking is available in two areas on the property. It can fill up on busy Saturdays, so arriving a few minutes early is a good idea.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does it all go for?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sabbath School runs from 9:30am to around 10:30am. The main service runs from 10:45am for approximately 60-75 minutes. If you stay for lunch, you're usually done by around 2pm.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is there a dress code?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. Come as you are. Some people dress up, most are smart casual - wear whatever you're comfortable in.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need to register before coming?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No registration required - just show up. If you'd like us to know you're coming so we can give you a more personal welcome, you can fill in the form above, but it's completely optional.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Will I be asked to give money?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">No. An offering is taken during the service, but it's for members who wish to give - nobody will approach you or make you feel obligated. As a first-time visitor, please don't feel any pressure to contribute.</div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:none;">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is the fellowship lunch really free and open to everyone?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Yes. It's a shared meal - people bring food and it's laid out for everyone. There's no cost, no sign-up and no awkward invitation required. Just stay after the service and join in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER CTA ======= -->
+<section style="display:flex;min-height:360px;border-bottom:3px solid #E2811E;">
+  <div style="flex:1;overflow:hidden;min-height:300px;">
+    <img src="images/WhatsApp%20Image%202026-05-31%20at%2020.23.44.jpeg" alt="" aria-hidden="true"
+         style="width:100%;height:100%;object-fit:cover;object-position:center;" />
+  </div>
+  <div style="flex:1;background:#1a1a1a;display:flex;align-items:center;padding:60px 64px;">
+    <div>
+      <h2 style="font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;color:white;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">STILL HAVE QUESTIONS?</h2>
+      <p style="font-size:1rem;color:#aaa;line-height:1.8;margin:0 0 32px;max-width:380px;">We'd love to hear from you. Reach out any way that suits - no question is too small.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="mailto:AndrewFeaveai@adventist.org.au" style="display:inline-block;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">EMAIL US →</a>
+        <a href="https://wa.me/61405684770" target="_blank" style="display:inline-block;background:transparent;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid #444;">WHATSAPP →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer style="background-color:#2a2a2a;padding:48px 24px 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:28px;">
+      <a href="/" class="footer-logo" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;" aria-label="Reedy Creek Adventist Church - home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.13 132.98" style="height:90px;width:auto;">
+          <path fill="#E2811E" d="M88.1,76.92c-6,6-8.88,8.84-10.38,16.1-.11.54-.73.54-.73,0v-8.9c0-5.7,5.08-10.92,11.13-17L93,62.28c6.82-6.82,8.46-14.72,3-19.41-.45-.39-.22-.87.38-.6,6.76,3.08,12.09,14.28.5,25.87ZM77,99.78v9c0,.54.62.54.73,0,1.5-7.26,4.39-10.17,10.38-16.16l9.49-9.47c11.59-11.59,13.6-22.81,7.7-30-.39-.48-.82-.19-.56.39,3.9,8.82-5.45,18.17-9.9,22.62L88.1,82.81C82,88.86,77,94.08,77,99.78ZM51.26,71c-11.59,11.59-6.26,22.79.5,25.87.59.27.83-.21.38-.6-5.42-4.7-3.78-12.6,3-19.41L74.44,57.55c6.05-6.05,11.13-11.27,11.13-17v-8.9c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.11-10.38,16.1Zm34.34-46V16c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.17-10.38,16.16L50.6,56C39,67.58,37,78.79,42.9,86c.39.48.82.19.56-.39-3.9-8.82,5.45-18.17,9.9-22.62l21.1-21.1C80.52,35.84,85.6,30.63,85.6,24.92Zm-37.51,18c-10,10-11.36,20.51-9.23,27.39.18.58.69.62.68,0,0-5.78,1.61-10.75,12.16-21.29L74.44,26.27C80.49,20.22,85.58,15,85.58,9.3V.41c0-.54-.62-.54-.73,0-1.5,7.26-4.4,10.12-10.39,16.11ZM62,115a.36.36,0,0,1-.36-.36v-5.16a.36.36,0,0,1,.36-.36h8.73a.36.36,0,0,0,.36-.36c0-4.64-3.52-7.79-17.52-5.35l-30.24,5.2s-23,23-23.22,23.25a.48.48,0,0,0,.41.81c.42,0,50.31-8.66,50.31-8.66,11.45-1.93,17.7,3.52,19.56,8.62.17.45.7.38.7,0s0-17.22,0-17.22a.36.36,0,0,0-.36-.36Zm36.09-11-10,10C82.07,120.12,77,125.34,77,131v1.59c0,.43.54.5.7,0,1.87-5.11,8.11-10.56,19.56-8.62,0,0,49.89,8.62,50.31,8.66a.48.48,0,0,0,.41-.81c-.19-.22-23.22-23.25-23.22-23.25Zm11.19-35.25c-.18-.58-.69-.62-.68,0,0,5.78-1.61,10.75-12.16,21.29l-8.34,8.34c-3.8,3.8-7.21,7.26-9.23,10.73h8.24l1-1,12-12C110,86.24,111.44,75.69,109.31,68.81ZM77,124.3c0,.54.62.54.73,0a21.4,21.4,0,0,1,4-9.25h-4.4a.36.36,0,0,0-.36.36Z"/>
+        </svg>
+        <span style="color:#666;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">Reedy Creek SDA Church</span>
+      </a>
+      <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
+        <div style="width:100%;height:1px;background:#3a3a3a;margin-bottom:4px;"></div>
+        <div style="min-width:160px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">About</h3>
+          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0 0 10px;">Reedy Creek Seventh-day Adventist Church</p>
+          <ul style="list-style:none;margin:0;padding:0;">
+            <li><a href="/visit" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+        <div style="min-width:150px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
+          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0;">
+            7 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
+          </p>
+        </div>
+        <div style="min-width:160px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Service Times</h3>
+          <ul style="list-style:none;margin:0;padding:0;font-size:0.82rem;">
+            <li style="margin-bottom:10px;display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 9:30am</span>
+              <span style="color:#888;">Sabbath School</span>
+            </li>
+            <li style="display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 10:45am</span>
+              <span style="color:#888;">Church Service</span>
+            </li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:120px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Follow Us</h3>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#777;display:flex;" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M24,0v24H0V0H24z M20,2.7h-3.3c-2.5,0-4.7,2.1-4.7,4.7v3.3H9.3v4H12V24h4v-9.3h4v-4h-4V8c0-0.8,0.5-1.3,1.3-1.3H20V2.7z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#777;display:flex;" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#777;display:flex;" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                <polygon fill="currentColor" points="10.7,9.1 14.5,12 10.7,14.9"/>
+                <path fill="currentColor" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background-color:#1e1e1e;padding:14px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:0.78rem;color:#555;">
+        © 2026 Reedy Creek Seventh-day Adventist Church
+        <span style="margin:0 6px;">|</span>
+        <a href="/privacy" style="color:#555;">Privacy Policy</a>
+        <span style="margin:0 6px;">|</span>
+        <a href="/admin" style="color:#555;">Login</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ======= LIGHTBOX ======= -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()" />
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      icon.classList.add('open');
+    }
+  }
+
+  function openLightbox(src, alt) {
+    const overlay = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>
