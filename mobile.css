@@ -11,8 +11,10 @@
   /* The desktop menus carry inline display:flex, which beat the old hide rule */
   .nav-desktop { display: none !important; }
 
-  /* Logo sits centred absolutely - keep it from colliding with the hamburger */
-  nav a[href="index.html"] img { height: 38px !important; }
+  /* Logo sits centred absolutely, which only gives it half the bar's width to grow
+     into - let it size to its natural proportions instead of being squeezed */
+  nav a[href="index.html"] { width: max-content; }
+  nav a[href="index.html"] img { height: 38px !important; width: auto !important; max-width: none !important; }
 
   /* Top info bar: let it wrap and stack instead of forcing the page wider */
   body > div:first-of-type > div {
@@ -74,6 +76,29 @@
     max-width: 200px;
     justify-self: center;
   }
+
+  /* Footer: logo centred on top, sections in a balanced 2x2 grid below
+     (instead of logo left + everything squeezed into a narrow right column) */
+  footer [style*="display:flex;gap:40px;flex-wrap:wrap"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 28px !important;
+  }
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px !important;
+    width: 100%;
+    text-align: center;
+    align-items: start !important;
+  }
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > * { min-width: 0 !important; justify-self: center; }
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > [style*="height:1px"] { grid-column: 1 / -1; justify-self: stretch; }
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > a.footer-link { grid-column: 1 / -1; }
+  footer li[style*="display:flex"] { flex-direction: column; align-items: center; gap: 0 !important; }
+  footer li[style*="display:flex"] span { min-width: 0 !important; }
+  footer ul[style*="display:flex"] { flex-direction: column; align-items: center; gap: 10px !important; }
+  footer [style*="justify-content:space-between"] { justify-content: center !important; text-align: center; }
 
   /* Tighten the generous desktop section spacing a little */
   section[style*="padding:72px 24px"],
