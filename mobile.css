@@ -12,9 +12,15 @@
   .nav-desktop { display: none !important; }
 
   /* Logo sits centred absolutely, which only gives it half the bar's width to grow
-     into - let it size to its natural proportions instead of being squeezed */
-  nav a[href="index.html"] { width: max-content; }
-  nav a[href="index.html"] img { height: 38px !important; width: auto !important; max-width: none !important; }
+     into, and WebKit (all iPhone browsers) will squeeze it there. Give it an explicit
+     width at its true 6:1 proportions so every browser draws it the same. */
+  nav a[href="index.html"] { width: 230px !important; }
+  nav a[href="index.html"] img {
+    width: 230px !important;
+    height: auto !important;
+    max-width: none !important;
+    flex-shrink: 0 !important;
+  }
 
   /* Top info bar: let it wrap and stack instead of forcing the page wider */
   body > div:first-of-type > div {
@@ -103,4 +109,11 @@
   /* Tighten the generous desktop section spacing a little */
   section[style*="padding:72px 24px"],
   section[style*="padding:76px 24px"] { padding-top: 52px !important; padding-bottom: 52px !important; }
+}
+
+/* ---------- Very narrow phones ---------- */
+@media (max-width: 360px) {
+  /* shrink the logo slightly so it clears the menu button */
+  nav a[href="index.html"] { width: 196px !important; }
+  nav a[href="index.html"] img { width: 196px !important; }
 }
