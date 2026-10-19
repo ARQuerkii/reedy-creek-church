@@ -1,0 +1,81 @@
+/*
+  Mobile & tablet layout fixes.
+  Every rule lives inside a max-width media query, so nothing here can affect the
+  desktop layout. Most of the site's layout is inline styles, which is why these
+  rules need !important to win.
+*/
+
+/* ---------- Tablet and below (nav collapses to the hamburger here) ---------- */
+@media (max-width: 860px) {
+
+  /* The desktop menus carry inline display:flex, which beat the old hide rule */
+  .nav-desktop { display: none !important; }
+
+  /* Logo sits centred absolutely - keep it from colliding with the hamburger */
+  nav a[href="index.html"] img { height: 38px !important; }
+
+  /* Top info bar: let it wrap and stack instead of forcing the page wider */
+  body > div:first-of-type > div {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 8px 16px !important;
+    text-align: center;
+  }
+  body > div:first-of-type p,
+  body > div:first-of-type div {
+    white-space: normal !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    line-height: 1.6;
+  }
+
+  /* Anything else marked no-wrap may wrap on small screens */
+  [style*="white-space:nowrap"] { white-space: normal !important; }
+
+  /* Long words and URLs should never push the page wider
+     (break-word only splits a word that can't fit on a line by itself) */
+  h1, h2, h3, h4, p, a, li, span, figcaption { overflow-wrap: break-word; }
+
+  img, iframe, video { max-width: 100%; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 700px) {
+
+  /* Collapse every multi-column card/text grid into a single column.
+     Image strips with a fixed height (";height:", not min-height) stay as rows. */
+  [style*="grid-template-columns"]:not([style*=";height:"]) {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Image strips: keep them as rows but shorter so they stay in proportion */
+  [style*="grid-template-columns"][style*=";height:280px"] { height: 160px !important; }
+  [style*="grid-template-columns"][style*=";height:240px"] { height: 150px !important; }
+  [style*="grid-template-columns"][style*=";height:300px"] { height: 190px !important; }
+
+  /* Home page: stacked photo pair beside the schedule - give it a definite height once stacked */
+  [style*="grid-template-rows:1fr 4px 1fr"] { height: 420px; }
+  [style*="padding:64px 56px"] { padding: 44px 24px !important; }
+
+  /* Large internal padding squeezes text into a narrow column on phones */
+  [style*="padding:40px;"] { padding: 24px !important; }
+  [style*="padding:60px 64px"] { padding: 40px 24px !important; }
+  [style*="padding:56px 48px"] { padding: 40px 24px !important; }
+  [style*="padding:40px 32px"] { padding: 28px 22px !important; }
+  [style*="padding:32px;"] { padding: 22px !important; }
+
+  /* Side-by-side image + text panels stack vertically */
+  section[style*="display:flex;min-height"] { flex-direction: column !important; }
+  section[style*="display:flex;min-height"] > div { flex: 1 1 auto !important; min-height: 240px; }
+
+  /* Fixed-width sidebar columns (cover images etc.) shouldn't stretch full width */
+  [style*="grid-template-columns:180px 1fr"] > img {
+    max-width: 200px;
+    justify-self: center;
+  }
+
+  /* Tighten the generous desktop section spacing a little */
+  section[style*="padding:72px 24px"],
+  section[style*="padding:76px 24px"] { padding-top: 52px !important; padding-bottom: 52px !important; }
+}

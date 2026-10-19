@@ -102,15 +102,6 @@
     }
     .field-input:focus { border-color: #E2811E; }
 
-    .placeholder-box {
-      border: 2px dashed #d8d0c0;
-      background: #FAF8F3;
-      color: #9a8f78;
-      font-size: 0.65rem;
-      line-height: 1.4;
-      text-align: center;
-    }
-
     .contact-btn {
       display: flex;
       align-items: center;
@@ -125,6 +116,7 @@
     }
     .contact-btn:hover { border-color: #E2811E; color: #E2811E; }
   </style>
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -233,8 +225,7 @@
 
       <div>
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
-          <!-- ⚠️ NEEDS INFO: replace this circle with a small, friendly photo of Pastor Andrew -->
-          <div class="placeholder-box" style="width:64px;height:64px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:4px;">PHOTO</div>
+          <img src="images/pastor-headshot.jpg" alt="Pastor Andrew Feaveai" width="64" height="64" style="width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;display:block;" />
           <div>
             <p style="margin:0;font-weight:800;color:#1a1a1a;font-size:1.05rem;">Pastor Andrew Feaveai</p>
             <p style="margin:0;color:#888;font-size:0.85rem;">Reedy Creek Adventist Church</p>
@@ -295,7 +286,8 @@
       <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">FIND US</p>
       <p style="font-size:1.15rem;font-weight:700;color:#1a1a1a;margin:0 0 4px;">7 Bridgman Drive</p>
       <p style="font-size:1rem;color:#555;margin:0 0 18px;">Reedy Creek QLD 4227</p>
-      <p style="font-size:0.9rem;color:#777;line-height:1.7;margin:0 0 20px;">Free on-site parking is available in two areas - along the driveway beside the church, and a larger car park at the rear.</p>
+      <p style="font-size:0.9rem;color:#777;line-height:1.7;margin:0 0 10px;">Free on-site parking, with two driveways off Bridgman Drive. The lower entrance opens onto the main car park, the largest and easiest to get in and out of. The upper entrance at Gate 3, beside the lit church sign, leads to parking along the upper level. There's also a back car park for when the front fills up.</p>
+      <a href="visit.html#getting-in" style="display:table;margin:0 0 22px;font-size:0.8rem;font-weight:700;color:#1a1a1a;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid #1a1a1a;padding-bottom:2px;">See photos of each entrance →</a>
       <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank"
          style="display:inline-block;background:#1a1a1a;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
     </div>

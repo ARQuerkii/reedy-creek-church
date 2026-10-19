@@ -97,6 +97,7 @@
     .policy a { color: #E2811E; border-bottom: 1px solid #E2811E; }
     .policy a:hover { color: #c9721a; }
   </style>
+  <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -163,11 +164,11 @@
   <div style="max-width:720px;margin:0 auto;text-align:center;">
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 12px;font-weight:600;">LEGAL</p>
     <h1 style="font-size:clamp(1.8rem,3.2vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 12px;letter-spacing:0.06em;text-transform:uppercase;">PRIVACY POLICY</h1>
-    <p style="font-size:0.9rem;color:#888;margin:0;">Last updated: September 2026</p>
+    <p style="font-size:0.9rem;color:#888;margin:0;">Last updated: October 2026</p>
   </div>
 </section>
 
-<!-- ⚠️ IMPORTANT: this policy was drafted to accurately describe what this website actually does right now (one contact form via Formspree, plus embedded Google Maps, YouTube and Google Fonts). It is a plain-language starting point, NOT legal advice. Before publishing, have someone at the church - ideally with Conference guidance - read it over, and update it whenever the site starts collecting something new (e.g. if the Plan Your Visit form gets wired up, or an Instagram embed is added). -->
+<!-- ⚠️ IMPORTANT: this policy was drafted to accurately describe what this website actually does right now (one contact form via Formspree, plus Google Maps, YouTube, Google Fonts, and on the home page corsproxy.io, Tailwind CSS and LightWidget). It is a plain-language starting point, NOT legal advice. Before publishing, have someone at the church - ideally with Conference guidance - read it over, and update it whenever the site starts collecting something new (e.g. if the Plan Your Visit form gets wired up, or an Instagram embed is added). -->
 
 <!-- ======= POLICY BODY ======= -->
 <section style="background:white;padding:64px 24px;border-bottom:3px solid #E2811E;">
@@ -197,8 +198,11 @@
     <ul>
       <li><strong>Formspree</strong> - processes our contact form and forwards submissions to us by email. Your form submission passes through, and is stored on, their servers, which are located outside Australia. See <a href="https://formspree.io/privacy-policy/" target="_blank" rel="noopener">Formspree's privacy policy</a>.</li>
       <li><strong>Google Maps</strong> - we embed a map showing where we are. Google may collect information about your visit, including your IP address, when that map loads.</li>
-      <li><strong>YouTube</strong> - our sermons page embeds video from our YouTube channel. YouTube may set cookies and collect information when a video loads or plays.</li>
+      <li><strong>YouTube</strong> - our home page and sermons page embed video from our YouTube channel. YouTube may set cookies and collect information when a video loads or plays.</li>
       <li><strong>Google Fonts</strong> - the typefaces used on this site are loaded from Google, which means Google receives your IP address when a page loads.</li>
+      <li><strong>corsproxy.io</strong> - to show our most recent sermon, the home page asks this public relay service to fetch the list of latest videos from our YouTube channel. The request comes from your browser, so corsproxy.io receives your IP address.</li>
+      <li><strong>Tailwind CSS</strong> - some of the home page's styling code is loaded from Tailwind's content network (cdn.tailwindcss.com), which receives your IP address when the page loads.</li>
+      <li><strong>LightWidget</strong> - the home page loads a script from LightWidget (cdn.lightwidget.com), an Instagram feed service, which receives your IP address when the page loads.</li>
     </ul>
     <p>Google Maps, YouTube and Google Fonts are all operated by Google. You can read <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a> for details on how they handle this information.</p>
 
