@@ -1,0 +1,70 @@
+# Keeps sermons.json in sync with the church's YouTube channel.
+# The Home and Sermons pages read sermons.json to show the latest message
+# (and, on the Sermons page, the three before it). Browsers can't read the
+# YouTube feed directly, so this runs on GitHub's side instead.
+
+name: Update sermons
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # every 3 hours
+  workflow_dispatch:          # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest sermons from YouTube
+        run: |
+          python3 - <<'EOF'
+          import json, re, urllib.request, xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+
+          FEED = "https://www.youtube.com/feeds/videos.xml?channel_id=UCWf_sIje-5mC1kvIzzwkLqQ"
+          ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015"}
+
+          root = ET.fromstring(urllib.request.urlopen(FEED, timeout=30).read())
+          sermons, seen = [], set()
+          for e in root.findall("a:entry", ns):
+              title = e.find("a:title", ns).text.strip()
+              link = e.find("a:link", ns).get("href", "")
+              # skip Sabbath School recordings, Shorts, and re-uploads of the same message
+              if re.match(r"(?i)sabbath school\b", title) or "/shorts/" in link or title.lower() in seen:
+                  continue
+              seen.add(title.lower())
+              published = datetime.fromisoformat(e.find("a:published", ns).text).astimezone(timezone.utc)
+              sermons.append({
+                  "id": e.find("yt:videoId", ns).text,
+                  "title": title,
+                  "published": published.strftime("%Y-%m-%dT%H:%M:%SZ"),
+              })
+              if len(sermons) == 8:
+                  break
+
+          if not sermons:
+              raise SystemExit("Feed returned no sermons - leaving sermons.json as it is")
+
+          try:
+              old = json.load(open("sermons.json", encoding="utf-8")).get("sermons")
+          except Exception:
+              old = None
+          if old != sermons:
+              data = {"updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "sermons": sermons}
+              with open("sermons.json", "w", encoding="utf-8") as f:
+                  json.dump(data, f, ensure_ascii=False, indent=2)
+          EOF
+
+      - name: Save changes
+        run: |
+          if [ -n "$(git status --porcelain sermons.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add sermons.json
+            git commit -m "Update sermons"
+            git push
+          fi
