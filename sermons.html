@@ -79,6 +79,20 @@
       .nav-desktop { display: none; }
       .nav-hamburger { display: flex; }
     }
+
+    .earlier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .earlier-card { display: block; color: inherit; }
+    .earlier-thumb { aspect-ratio: 16 / 9; overflow: hidden; background: #ddd; margin-bottom: 10px; }
+    .earlier-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.2s ease; }
+    .earlier-card:hover .earlier-thumb img { opacity: 0.85; }
+    .earlier-title { font-size: 0.88rem; font-weight: 600; color: #333; line-height: 1.45; margin: 0 0 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.15s ease; }
+    .earlier-card:hover .earlier-title { color: #E2811E; }
+    .earlier-date { font-size: 0.75rem; color: #999; margin: 0; }
+    @media (max-width: 700px) {
+      .earlier-grid { grid-template-columns: 1fr; gap: 16px; }
+      .earlier-card { display: flex; gap: 14px; align-items: center; }
+      .earlier-thumb { flex: 0 0 132px; margin-bottom: 0; }
+    }
   </style>
   <link rel="stylesheet" href="mobile.css?v=3">
 </head>
@@ -156,6 +170,7 @@
   <div style="max-width:960px;margin:0 auto;">
     <div style="position:relative;padding-top:56.25%;background:#000;box-shadow:0 12px 32px rgba(0,0,0,0.18);">
       <iframe
+        id="sermon-main"
         src="https://www.youtube.com/embed/videoseries?list=UUWf_sIje-5mC1kvIzzwkLqQ&rel=0"
         title="Reedy Creek Adventist Church - recent sermons"
         style="position:absolute;inset:0;width:100%;height:100%;border:0;"
@@ -165,8 +180,54 @@
     </div>
     <p style="font-size:0.85rem;color:#888;text-align:center;margin:20px 0 0;">This updates automatically every time a new message is posted to our YouTube channel.</p>
     <p style="font-size:0.85rem;color:#888;text-align:center;margin:8px 0 0;">We occasionally feature guest preachers alongside our pastor, Andrew Feaveai.</p>
+
+    <!-- Earlier messages: filled from sermons.json (kept up to date by .github/workflows/update-sermons.yml). Stays hidden if that file can't be loaded. -->
+    <div id="earlier-sermons" hidden style="margin-top:48px;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;font-weight:600;margin:0 0 16px;">EARLIER MESSAGES</p>
+      <div class="earlier-grid" id="earlier-grid"></div>
+    </div>
   </div>
 </section>
+<script>
+  (async function () {
+    try {
+      const res = await fetch('sermons.json', { cache: 'no-cache' });
+      if (!res.ok) return;
+      const list = (await res.json()).sermons || [];
+      if (!list.length) return;
+      document.getElementById('sermon-main').src = 'https://www.youtube.com/embed/' + list[0].id + '?rel=0';
+      const earlier = list.slice(1, 4);
+      if (!earlier.length) return;
+      const grid = document.getElementById('earlier-grid');
+      const fmt = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+      for (const s of earlier) {
+        const a = document.createElement('a');
+        a.className = 'earlier-card';
+        a.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(s.id);
+        a.target = '_blank';
+        a.rel = 'noopener';
+        const thumb = document.createElement('div');
+        thumb.className = 'earlier-thumb';
+        const img = document.createElement('img');
+        img.src = 'https://i.ytimg.com/vi/' + encodeURIComponent(s.id) + '/mqdefault.jpg';
+        img.alt = '';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+        const text = document.createElement('div');
+        const title = document.createElement('p');
+        title.className = 'earlier-title';
+        title.textContent = s.title;
+        const date = document.createElement('p');
+        date.className = 'earlier-date';
+        date.textContent = fmt.format(new Date(s.published));
+        text.append(title, date);
+        a.append(thumb, text);
+        grid.appendChild(a);
+      }
+      document.getElementById('earlier-sermons').hidden = false;
+    } catch (_) {}
+  })();
+</script>
 
 <!-- ======= SUBSCRIBE ======= -->
 <section style="background:white;padding:56px 24px;border-bottom:3px solid #E2811E;">
@@ -175,7 +236,7 @@
     <p style="font-size:0.95rem;color:#666;line-height:1.85;margin:0 0 26px;">New message every Saturday. Subscribe on YouTube to get notified as soon as it's posted.</p>
     <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ?sub_confirmation=1" target="_blank" rel="noopener"
        style="display:inline-flex;align-items:center;gap:10px;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="white" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/><polygon fill="#E2811E" points="10.7,9.1 14.5,12 10.7,14.9"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="white" fill-rule="evenodd" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
       SUBSCRIBE ON YOUTUBE →
     </a>
   </div>
@@ -198,15 +259,16 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.13 132.98" style="height:90px;width:auto;">
           <path fill="#E2811E" d="M88.1,76.92c-6,6-8.88,8.84-10.38,16.1-.11.54-.73.54-.73,0v-8.9c0-5.7,5.08-10.92,11.13-17L93,62.28c6.82-6.82,8.46-14.72,3-19.41-.45-.39-.22-.87.38-.6,6.76,3.08,12.09,14.28.5,25.87ZM77,99.78v9c0,.54.62.54.73,0,1.5-7.26,4.39-10.17,10.38-16.16l9.49-9.47c11.59-11.59,13.6-22.81,7.7-30-.39-.48-.82-.19-.56.39,3.9,8.82-5.45,18.17-9.9,22.62L88.1,82.81C82,88.86,77,94.08,77,99.78ZM51.26,71c-11.59,11.59-6.26,22.79.5,25.87.59.27.83-.21.38-.6-5.42-4.7-3.78-12.6,3-19.41L74.44,57.55c6.05-6.05,11.13-11.27,11.13-17v-8.9c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.11-10.38,16.1Zm34.34-46V16c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.17-10.38,16.16L50.6,56C39,67.58,37,78.79,42.9,86c.39.48.82.19.56-.39-3.9-8.82,5.45-18.17,9.9-22.62l21.1-21.1C80.52,35.84,85.6,30.63,85.6,24.92Zm-37.51,18c-10,10-11.36,20.51-9.23,27.39.18.58.69.62.68,0,0-5.78,1.61-10.75,12.16-21.29L74.44,26.27C80.49,20.22,85.58,15,85.58,9.3V.41c0-.54-.62-.54-.73,0-1.5,7.26-4.4,10.12-10.39,16.11ZM62,115a.36.36,0,0,1-.36-.36v-5.16a.36.36,0,0,1,.36-.36h8.73a.36.36,0,0,0,.36-.36c0-4.64-3.52-7.79-17.52-5.35l-30.24,5.2s-23,23-23.22,23.25a.48.48,0,0,0,.41.81c.42,0,50.31-8.66,50.31-8.66,11.45-1.93,17.7,3.52,19.56,8.62.17.45.7.38.7,0s0-17.22,0-17.22a.36.36,0,0,0-.36-.36Zm36.09-11-10,10C82.07,120.12,77,125.34,77,131v1.59c0,.43.54.5.7,0,1.87-5.11,8.11-10.56,19.56-8.62,0,0,49.89,8.62,50.31,8.66a.48.48,0,0,0,.41-.81c-.19-.22-23.22-23.25-23.22-23.25Zm11.19-35.25c-.18-.58-.69-.62-.68,0,0,5.78-1.61,10.75-12.16,21.29l-8.34,8.34c-3.8,3.8-7.21,7.26-9.23,10.73h8.24l1-1,12-12C110,86.24,111.44,75.69,109.31,68.81ZM77,124.3c0,.54.62.54.73,0a21.4,21.4,0,0,1,4-9.25h-4.4a.36.36,0,0,0-.36.36Z"/>
         </svg>
-        <span style="color:#666;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">Reedy Creek SDA Church</span>
+        <img src="branding/rc-script-white.png" alt="Reedy Creek" width="140" height="39" style="width:140px;height:auto;opacity:0.8;display:block;" />
       </a>
       <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
         <div style="width:100%;height:1px;background:#3a3a3a;margin-bottom:4px;"></div>
         <div style="min-width:150px;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
-          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0;">
+          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
             7 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
           </p>
+          <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
         </div>
         <div style="min-width:160px;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Service Times</h3>
@@ -256,8 +318,6 @@
         © 2026 Reedy Creek Seventh-day Adventist Church
         <span style="margin:0 6px;">|</span>
         <a href="privacy.html" style="color:#555;">Privacy Policy</a>
-        <span style="margin:0 6px;">|</span>
-        <a href="admin.html" style="color:#555;">Login</a>
       </div>
     </div>
   </div>

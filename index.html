@@ -318,7 +318,7 @@
       </div>
       <div style="background:#E2811E;flex-shrink:0;"></div>
       <div style="overflow:hidden;">
-        <img src="images/727243898_1471721008329275_8830782407065460382_n.jpg" alt="Fellowship lunch at Reedy Creek"
+        <img src="images/lunch-2026-09-05a.jpg" alt="Fellowship lunch at Reedy Creek"
              style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
       </div>
     </div>
@@ -404,14 +404,11 @@
     </div>
     <script>
       (async function () {
+        // sermons.json is kept up to date by .github/workflows/update-sermons.yml
         try {
-          const channelId = 'UCWf_sIje-5mC1kvIzzwkLqQ';
-          const feed = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId;
-          const res  = await fetch('https://corsproxy.io/?' + encodeURIComponent(feed), { cache: 'no-cache' });
+          const res = await fetch('sermons.json', { cache: 'no-cache' });
           if (!res.ok) return;
-          const xml  = new DOMParser().parseFromString(await res.text(), 'text/xml');
-          const ns   = 'http://www.youtube.com/xml/schemas/2015';
-          const id   = xml.querySelector('entry')?.getElementsByTagNameNS(ns, 'videoId')[0]?.textContent;
+          const id  = (await res.json()).sermons?.[0]?.id;
           if (id) document.getElementById('sermon-embed').src = 'https://www.youtube.com/embed/' + id + '?rel=0';
         } catch (_) {}
       })();
@@ -437,7 +434,7 @@
 
       <!-- Card 2: YOUNG ADULTS -->
       <a href="ministries.html#youth-young-adults" class="card-img-overlay">
-        <img src="images/received_949555381125766.jpeg" alt="Young Adults at Reedy Creek" />
+        <img src="images/ya-group-photo.jpg" alt="Young Adults at Reedy Creek" />
         <div class="overlay-text">
           <div class="label-small">YOUNG</div>
           <div class="label-main">ADULTS</div>
@@ -477,39 +474,32 @@
       </a>
     </div>
 
-    <!-- 6-photo Instagram-style grid.
-         Slots 1-3: your photos - save to images/ folder with exact filenames below.
-         Slots 4-6: church archive photos (always load). Replace any time. -->
+    <!-- 6-photo Instagram-style grid of recent church life (Sep-Oct 2026, plus one from June).
+         Keep these photos unique to this grid - don't reuse them elsewhere on the site. -->
     <div class="insta-grid">
 
       <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/community-2026-05-31.jpg"
-             alt="Community" />
-        <div class="insta-overlay"></div>
-      </a>
-
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/PXL_20260704_013711916.jpg"
-             alt="Community" />
-        <div class="insta-overlay"></div>
-      </a>
-
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/community-2026-06-14.jpg"
-             alt="Community" />
-        <div class="insta-overlay"></div>
-      </a>
-
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/652132029_1383760940458616_3945032045001138992_n.jpg" alt="Reedy Creek basketball team" />
+        <img src="images/community-2026-10-11a.jpg" alt="Church volunteers at a community wellness stall" />
         <div class="insta-overlay"></div>
       </a>
       <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/689484487_1387991120041593_1746279356464794024_n.jpg" alt="Reedy Creek community outreach" />
+        <img src="images/community-2026-10-04.jpg" alt="A barbecue in the park with friends from church" />
         <div class="insta-overlay"></div>
       </a>
       <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img src="images/received_967592365758029.jpeg" alt="Reedy Creek community" />
+        <img src="images/community-2026-09-26.jpg" alt="Church families gathered under a marquee at an outdoor event" />
+        <div class="insta-overlay"></div>
+      </a>
+      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
+        <img src="images/community-2026-10-11b.jpg" alt="Visitors chatting at the church's wellness stall" />
+        <div class="insta-overlay"></div>
+      </a>
+      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
+        <img src="images/community-2026-09-07b.jpg" alt="Celebrating graduates of the church's stress-management course" />
+        <div class="insta-overlay"></div>
+      </a>
+      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
+        <img src="images/community-2026-06-14.jpg" alt="Reedy Creek church community" />
         <div class="insta-overlay"></div>
       </a>
 
@@ -571,7 +561,7 @@
 
 <!-- ======= I'M NEW CTA ======= -->
 <section style="position:relative;overflow:hidden;background:#1a1a1a;border-bottom:3px solid #E2811E;">
-  <img src="images/community-2026-06-07.jpg" alt="" aria-hidden="true"
+  <img src="images/lunch-2026-09-05c.jpg" alt="" aria-hidden="true"
        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;filter:blur(2px);transform:scale(1.04);" />
   <div style="position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
 
@@ -658,7 +648,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.13 132.98" style="height:90px;width:auto;">
           <path fill="#E2811E" d="M88.1,76.92c-6,6-8.88,8.84-10.38,16.1-.11.54-.73.54-.73,0v-8.9c0-5.7,5.08-10.92,11.13-17L93,62.28c6.82-6.82,8.46-14.72,3-19.41-.45-.39-.22-.87.38-.6,6.76,3.08,12.09,14.28.5,25.87ZM77,99.78v9c0,.54.62.54.73,0,1.5-7.26,4.39-10.17,10.38-16.16l9.49-9.47c11.59-11.59,13.6-22.81,7.7-30-.39-.48-.82-.19-.56.39,3.9,8.82-5.45,18.17-9.9,22.62L88.1,82.81C82,88.86,77,94.08,77,99.78ZM51.26,71c-11.59,11.59-6.26,22.79.5,25.87.59.27.83-.21.38-.6-5.42-4.7-3.78-12.6,3-19.41L74.44,57.55c6.05-6.05,11.13-11.27,11.13-17v-8.9c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.11-10.38,16.1Zm34.34-46V16c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.17-10.38,16.16L50.6,56C39,67.58,37,78.79,42.9,86c.39.48.82.19.56-.39-3.9-8.82,5.45-18.17,9.9-22.62l21.1-21.1C80.52,35.84,85.6,30.63,85.6,24.92Zm-37.51,18c-10,10-11.36,20.51-9.23,27.39.18.58.69.62.68,0,0-5.78,1.61-10.75,12.16-21.29L74.44,26.27C80.49,20.22,85.58,15,85.58,9.3V.41c0-.54-.62-.54-.73,0-1.5,7.26-4.4,10.12-10.39,16.11ZM62,115a.36.36,0,0,1-.36-.36v-5.16a.36.36,0,0,1,.36-.36h8.73a.36.36,0,0,0,.36-.36c0-4.64-3.52-7.79-17.52-5.35l-30.24,5.2s-23,23-23.22,23.25a.48.48,0,0,0,.41.81c.42,0,50.31-8.66,50.31-8.66,11.45-1.93,17.7,3.52,19.56,8.62.17.45.7.38.7,0s0-17.22,0-17.22a.36.36,0,0,0-.36-.36Zm36.09-11-10,10C82.07,120.12,77,125.34,77,131v1.59c0,.43.54.5.7,0,1.87-5.11,8.11-10.56,19.56-8.62,0,0,49.89,8.62,50.31,8.66a.48.48,0,0,0,.41-.81c-.19-.22-23.22-23.25-23.22-23.25Zm11.19-35.25c-.18-.58-.69-.62-.68,0,0,5.78-1.61,10.75-12.16,21.29l-8.34,8.34c-3.8,3.8-7.21,7.26-9.23,10.73h8.24l1-1,12-12C110,86.24,111.44,75.69,109.31,68.81ZM77,124.3c0,.54.62.54.73,0a21.4,21.4,0,0,1,4-9.25h-4.4a.36.36,0,0,0-.36.36Z"/>
         </svg>
-        <span style="color:#666;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;">Reedy Creek SDA Church</span>
+        <img src="branding/rc-script-white.png" alt="Reedy Creek" width="140" height="39" style="width:140px;height:auto;opacity:0.8;display:block;" />
       </a>
       <!-- Columns -->
       <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
@@ -666,9 +656,10 @@
         <!-- Address -->
         <div style="min-width:150px;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
-          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0;">
+          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
             7 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
           </p>
+          <a href="https://maps.google.com/maps?q=7+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
         </div>
         <!-- Service Times -->
         <div style="min-width:160px;">
@@ -723,8 +714,6 @@
         © 2026 Reedy Creek Seventh-day Adventist Church
         <span style="margin:0 6px;">|</span>
         <a href="privacy.html" style="color:#555;">Privacy Policy</a>
-        <span style="margin:0 6px;">|</span>
-        <a href="admin.html" style="color:#555;">Login</a>
       </div>
     </div>
   </div>
