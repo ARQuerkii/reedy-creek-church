@@ -1,0 +1,22 @@
+# Reedy Creek Seventh-day Adventist Church
+
+> A small, close-knit Seventh-day Adventist church at 7 Bridgman Drive, Reedy Creek QLD 4227, on the Gold Coast, Australia. Everyone is welcome.
+
+Every Saturday: Prayer Meeting 9:10am, Sabbath School 9:30am, Church Service 10:45am, followed by a shared fellowship lunch.
+
+## Pages
+
+- [Home](https://arquerkii.github.io/reedy-creek-church/): Service times, latest sermon, and an overview of church life
+- [Plan Your Visit](https://arquerkii.github.io/reedy-creek-church/visit.html): What to expect on your first visit, parking, children and families, FAQ
+- [About Us](https://arquerkii.github.io/reedy-creek-church/about.html): Our story and community
+- [What We Believe](https://arquerkii.github.io/reedy-creek-church/beliefs.html): Our beliefs in plain language
+- [Sermons](https://arquerkii.github.io/reedy-creek-church/sermons.html): Latest messages from our YouTube channel
+- [Ministries](https://arquerkii.github.io/reedy-creek-church/ministries.html): Programs for families, youth and young adults, outreach, music, prayer and health
+- [Sabbath School](https://arquerkii.github.io/reedy-creek-church/sabbath-school.html): Saturday Bible study for adults, young adults and children
+- [Contact](https://arquerkii.github.io/reedy-creek-church/contact.html): Contact form and how to reach the pastor
+
+## Elsewhere
+
+- [YouTube](https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ)
+- [Instagram](https://www.instagram.com/reedycreek_sda_church/)
+- [Facebook](https://facebook.com/ReedyCreekSeventhDayAdventistChurch)

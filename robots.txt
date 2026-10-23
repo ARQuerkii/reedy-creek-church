@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arquerkii.github.io/reedy-creek-church/sitemap.xml
