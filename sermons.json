@@ -1,6 +1,16 @@
 {
-  "updated": "2026-10-20T11:53:54Z",
+  "updated": "2026-10-29T18:30:31Z",
   "sermons": [
+    {
+      "id": "pcBQbB6pcJ0",
+      "title": "Work It Out | Bro Enos Torres | 24 Oct 2026",
+      "published": "2026-10-25T02:02:30Z"
+    },
+    {
+      "id": "bs1JMdJzV5Q",
+      "title": "Work it Out | Enos Torres",
+      "published": "2026-10-24T16:25:47Z"
+    },
     {
       "id": "BEemSsf4nlE",
       "title": "God Still Speaks Today | Pathfinders Day",
@@ -30,16 +40,6 @@
       "id": "QcI3EClym0k",
       "title": "Breaking the Cycle | Elder Mase Fa\"atoe",
       "published": "2026-09-05T15:17:16Z"
-    },
-    {
-      "id": "jnN4ngN_nn0",
-      "title": "Baptism | 5th Sept 2026 | Reedy Creek SDA Church",
-      "published": "2026-09-05T13:27:54Z"
-    },
-    {
-      "id": "oQc-MvNqIe4",
-      "title": "Circles Not Rows - Elder Kim Lomas",
-      "published": "2026-08-29T14:33:38Z"
     }
   ]
 }
