@@ -10,6 +10,7 @@ Every Saturday: Prayer Meeting 9:10am, Sabbath School 9:30am, Church Service 10:
 - [Plan Your Visit](https://arquerkii.github.io/reedy-creek-church/visit.html): What to expect on your first visit, parking, children and families, FAQ
 - [About Us](https://arquerkii.github.io/reedy-creek-church/about.html): Our story and community
 - [What We Believe](https://arquerkii.github.io/reedy-creek-church/beliefs.html): Our beliefs in plain language
+- [Giving](https://arquerkii.github.io/reedy-creek-church/about/give.html): How tithe and offerings are used, and how to give
 - [Sermons](https://arquerkii.github.io/reedy-creek-church/sermons.html): Latest messages from our YouTube channel
 - [Ministries](https://arquerkii.github.io/reedy-creek-church/ministries/): Overview of all our ministries
 - [Kids & Families](https://arquerkii.github.io/reedy-creek-church/ministries/kids-families.html): Adventurers, Pathfinders and children's Sabbath School
