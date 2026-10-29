@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabbath School | Reedy Creek Adventist Church</title>
+  <meta name="description" content="Sabbath School at Reedy Creek Adventist Church, every Saturday at 9:30am - Bible study for adults, young adults and kids of all ages.">
+  <link rel="canonical" href="https://arquerkii.github.io/reedy-creek-church/ministries/sabbath-school.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../branding/favicon-32.png">
+  <link rel="apple-touch-icon" href="../branding/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reedy Creek Adventist Church">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Sabbath School | Reedy Creek Adventist Church">
+  <meta property="og:description" content="Sabbath School at Reedy Creek Adventist Church, every Saturday at 9:30am - Bible study for adults, young adults and kids of all ages.">
+  <meta property="og:url" content="https://arquerkii.github.io/reedy-creek-church/ministries/sabbath-school.html">
+  <meta property="og:image" content="https://arquerkii.github.io/reedy-creek-church/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Reedy Creek Seventh-day Adventist Church - You're welcome here.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Noto Sans', sans-serif; box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+    a { text-decoration: none; }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #FF8200;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #3D3935; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      background: #FF8200;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .nav-cta:hover { background: #E67500; }
+    .footer-link { font-size: 13px; color: #B3ADA6; }
+    .footer-link:hover { color: #ccc; }
+    .footer-logo { transition: opacity 0.2s ease; }
+    .footer-logo:hover { opacity: 0.75; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px; }
+    .nav-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+    .nav-dropdown-trigger .caret { font-size: 10px; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger .caret, .nav-dropdown:hover .nav-dropdown-trigger .caret { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 14px;
+      background: white; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      min-width: 200px; padding: 8px 0; display: none; flex-direction: column;
+      border-top: 2px solid #FF8200; z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item { padding: 11px 20px; font-size: 12px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-dropdown-item:hover { background: #F5F2EB; color: #FF8200; }
+
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #3D3935; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-panel { display: none; flex-direction: column; background: white; border-top: 1px solid #eee; padding: 8px 24px 24px; }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-link { padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #FF8200; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
+
+    @media (max-width: 860px) {
+      .nav-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    .placeholder-box {
+      border: 2px dashed #d8d0c0;
+      background: #FAF8F3;
+      color: #9a8f78;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      text-align: center;
+      padding: 16px;
+    }
+    .placeholder-box.dark {
+      border-color: #3a3a55;
+      background: #1c1e2e;
+      color: #8b8fb8;
+    }
+
+    .step-row {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #f0f0f0;
+      align-items: flex-start;
+    }
+    .step-row:last-child { border-bottom: none; }
+    .step-time {
+      min-width: 90px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #FF8200;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-top: 3px;
+    }
+    .step-content h3 { font-size: 1rem; font-weight: 700; color: #3D3935; margin: 0 0 6px; }
+    .step-content p { font-size: 0.875rem; color: #666; line-height: 1.75; margin: 0; }
+
+    .access-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 20px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .week-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      border-bottom: 1px solid #f0ece2;
+    }
+    .week-row:last-child { border-bottom: none; }
+    .week-date { white-space: nowrap; flex-shrink: 0; }
+    .week-row.on-dark { border-bottom-color: #2a2c40; color: #b0b2cc; }
+    .week-row.on-dark .week-date { color: #9c9ecb; }
+    .anchor-link { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #555; padding: 6px 0 3px; border-bottom: 1px solid #555; transition: color 0.15s ease, border-color 0.15s ease; }
+    .anchor-link:hover, .anchor-link:active, .anchor-link:focus-visible, .anchor-link.current { color: #FF8200; border-bottom-color: #FF8200; }
+  </style>
+  <link rel="stylesheet" href="../mobile.css?v=4">
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div style="background:#3D3935;border-bottom:1px solid #57524C;">
+  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
+      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+    </p>
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
+      <span style="margin:0 10px;color:#6B655E;">|</span>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MAIN NAV ======= -->
+<nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">ABOUT US <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="../about.html" class="nav-dropdown-item">Who We Are</a>
+          <a href="../beliefs.html" class="nav-dropdown-item">What We Believe</a>
+        </div>
+      </li>
+      <li><a href="../sermons.html" class="nav-link">Sermons</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" style="color:#3D3935;">MINISTRIES <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="../ministries/index.html" class="nav-dropdown-item">All Ministries</a>
+          <a href="../ministries/kids-families.html" class="nav-dropdown-item">Kids &amp; Families</a>
+          <a href="../ministries/young-adults.html" class="nav-dropdown-item">Young Adults</a>
+          <a href="../ministries/community-outreach.html" class="nav-dropdown-item">Community Outreach</a>
+          <a href="../ministries/health-wellness.html" class="nav-dropdown-item">Health &amp; Wellness</a>
+          <a href="../ministries/worship-fellowship.html" class="nav-dropdown-item">Worship &amp; Fellowship</a>
+          <a href="../ministries/sabbath-school.html" class="nav-dropdown-item">Sabbath School</a>
+        </div>
+      </li>
+    </ul>
+    <a href="../index.html" style="display:flex;align-items:center;flex-shrink:0;line-height:0;position:absolute;left:50%;transform:translateX(-50%);">
+      <img src="../branding/rc-horizontal-colour-dark.svg" alt="Reedy Creek Adventist Church" width="231" height="38" style="height:38px;width:auto;display:block;" />
+    </a>
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li><a href="../contact.html" class="nav-link">Contact</a></li>
+      <li><a href="../visit.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <a href="../about.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../beliefs.html" class="nav-mobile-link">What We Believe</a>
+    <a href="../sermons.html" class="nav-mobile-link">Sermons</a>
+    <a href="../ministries/index.html" class="nav-mobile-link">Ministries</a>
+    <a href="../ministries/sabbath-school.html" class="nav-mobile-link">Sabbath School</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+    <a href="../visit.html" class="nav-mobile-cta">Plan Your Visit</a>
+  </div>
+</nav>
+
+<!-- ======= HERO / WHAT IS SABBATH SCHOOL ======= -->
+<section style="background:white;padding:64px 24px 56px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 16px;font-weight:600;">EVERY SATURDAY, 9:30AM</p>
+    <h1 style="font-size:clamp(2rem,3.6vw,2.8rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.08em;text-transform:uppercase;">SABBATH SCHOOL</h1>
+    <p style="font-size:1.1rem;color:#444;line-height:1.9;margin:0 0 20px;">Every Saturday at 9:30am, before the main service, we gather for Sabbath School - a relaxed, structured Bible discussion that's part study, part devotional, part catching up with people you like. You don't need a theology degree, prior Bible knowledge, or even your own Bible to join in. Just show up. Ask most people here and they'll tell you it's the best part of their week.</p>
+    <p style="font-size:0.95rem;color:#888;margin:0;">We run two streams each week - the <strong style="color:#3D3935;">Adult Quarterly</strong>, and <strong style="color:#3D3935;">Inverse</strong> for young adults.</p>
+  </div>
+</section>
+
+<!-- ======= MINISTRIES MENU ======= -->
+<div style="background:white;border-bottom:1px solid #eee;padding:16px 24px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;gap:12px 28px;justify-content:center;flex-wrap:wrap;">
+    <a href="../ministries/index.html" class="anchor-link">All Ministries</a>
+    <a href="../ministries/kids-families.html" class="anchor-link">Kids &amp; Families</a>
+    <a href="../ministries/young-adults.html" class="anchor-link">Young Adults</a>
+    <a href="../ministries/community-outreach.html" class="anchor-link">Community Outreach</a>
+    <a href="../ministries/health-wellness.html" class="anchor-link">Health &amp; Wellness</a>
+    <a href="../ministries/worship-fellowship.html" class="anchor-link">Worship &amp; Fellowship</a>
+    <a href="../ministries/sabbath-school.html" class="anchor-link current" aria-current="page">Sabbath School</a>
+  </div>
+</div>
+
+<!-- ======= ADULT QUARTERLY ======= -->
+<section style="background:#F5F2EB;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;text-align:center;">THIS QUARTER - ADULT QUARTERLY</p>
+    <p style="font-size:0.95rem;color:#777;line-height:1.8;margin:0 auto 32px;max-width:640px;text-align:center;">The Adult Quarterly is our main Sabbath School class - a Bible study guide followed by Adventist churches worldwide, studied together each week in the same discussion format.</p>
+
+    <div style="background:white;padding:40px;display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:start;">
+      <img src="../images/ss-adult-q4-2026-cover.jpg" alt="Q4 2026 Adult Bible Study Guide cover - The Gift of Prophecy" style="width:100%;height:auto;display:block;box-shadow:0 4px 16px rgba(0,0,0,0.12);" />
+
+      <div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:#3D3935;margin:0 0 6px;">The Gift of Prophecy</h2>
+        <p style="font-size:0.85rem;color:#999;margin:0 0 18px;text-transform:uppercase;letter-spacing:0.05em;">Current Quarter: October - December 2026</p>
+        <p style="font-size:0.98rem;color:#555;line-height:1.85;margin:0 0 24px;">This quarter is about how God communicates with people - the prophets He spoke through, what they actually wrote, and how you tell a genuine message from a false one. It's a fair question to ask of any faith, and this study takes it head-on rather than around.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+          <a href="https://ssnet.org/lessons/26d/index.html" target="_blank" rel="noopener" class="access-btn" style="background:#FF8200;color:white;">READ ON SSNET →</a>
+          <a href="https://apps.apple.com/us/app/sabbath-school/id895272167" target="_blank" rel="noopener" class="access-btn" style="background:#3D3935;color:white;">APP STORE →</a>
+          <a href="https://play.google.com/store/apps/details?id=com.cryart.sabbathschool&hl=en_US" target="_blank" rel="noopener" class="access-btn" style="background:#3D3935;color:white;">GOOGLE PLAY →</a>
+        </div>
+
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#999;margin:0 0 4px;">This Quarter's Lessons</p>
+        <p style="font-size:0.8rem;color:#999;margin:0 0 10px;">We're meeting weekly through this study - jump in any week, each lesson stands on its own.</p>
+        <div style="border:1px solid #eee;">
+          <div class="week-row"><span>1. The Creator Speaks</span><span class="week-date" style="color:#aaa;">Sep 27 - Oct 3</span></div>
+          <div class="week-row"><span>2. The Call of a Prophet</span><span class="week-date" style="color:#aaa;">Oct 4 - 10</span></div>
+          <div class="week-row"><span>3. Old Testament Prophets</span><span class="week-date" style="color:#aaa;">Oct 11 - 17</span></div>
+          <div class="week-row"><span>4. New Testament Prophets</span><span class="week-date" style="color:#aaa;">Oct 18 - 24</span></div>
+          <div class="week-row"><span>5. Revelation and Inspiration</span><span class="week-date" style="color:#aaa;">Oct 25 - 31</span></div>
+          <div class="week-row"><span>6. The Prophetic Writings</span><span class="week-date" style="color:#aaa;">Nov 1 - 7</span></div>
+          <div class="week-row"><span>7. Now Hear This!</span><span class="week-date" style="color:#aaa;">Nov 8 - 14</span></div>
+          <div class="week-row"><span>8. Interpreting Prophetic Writings</span><span class="week-date" style="color:#aaa;">Nov 15 - 21</span></div>
+          <div class="week-row"><span>9. Testing the Prophets</span><span class="week-date" style="color:#aaa;">Nov 22 - 28</span></div>
+          <div class="week-row"><span>10. Prophetic Authority and Relevance</span><span class="week-date" style="color:#aaa;">Nov 29 - Dec 5</span></div>
+          <div class="week-row"><span>11. Prophetic Manifestation in Crucial Moments</span><span class="week-date" style="color:#aaa;">Dec 6 - 12</span></div>
+          <div class="week-row"><span>12. End-time Prophetic Revelations</span><span class="week-date" style="color:#aaa;">Dec 13 - 19</span></div>
+          <div class="week-row"><span>13. Blessings From the Prophetic Word</span><span class="week-date" style="color:#aaa;">Dec 20 - 26</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= INVERSE ======= -->
+<section style="background:#12131c;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8B7CFF;margin:0 0 14px;font-weight:600;text-align:center;">THIS QUARTER - INVERSE</p>
+    <p style="font-size:0.95rem;color:#9a9cb8;line-height:1.8;margin:0 auto 32px;max-width:640px;text-align:center;">Inverse is our young adult Bible study stream - same Sabbath, same time, same building, different room and discussion style.</p>
+
+    <div style="background:#181a28;padding:40px;display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:start;">
+      <img loading="lazy" src="../images/ss-inverse-q4-2026-cover.jpg" alt="Q4 2026 InVerse cover - The Gift of Prophecy" style="width:100%;height:auto;display:block;aspect-ratio:3/4;object-fit:cover;background:#556052;" />
+
+      <div>
+        <h2 style="font-size:1.5rem;font-weight:800;color:white;margin:0 0 6px;">The Gift of Prophecy</h2>
+        <p style="font-size:0.85rem;color:#9c9ecb;margin:0 0 18px;text-transform:uppercase;letter-spacing:0.05em;">Current Quarter: October - December 2026</p>
+        <p style="font-size:0.98rem;color:#b0b2cc;line-height:1.85;margin:0 0 24px;">Same topic as the main lesson this quarter, in the Inverse format - how God speaks to people, what the prophets actually wrote, and how you test whether a message is genuine. Expect more discussion and fewer lectures.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+          <a href="https://inverse.sspmadventist.org/" target="_blank" rel="noopener" class="access-btn" style="background:#8B7CFF;color:#12131c;">READ ON INVERSE →</a>
+          <a href="https://apps.apple.com/us/app/sabbath-school/id895272167" target="_blank" rel="noopener" class="access-btn" style="background:#252740;color:white;">APP STORE →</a>
+          <a href="https://play.google.com/store/apps/details?id=com.cryart.sabbathschool&hl=en_US" target="_blank" rel="noopener" class="access-btn" style="background:#252740;color:white;">GOOGLE PLAY →</a>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+          <a href="https://podcasts.apple.com/us/podcast/inverse/id1444755782" target="_blank" rel="noopener" class="access-btn" style="background:transparent;color:#b0b2cc;border:1px solid #33354d;">APPLE PODCASTS →</a>
+          <a href="https://open.spotify.com/show/6DNYsub2ZWN25wfqIr9REi" target="_blank" rel="noopener" class="access-btn" style="background:transparent;color:#b0b2cc;border:1px solid #33354d;">SPOTIFY →</a>
+        </div>
+
+        <p style="font-size:0.85rem;color:#a3a5cc;line-height:1.7;margin:0 0 24px;">Inverse is designed for young adults but open to anyone who prefers a more discussion-based format.</p>
+
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9c9ecb;margin:0 0 4px;">This Quarter's Lessons</p>
+        <p style="font-size:0.8rem;color:#9c9ecb;margin:0 0 10px;">We're meeting weekly through this study - jump in any week, each lesson stands on its own.</p>
+        <div style="border:1px solid #2a2c40;">
+          <div class="week-row on-dark"><span>1. The Creator Speaks</span><span class="week-date">Sep 27 - Oct 3</span></div>
+          <div class="week-row on-dark"><span>2. The Call of a Prophet</span><span class="week-date">Oct 4 - 10</span></div>
+          <div class="week-row on-dark"><span>3. Old Testament Prophets</span><span class="week-date">Oct 11 - 17</span></div>
+          <div class="week-row on-dark"><span>4. New Testament Prophets</span><span class="week-date">Oct 18 - 24</span></div>
+          <div class="week-row on-dark"><span>5. Revelation and Inspiration</span><span class="week-date">Oct 25 - 31</span></div>
+          <div class="week-row on-dark"><span>6. The Prophetic Writings</span><span class="week-date">Nov 1 - 7</span></div>
+          <div class="week-row on-dark"><span>7. Now Hear This!</span><span class="week-date">Nov 8 - 14</span></div>
+          <div class="week-row on-dark"><span>8. Interpreting Prophetic Writings</span><span class="week-date">Nov 15 - 21</span></div>
+          <div class="week-row on-dark"><span>9. Testing the Prophets</span><span class="week-date">Nov 22 - 28</span></div>
+          <div class="week-row on-dark"><span>10. Prophetic Authority and Relevance</span><span class="week-date">Nov 29 - Dec 5</span></div>
+          <div class="week-row on-dark"><span>11. The Prophetic Voice in Crucial Moments</span><span class="week-date">Dec 6 - 12</span></div>
+          <div class="week-row on-dark"><span>12. End-time Prophetic Revelations</span><span class="week-date">Dec 13 - 19</span></div>
+          <div class="week-row on-dark"><span>13. Blessings from the Prophetic Word</span><span class="week-date">Dec 20 - 26</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CHILDREN & YOUTH ======= -->
+<section style="background:white;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="max-width:640px;margin:0 auto 44px;text-align:center;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">FOR THE YOUNGER ONES</p>
+      <h2 class="wide-head" style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.08em;text-transform:uppercase;">CHILDREN & YOUTH SABBATH SCHOOL</h2>
+      <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">Kids don't sit through the adult lesson - Beginners, Primary, Juniors and Teens each have their own room and teacher, running at the same 9:30am start.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+      <div style="background:#F5F2EB;padding:28px;">
+        <div style="width:36px;height:3px;background:#FF8200;margin-bottom:16px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 4px;letter-spacing:0.04em;text-transform:uppercase;">Beginners</h3>
+        <p style="font-size:0.78rem;font-weight:700;color:#FF8200;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 12px;">Ages 0 - 5</p>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">Simple, sensory Bible stories - felt pictures, action songs and hands-on craft that introduce God's love to the very young. Parents are welcome to stay and join in.</p>
+      </div>
+      <div style="background:#F5F2EB;padding:28px;">
+        <div style="width:36px;height:3px;background:#FF8200;margin-bottom:16px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 4px;letter-spacing:0.04em;text-transform:uppercase;">Primary</h3>
+        <p style="font-size:0.78rem;font-weight:700;color:#FF8200;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 12px;">Ages 5 - 9</p>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">Bible stories, craft, drama and songs that introduce Jesus as a friend and Saviour. Kids learn simple memory verses and take home a family devotion prompt for the week.</p>
+      </div>
+      <div style="background:#F5F2EB;padding:28px;">
+        <div style="width:36px;height:3px;background:#FF8200;margin-bottom:16px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 4px;letter-spacing:0.04em;text-transform:uppercase;">Juniors</h3>
+        <p style="font-size:0.78rem;font-weight:700;color:#FF8200;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 12px;">Ages 10 - 12</p>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">A structured walk through the Bible from Genesis to Revelation and its core doctrines, with real discussion - kids are challenged to think it through, not just listen. Comes with a study guide for through the week.</p>
+      </div>
+      <div style="background:#F5F2EB;padding:28px;">
+        <div style="width:36px;height:3px;background:#FF8200;margin-bottom:16px;"></div>
+        <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 4px;letter-spacing:0.04em;text-transform:uppercase;">Teens</h3>
+        <p style="font-size:0.78rem;font-weight:700;color:#FF8200;letter-spacing:0.04em;text-transform:uppercase;margin:0 0 12px;">Ages 13 - 14+</p>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">Open, peer-led discussion about faith, identity and decision-making - less about facts, more about a real relationship with God. Quizzes and whiteboard discussion keep it interactive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= HOW SABBATH SCHOOL WORKS ======= -->
+<section style="background:#F5F2EB;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:720px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">FIRST TIME?</p>
+      <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.08em;text-transform:uppercase;">HOW SABBATH SCHOOL WORKS</h2>
+      <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">The main Adult Quarterly class meets downstairs. A handful of smaller groups, including Inverse, meet independently around the main church hall. There's no registration - just ask a greeter when you arrive and they'll point you to the right room.</p>
+    </div>
+
+    <div>
+      <div class="step-row">
+        <div class="step-time">9:30am</div>
+        <div class="step-content">
+          <h3>Sabbath School Begins</h3>
+          <p>Find a seat - nobody will ask you to sign in or introduce yourself unless you want to.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-time">Opening</div>
+        <div class="step-content">
+          <h3>Welcome & Mission Moment</h3>
+          <p>A brief welcome, a few announcements, and a short story about Adventist mission work happening somewhere else in the world.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-time">~30 - 35 min</div>
+        <div class="step-content">
+          <h3>Lesson Study</h3>
+          <p>The main discussion. A lesson leader facilitates conversation around the week's Bible passage - you're welcome to contribute or just listen.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-time">Closing</div>
+        <div class="step-content">
+          <h3>Prayer & Mission Offering</h3>
+          <p>A closing prayer and a mission offering - entirely optional for visitors.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-time">10:30am</div>
+        <div class="step-content">
+          <h3>Short Break</h3>
+          <p>A few minutes to stretch and chat before the main church service starts at 10:45am.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= STUDY THROUGH THE WEEK ======= -->
+<section style="background:white;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:720px;margin:0 auto;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;text-align:center;">FOR THE WEEK AHEAD</p>
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 20px;letter-spacing:0.08em;text-transform:uppercase;text-align:center;">STUDY THROUGH THE WEEK</h2>
+    <p style="font-size:1rem;color:#555;line-height:1.85;margin:0 0 32px;text-align:center;">Each quarterly lesson is divided into seven days of daily study. The lesson discussed on Saturday covers the full week's reading, so ideally you read a section each day leading up to Sabbath rather than all at once beforehand.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      <a href="https://hopetv.org/shows/hopess" target="_blank" rel="noopener" style="background:#F5F2EB;padding:24px;display:block;">
+        <div style="width:32px;height:3px;background:#FF8200;margin-bottom:14px;"></div>
+        <h3 style="font-size:0.9rem;font-weight:800;color:#3D3935;margin:0 0 8px;letter-spacing:0.04em;text-transform:uppercase;">Hope Sabbath School</h3>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">A weekly video discussion of the current lesson, hosted by Hope Channel - handy if you'd rather watch than read.</p>
+      </a>
+      <a href="https://ssnet.org" target="_blank" rel="noopener" style="background:#F5F2EB;padding:24px;display:block;">
+        <div style="width:32px;height:3px;background:#FF8200;margin-bottom:14px;"></div>
+        <h3 style="font-size:0.9rem;font-weight:800;color:#3D3935;margin:0 0 8px;letter-spacing:0.04em;text-transform:uppercase;">Sabbath School Net</h3>
+        <p style="font-size:0.85rem;color:#666;line-height:1.7;margin:0;">Teacher notes, discussion questions and alternative commentary for the current lesson.</p>
+      </a>
+    </div>
+    <!-- ⚠️ NEEDS INFO: add any specific commentary, podcast or resource your Sabbath School classes actually use regularly - keep this list short and curated, not exhaustive -->
+  </div>
+</section>
+
+<!-- ======= SABBATH SCHOOL LEADERS ======= -->
+<section style="background:#F5F2EB;padding:64px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">GET INVOLVED</p>
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 20px;letter-spacing:0.08em;text-transform:uppercase;">OUR SABBATH SCHOOL LEADERS</h2>
+    <p style="font-size:1.05rem;color:#555;line-height:1.9;margin:0;">Our Sabbath School is led by rotating members of the congregation, not a fixed teacher up the front. Come along and you might find yourself leading the discussion sooner than you think.</p>
+  </div>
+</section>
+
+<!-- ======= CONTACT BLOCK ======= -->
+<section style="background:#3D3935;padding:56px 24px;">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:1.3rem;font-weight:800;color:white;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">QUESTIONS ABOUT SABBATH SCHOOL?</h2>
+    <p style="font-size:0.95rem;color:#aaa;line-height:1.8;margin:0 0 28px;">Want to know more before you visit? Reach out any time.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:AndrewFeaveai@adventist.org.au" style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">EMAIL →</a>
+      <a href="https://wa.me/61405684770" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid #6B655E;">WHATSAPP →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BULLETIN + GIVE ======= -->
+<section style="background:#F5F2EB;padding:64px 24px;border-top:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+
+    <!-- Weekly bulletin sign-up -->
+    <div style="background:white;padding:40px;display:flex;flex-direction:column;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 12px;font-weight:600;">EVERY WEEK, BEFORE SABBATH</p>
+      <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:800;color:#3D3935;margin:0 0 12px;">Get the Weekly Bulletin</h2>
+      <p style="font-size:0.95rem;color:#666;line-height:1.75;margin:0 0 16px;">Our church bulletin lands in your inbox each week, with:</p>
+      <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:9px;font-size:0.92rem;color:#3D3935;">
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>A short devotional from our pastor</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Service times and this week's speaker</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>The week's Sabbath School lesson</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
+      </ul>
+      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
+        <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
+        <div style="display:flex;gap:8px;">
+          <input id="bulletin-email" type="email" name="fields[email]" required autocomplete="email" style="flex:1;padding:12px 14px;border:1px solid #ccc;background:white;font-size:0.9rem;min-width:0;" />
+          <button type="submit" style="background:#FF8200;color:white;padding:12px 22px;border:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;">Sign Me Up</button>
+        </div>
+        <p style="font-size:0.78rem;color:#888;margin:10px 0 0;">Free, and you can unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <!-- Giving -->
+    <div style="background:#3D3935;padding:40px;display:flex;flex-direction:column;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 12px;font-weight:600;">GIVE</p>
+      <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:800;color:white;margin:0 0 12px;">Support Our Church</h2>
+      <p style="font-size:0.95rem;color:#D8D3CD;line-height:1.75;margin:0 0 14px;">Giving is never expected. It's always your choice.</p>
+      <p style="font-size:0.95rem;color:#D8D3CD;line-height:1.75;margin:0 0 24px;">But every gift helps keep our church running and grows its mission, here on the Gold Coast and around the world.</p>
+      <blockquote style="margin:0 0 28px;padding:0 0 0 16px;border-left:3px solid #FF8200;">
+        <p style="font-size:0.95rem;color:white;font-style:italic;line-height:1.7;margin:0 0 6px;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+        <p style="font-size:0.8rem;color:#B3ADA6;margin:0;">2 Corinthians 9:7</p>
+      </blockquote>
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" style="margin-top:auto;align-self:flex-start;display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:15px 36px;">GIVE ONLINE →</a>
+      <p style="font-size:0.78rem;color:#B3ADA6;margin:12px 0 0;">Secure giving through eGiving, the Adventist Church's giving platform.</p>
+    </div>
+
+  </div>
+</section>
+<!-- ======= FOOTER ======= -->
+<footer style="background-color:#3D3935;padding:48px 24px 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:28px;">
+      <a href="../index.html" class="footer-logo" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;" aria-label="Reedy Creek Adventist Church - home">
+        <img loading="lazy" src="../branding/rc-alternate-light.svg" alt="Reedy Creek Seventh-day Adventist Church" width="170" height="157" style="width:170px;height:auto;display:block;" />
+      </a>
+      <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
+        <div style="width:100%;height:1px;background:#57524C;margin-bottom:4px;"></div>
+        <div style="min-width:150px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
+          <p style="color:#B3ADA6;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
+            9 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
+          </p>
+          <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
+        </div>
+        <div style="min-width:160px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Service Times</h3>
+          <ul style="list-style:none;margin:0;padding:0;font-size:0.82rem;">
+            <li style="margin-bottom:10px;display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 9:30am</span>
+              <span style="color:#B3ADA6;">Sabbath School</span>
+            </li>
+            <li style="display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 10:45am</span>
+              <span style="color:#B3ADA6;">Church Service</span>
+            </li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:120px;margin-left:auto;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Follow Us</h3>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#A39D96;display:flex;" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M24,0v24H0V0H24z M20,2.7h-3.3c-2.5,0-4.7,2.1-4.7,4.7v3.3H9.3v4H12V24h4v-9.3h4v-4h-4V8c0-0.8,0.5-1.3,1.3-1.3H20V2.7z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#A39D96;display:flex;" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#A39D96;display:flex;" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                <polygon fill="currentColor" points="10.7,9.1 14.5,12 10.7,14.9"/>
+                <path fill="currentColor" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background-color:#2F2C29;padding:14px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:0.78rem;color:#A39D96;">
+        © 2026 Reedy Creek Seventh-day Adventist Church
+        <span style="margin:0 6px;">|</span>
+        <a href="../privacy.html" style="color:#A39D96;">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../nav.js"></script>
+</body>
+</html>

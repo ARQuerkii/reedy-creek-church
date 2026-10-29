@@ -48,4 +48,46 @@ document.addEventListener('DOMContentLoaded', function () {
       hamburger.setAttribute('aria-expanded', isOpen);
     });
   }
+
+  // mobile.css balances wrapped text, but browsers only balance up to ~6 lines.
+  // Longer paragraphs get 'pretty' wrapping instead, so they never end on a lone word.
+  function fitLongText() {
+    document.querySelectorAll('p, li, figcaption, div').forEach(function (el) {
+      var ownText = Array.prototype.some.call(el.childNodes, function (n) { return n.nodeType === 3 && n.textContent.trim(); });
+      if (!ownText) return;
+      el.style.textWrap = '';
+      var lineHeight = parseFloat(getComputedStyle(el).lineHeight) || 24;
+      // measure the text itself - some elements are stretched taller than their text
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      if (range.getBoundingClientRect().height / lineHeight > 6.5) el.style.textWrap = 'pretty';
+    });
+  }
+  // Weekly bulletin sign-up: send the email straight to the church's MailerLite list and
+  // say thanks on the page. Without scripts the form still posts to MailerLite directly.
+  var bulletin = document.querySelector('.bulletin-form');
+  if (bulletin && window.fetch && window.FormData) {
+    bulletin.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var button = bulletin.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Signing up...';
+      var data = new FormData(bulletin);
+      data.append('ajax', '1');
+      fetch(bulletin.action, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(function () {
+          bulletin.innerHTML = '<p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 6px;">Thanks for signing up!</p>' +
+            '<p style="font-size:0.9rem;color:#666;line-height:1.7;margin:0;">Keep an eye on your inbox - the next bulletin is on its way.</p>';
+        })
+        .catch(function () { bulletin.submit(); });
+    });
+  }
+
+  var fitTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitLongText, 150);
+  });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitLongText);
+  else fitLongText();
 });

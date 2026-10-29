@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giving | Reedy Creek Adventist Church</title>
+  <meta name="description" content="Giving at Reedy Creek Adventist Church is never expected, but always needed. See how tithe and offerings are used, from our local church to the worldwide mission.">
+  <link rel="canonical" href="https://arquerkii.github.io/reedy-creek-church/about/give.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../branding/favicon-32.png">
+  <link rel="apple-touch-icon" href="../branding/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reedy Creek Adventist Church">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:title" content="Giving | Reedy Creek Adventist Church">
+  <meta property="og:description" content="Giving at Reedy Creek Adventist Church is never expected, but always needed. See how tithe and offerings are used, from our local church to the worldwide mission.">
+  <meta property="og:url" content="https://arquerkii.github.io/reedy-creek-church/about/give.html">
+  <meta property="og:image" content="https://arquerkii.github.io/reedy-creek-church/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Reedy Creek Seventh-day Adventist Church - You're welcome here.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Noto Sans', sans-serif; box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+    a { text-decoration: none; }
+
+    .nav-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 3px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #FF8200;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #3D3935; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      background: #FF8200;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .nav-cta:hover { background: #E67500; }
+    .footer-link { font-size: 13px; color: #B3ADA6; }
+    .footer-link:hover { color: #ccc; }
+    .footer-logo { transition: opacity 0.2s ease; }
+    .footer-logo:hover { opacity: 0.75; }
+
+    .nav-dropdown { position: relative; }
+    .nav-dropdown::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 14px; }
+    .nav-dropdown-trigger { background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 4px; }
+    .nav-dropdown-trigger .caret { font-size: 10px; transition: transform 0.2s; }
+    .nav-dropdown.open .nav-dropdown-trigger .caret, .nav-dropdown:hover .nav-dropdown-trigger .caret { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute; top: 100%; left: 0; margin-top: 14px;
+      background: white; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+      min-width: 200px; padding: 8px 0; display: none; flex-direction: column;
+      border-top: 2px solid #FF8200; z-index: 200;
+    }
+    .nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item { padding: 11px 20px; font-size: 12px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-dropdown-item:hover { background: #F5F2EB; color: #FF8200; }
+
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #3D3935; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-panel { display: none; flex-direction: column; background: white; border-top: 1px solid #eee; padding: 8px 24px 24px; }
+    .nav-mobile-panel.open { display: flex; }
+    .nav-mobile-link { padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
+    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #FF8200; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
+
+    @media (max-width: 860px) {
+      .nav-desktop { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+
+    .belief-card {
+      background: white;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .gallery-tile { position: relative; overflow: hidden; }
+    .gallery-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .gallery-tile:hover img { transform: scale(1.05); }
+    .gallery-cap {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to top, rgba(10,9,8,0.75), transparent);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 28px 16px 12px;
+    }
+    /* ---- Giving page ---- */
+    .give-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #FF8200; margin: 0 0 14px; font-weight: 600; }
+    .give-h2 { font-size: clamp(1.7rem, 2.8vw, 2.2rem); font-weight: 800; color: #3D3935; margin: 0 0 16px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .give-lead { font-size: 1rem; color: #555; line-height: 1.8; margin: 0; }
+    .give-card { background: white; padding: 32px; }
+    .give-card h3 { font-size: 1.1rem; font-weight: 800; color: #3D3935; margin: 0 0 10px; }
+    .give-card p { font-size: 0.92rem; color: #666; line-height: 1.75; margin: 0; }
+    .give-pill { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #3D3935; background: #F5F2EB; padding: 5px 10px; margin: 0 0 14px; }
+    .give-list { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; color: #3D3935; }
+    .give-list li { display: flex; gap: 10px; }
+    .give-list li::before { content: '\2713'; color: #FF8200; font-weight: 800; }
+
+    /* Donut: segments draw in when scrolled into view; hover or focus a segment / legend row to read it */
+    .donut-wrap { position: relative; width: min(100%, 340px); margin: 0 auto; }
+    .donut-wrap svg { display: block; width: 100%; height: auto; transform: rotate(-90deg); overflow: visible; }
+    .donut-seg { fill: none; stroke-width: 28; cursor: pointer; transition: stroke-dasharray 0.9s cubic-bezier(0.22, 1, 0.36, 1), stroke-width 0.25s ease, opacity 0.25s ease; }
+    .donut-seg.on { stroke-width: 36; }
+    .donut.has-on .donut-seg:not(.on) { opacity: 0.35; }
+    .donut-centre { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; pointer-events: none; padding: 0 22%; }
+    .donut-pct { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; color: #3D3935; line-height: 1; font-variant-numeric: tabular-nums; }
+    .donut-label { font-size: 0.85rem; color: #666; line-height: 1.4; margin-top: 8px; }
+    .legend { list-style: none; margin: 0; padding: 0; }
+    .legend-row { display: grid; grid-template-columns: 14px 1fr auto; gap: 14px; align-items: center; width: 100%; padding: 13px 14px; border: none; border-bottom: 1px solid #eee; background: none; font: inherit; text-align: left; cursor: pointer; transition: background 0.2s ease; }
+    .legend-row:hover, .legend-row:focus-visible, .legend-row.on { background: #F5F2EB; outline: none; }
+    .legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
+    .legend-name { font-size: 0.95rem; font-weight: 600; color: #3D3935; }
+    .legend-note { display: block; font-size: 0.8rem; font-weight: 400; color: #777; margin-top: 2px; }
+    .legend-pct { font-size: 1.05rem; font-weight: 800; color: #3D3935; font-variant-numeric: tabular-nums; }
+
+    /* 13th Sabbath split: a two-part stacked bar */
+    .split-bar { display: flex; gap: 2px; height: 14px; margin: 16px 0 10px; }
+    .split-bar span { display: block; height: 100%; }
+    .split-bar span:first-child { border-radius: 4px 0 0 4px; }
+    .split-bar span:last-child { border-radius: 0 4px 4px 0; }
+    .split-key { display: flex; flex-direction: column; gap: 6px; font-size: 0.82rem; color: #555; }
+    .split-key b { color: #3D3935; }
+    .split-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: -1px; }
+
+    /* Tithe path: five steps with arrows between */
+    .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; counter-reset: step; }
+    .flow-step { background: white; padding: 22px 18px; position: relative; border-top: 3px solid #FF8200; }
+    .flow-step h3 { font-size: 0.95rem; font-weight: 800; color: #3D3935; margin: 0 0 8px; line-height: 1.3; }
+    .flow-step p { font-size: 0.84rem; color: #666; line-height: 1.65; margin: 0; }
+    .flow-step::before { counter-increment: step; content: counter(step); display: block; font-size: 0.75rem; font-weight: 800; color: #FF8200; margin-bottom: 8px; letter-spacing: 0.1em; }
+    @media (min-width: 701px) {
+      .flow-step:not(:last-child)::after { content: '\2192'; position: absolute; right: -13px; top: 50%; transform: translateY(-50%); color: #FF8200; font-weight: 800; font-size: 1rem; z-index: 1; }
+    }
+    @media (max-width: 700px) { .flow { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .donut-seg { transition: none; } }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../mobile.css?v=4">
+</head>
+<body>
+
+<!-- ======= TOP BAR ======= -->
+<div style="background:#3D3935;border-bottom:1px solid #57524C;">
+  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
+      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+    </p>
+    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
+      <span style="margin:0 10px;color:#6B655E;">|</span>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======= MAIN NAV ======= -->
+<nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" style="color:#3D3935;">ABOUT US <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="../about.html" class="nav-dropdown-item">Who We Are</a>
+          <a href="../beliefs.html" class="nav-dropdown-item">What We Believe</a>
+        </div>
+      </li>
+      <li><a href="../sermons.html" class="nav-link">Sermons</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">MINISTRIES <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="../ministries/index.html" class="nav-dropdown-item">All Ministries</a>
+          <a href="../ministries/kids-families.html" class="nav-dropdown-item">Kids &amp; Families</a>
+          <a href="../ministries/young-adults.html" class="nav-dropdown-item">Young Adults</a>
+          <a href="../ministries/community-outreach.html" class="nav-dropdown-item">Community Outreach</a>
+          <a href="../ministries/health-wellness.html" class="nav-dropdown-item">Health &amp; Wellness</a>
+          <a href="../ministries/worship-fellowship.html" class="nav-dropdown-item">Worship &amp; Fellowship</a>
+          <a href="../ministries/sabbath-school.html" class="nav-dropdown-item">Sabbath School</a>
+        </div>
+      </li>
+    </ul>
+    <a href="../index.html" style="display:flex;align-items:center;flex-shrink:0;line-height:0;position:absolute;left:50%;transform:translateX(-50%);">
+      <img src="../branding/rc-horizontal-colour-dark.svg" alt="Reedy Creek Adventist Church" width="231" height="38" style="height:38px;width:auto;display:block;" />
+    </a>
+    <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
+      <li><a href="../contact.html" class="nav-link">Contact</a></li>
+      <li><a href="../visit.html" class="nav-cta">Plan Your Visit</a></li>
+    </ul>
+    <button class="nav-hamburger" id="navHamburgerBtn" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <a href="../about.html" class="nav-mobile-link">Who We Are</a>
+    <a href="../beliefs.html" class="nav-mobile-link">What We Believe</a>
+    <a href="../sermons.html" class="nav-mobile-link">Sermons</a>
+    <a href="../ministries/index.html" class="nav-mobile-link">Ministries</a>
+    <a href="../ministries/sabbath-school.html" class="nav-mobile-link">Sabbath School</a>
+    <a href="../contact.html" class="nav-mobile-link">Contact</a>
+    <a href="../visit.html" class="nav-mobile-cta">Plan Your Visit</a>
+  </div>
+</nav>
+
+<!-- ======= HERO ======= -->
+<section style="position:relative;width:100%;overflow:hidden;background:#2F2C29;min-height:380px;display:flex;align-items:center;">
+  <img src="../images/unnamed.jpg" alt="" aria-hidden="true"
+       style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:blur(3px) brightness(0.3);transform:scale(1.04);" />
+  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.45);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#FF8200;z-index:2;"></div>
+  <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;padding:72px 24px 64px;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 18px;font-weight:600;">GIVING</p>
+    <h1 style="font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:800;color:white;margin:0 0 20px;line-height:1.2;letter-spacing:0.06em;text-transform:uppercase;">WHERE YOUR GIFT GOES</h1>
+    <p style="font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.85;margin:0;">An honest look at how giving works in the Seventh-day Adventist Church - from our church here at Reedy Creek to the mission around the world.</p>
+  </div>
+</section>
+
+<!-- ======= NEVER EXPECTED, ALWAYS NEEDED ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:48px;">
+    <div>
+      <p class="give-eyebrow">NEVER EXPECTED</p>
+      <h2 class="give-h2" style="font-size:clamp(1.5rem,2.4vw,1.9rem);">It's always your choice</h2>
+      <p class="give-lead">No one is ever asked what they give, and visitors are never expected to give at all. Come, worship and stay for lunch - that's all we hope for.</p>
+    </div>
+    <div>
+      <p class="give-eyebrow">ALWAYS NEEDED</p>
+      <h2 class="give-h2" style="font-size:clamp(1.5rem,2.4vw,1.9rem);">But it keeps us going</h2>
+      <p class="give-lead">Our church runs on the generosity of its people. Giving keeps the lights on and the doors open, and it funds the pastors, programs and outreach that make Reedy Creek what it is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= VERSE ======= -->
+<section style="background:#3D3935;padding:88px 24px;border-bottom:3px solid #FF8200;">
+  <figure style="max-width:880px;margin:0 auto;text-align:center;">
+    <blockquote style="margin:0;">
+      <p style="font-family:'Noto Serif',serif;font-style:italic;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.5;color:white;margin:0;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+    </blockquote>
+    <figcaption style="font-size:0.85rem;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin-top:28px;font-weight:600;">2 Corinthians 9:7</figcaption>
+  </figure>
+</section>
+
+<!-- ======= TWO WAYS TO GIVE ======= -->
+<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
+      <p class="give-eyebrow">THE BASICS</p>
+      <h2 class="give-h2">Two ways to give</h2>
+      <p class="give-lead">Adventists give in two ways, and each one does a different job.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+      <div class="give-card">
+        <span class="give-pill">Tithe</span>
+        <h3>A tenth, returned to God</h3>
+        <p>Many Adventists return a tenth of their income as tithe. Our church doesn't keep any of it. Every dollar of tithe goes to our local conference, which uses it mainly to pay pastors.</p>
+      </div>
+      <div class="give-card">
+        <span class="give-pill">Offerings</span>
+        <h3>Any amount, for a set purpose</h3>
+        <p>Offerings are freewill gifts on top of tithe. Each Sabbath's offering has a set purpose - often our own local church budget, and sometimes world mission or disaster relief.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= WHERE TITHE GOES (DONUT) ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="max-width:720px;margin:0 auto 44px;text-align:center;">
+      <p class="give-eyebrow">TITHE</p>
+      <h2 class="give-h2">Where tithe goes</h2>
+      <p class="give-lead">Most tithe pays for ministry - the pastors, chaplains and Bible workers who serve local churches. Hover over the chart or the list to see each part.</p>
+    </div>
+    <figure style="margin:0;display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;" aria-labelledby="donut-caption">
+      <div class="donut-wrap">
+        <svg class="donut" viewBox="0 0 200 200" aria-hidden="true"></svg>
+        <div class="donut-centre"><span class="donut-pct">60%</span><span class="donut-label">Ministry</span></div>
+      </div>
+      <ul class="legend"></ul>
+      <figcaption id="donut-caption" style="grid-column:1 / -1;font-size:0.82rem;color:#777;line-height:1.7;text-align:center;">How tithe is used, as published by the <a href="https://sydney.adventist.org.au/about/finance/" target="_blank" rel="noopener" style="color:#3D3935;text-decoration:underline;text-underline-offset:3px;">Greater Sydney Conference</a>. Each conference sets its own split, so our South Queensland Conference's figures differ a little, but the same church-wide policies shape them.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ======= HOW TITHE TRAVELS ======= -->
+<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
+      <p class="give-eyebrow">ONE CHURCH, WORLDWIDE</p>
+      <h2 class="give-h2">How tithe travels</h2>
+      <p class="give-lead">Tithe is shared so that small churches and mission areas are supported, not just the places that can afford it.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-step"><h3>Reedy Creek Church</h3><p>Collects your tithe and sends all of it on.</p></div>
+      <div class="flow-step"><h3>South Queensland Conference</h3><p>Pays our pastors and supports churches across South Queensland.</p></div>
+      <div class="flow-step"><h3>Australian Union Conference</h3><p>Supports the church's work across Australia.</p></div>
+      <div class="flow-step"><h3>South Pacific Division</h3><p>Supports the church across the Pacific, including island missions.</p></div>
+      <div class="flow-step"><h3>General Conference</h3><p>Funds the church's mission around the world.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= WHERE OFFERINGS GO ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
+      <p class="give-eyebrow">OFFERINGS</p>
+      <h2 class="give-h2">Where offerings go</h2>
+      <p class="give-lead">Each offering goes exactly where it says. These are the three you'll hear about most.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+      <div class="give-card" style="background:#F5F2EB;">
+        <span class="give-pill" style="background:white;">Stays at Reedy Creek</span>
+        <h3>Local Church Budget</h3>
+        <p>Every dollar stays right here, invested in our church home and our community. It covers:</p>
+        <ul class="give-list">
+          <li>Utilities and building maintenance</li>
+          <li>Worship and ministry resources</li>
+          <li>Sabbath School and outreach programs</li>
+          <li>Community care and local mission</li>
+        </ul>
+      </div>
+      <div class="give-card" style="background:#F5F2EB;">
+        <span class="give-pill" style="background:white;">Around the world</span>
+        <h3>World Mission</h3>
+        <p>Sabbath School mission offerings fund Adventist mission around the world - since 1913, every cent of them. Each quarter's 13th Sabbath offering is split like this:</p>
+        <div class="split-bar" role="img" aria-label="25% to special projects, 75% to the world mission budget">
+          <span style="width:25%;background:#FF8200;"></span><span style="width:75%;background:#0047BB;"></span>
+        </div>
+        <div class="split-key">
+          <span><i style="background:#FF8200;"></i><b>25%</b> special projects named in that quarter's lesson</span>
+          <span><i style="background:#0047BB;"></i><b>75%</b> the world mission budget</span>
+        </div>
+      </div>
+      <div class="give-card" style="background:#F5F2EB;">
+        <span class="give-pill" style="background:white;">Disaster &amp; relief</span>
+        <h3>ADRA</h3>
+        <p>ADRA is the Adventist Church's humanitarian agency. Disaster and Famine Relief offerings fund ADRA Australia's response when disaster strikes, and the yearly ADRA Appeal supports its relief and development work.</p>
+        <ul class="give-list"><li><a href="https://adra.org.au/" target="_blank" rel="noopener" style="color:#3D3935;text-decoration:underline;text-underline-offset:3px;">Visit ADRA Australia</a></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= GIVE CTA ======= -->
+<section style="background:#3D3935;padding:72px 24px;">
+  <div style="max-width:640px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:clamp(1.6rem,2.6vw,2rem);font-weight:800;color:white;margin:0 0 14px;letter-spacing:0.06em;text-transform:uppercase;">Ready to give?</h2>
+    <p style="font-size:1rem;color:#D8D3CD;line-height:1.8;margin:0 0 30px;">Give securely online through eGiving, the Adventist Church's giving platform. You can choose tithe, an offering, or both.</p>
+    <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 44px;">GIVE ONLINE →</a>
+    <p style="font-size:0.88rem;color:#B3ADA6;margin:28px 0 0;">Questions about giving? <a href="mailto:AndrewFeaveai@adventist.org.au" style="color:white;text-decoration:underline;text-underline-offset:3px;">Email our pastor</a> - we're happy to explain anything.</p>
+  </div>
+</section>
+
+<!-- ======= SOURCES ======= -->
+<section style="background:#F5F2EB;padding:40px 24px;">
+  <div style="max-width:1000px;margin:0 auto;font-size:0.8rem;color:#777;line-height:1.8;">
+    <p style="margin:0 0 6px;font-weight:700;color:#555;">Sources</p>
+    <p style="margin:0;">Tithe breakdown: <a href="https://sydney.adventist.org.au/about/finance/" target="_blank" rel="noopener" style="color:#555;">Greater Sydney Conference - How does church tithe work?</a> · Offerings: <a href="https://sydney.adventist.org.au/resources/all-about-tithe-and-offering/" target="_blank" rel="noopener" style="color:#555;">Tithe and Offering 101</a> · 13th Sabbath split and mission offerings: <a href="https://stewardship.adventistchurch.com/sabbath-school-offerings/" target="_blank" rel="noopener" style="color:#555;">Adventist Stewardship - Sabbath School &amp; Mission Offerings</a> · Use of tithe: <a href="https://gc.adventist.org/guidelines/use-of-tithe/" target="_blank" rel="noopener" style="color:#555;">General Conference guidelines</a></p>
+  </div>
+</section>
+
+<script>
+  // Donut chart of the Greater Sydney Conference's published tithe breakdown.
+  // Colours are the identity guide's Fire, Excellence, Calm and Compassion plus two
+  // supporting hues, checked for colour-blind separation.
+  (function () {
+    var data = [
+      { name: 'Ministry', note: 'Pastors, chaplains and Bible workers', pct: 60, color: '#FF8200' },
+      { name: 'Union, Division &amp; General Conference', note: 'The wider church in Australia, the Pacific and the world', pct: 20, color: '#0047BB' },
+      { name: 'Conference administration', note: '', pct: 7, color: '#00A39D' },
+      { name: 'Service expenses', note: '', pct: 6, color: '#D20073' },
+      { name: 'Evangelism', note: '', pct: 4, color: '#6B4FC8' },
+      { name: 'Education', note: '', pct: 3, color: '#4C8A2B' }
+    ];
+    var svg = document.querySelector('.donut'), list = document.querySelector('.legend');
+    var pctEl = document.querySelector('.donut-pct'), labelEl = document.querySelector('.donut-label');
+    var r = 80, c = 2 * Math.PI * r, gap = 2, start = 0, segs = [], rows = [];
+    var ns = 'http://www.w3.org/2000/svg';
+
+    data.forEach(function (d, i) {
+      var len = c * d.pct / 100;
+      var seg = document.createElementNS(ns, 'circle');
+      seg.setAttribute('class', 'donut-seg');
+      seg.setAttribute('cx', 100); seg.setAttribute('cy', 100); seg.setAttribute('r', r);
+      seg.setAttribute('stroke', d.color);
+      seg.setAttribute('stroke-dasharray', '0 ' + c);
+      seg.setAttribute('stroke-dashoffset', -start);
+      seg.style.transitionDelay = (i * 0.08) + 's';
+      seg.dataset.full = (len - gap) + ' ' + c;
+      svg.appendChild(seg); segs.push(seg);
+      start += len;
+
+      var li = document.createElement('li');
+      li.innerHTML = '<button type="button" class="legend-row"><span class="legend-swatch" style="background:' + d.color + '"></span>' +
+        '<span class="legend-name">' + d.name + (d.note ? '<span class="legend-note">' + d.note + '</span>' : '') + '</span>' +
+        '<span class="legend-pct">' + d.pct + '%</span></button>';
+      list.appendChild(li); rows.push(li.firstChild);
+    });
+
+    function show(i) {
+      svg.classList.toggle('has-on', i !== null);
+      segs.forEach(function (s, j) { s.classList.toggle('on', j === i); });
+      rows.forEach(function (b, j) { b.classList.toggle('on', j === i); });
+      var d = data[i === null ? 0 : i];
+      pctEl.textContent = d.pct + '%';
+      labelEl.innerHTML = d.name;
+    }
+    segs.concat(rows).forEach(function (el, k) {
+      var i = k % data.length;
+      el.addEventListener('mouseenter', function () { show(i); });
+      el.addEventListener('mouseleave', function () { show(null); });
+      el.addEventListener('focus', function () { show(i); });
+      el.addEventListener('blur', function () { show(null); });
+      el.addEventListener('click', function () { show(i); });
+    });
+
+    function draw() { segs.forEach(function (s) { s.setAttribute('stroke-dasharray', s.dataset.full); }); }
+    if (!('IntersectionObserver' in window)) { draw(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { draw(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(svg);
+  })();
+</script>
+<!-- ======= FOOTER ======= -->
+<footer style="background-color:#3D3935;padding:48px 24px 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:28px;">
+      <a href="../index.html" class="footer-logo" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;" aria-label="Reedy Creek Adventist Church - home">
+        <img loading="lazy" src="../branding/rc-alternate-light.svg" alt="Reedy Creek Seventh-day Adventist Church" width="170" height="157" style="width:170px;height:auto;display:block;" />
+      </a>
+      <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
+        <div style="width:100%;height:1px;background:#57524C;margin-bottom:4px;"></div>
+        <div style="min-width:150px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
+          <p style="color:#B3ADA6;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
+            9 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
+          </p>
+          <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
+        </div>
+        <div style="min-width:160px;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Service Times</h3>
+          <ul style="list-style:none;margin:0;padding:0;font-size:0.82rem;">
+            <li style="margin-bottom:10px;display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 9:30am</span>
+              <span style="color:#B3ADA6;">Sabbath School</span>
+            </li>
+            <li style="display:flex;gap:10px;">
+              <span style="color:#aaa;min-width:76px;">Sat, 10:45am</span>
+              <span style="color:#B3ADA6;">Church Service</span>
+            </li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:120px;margin-left:auto;">
+          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Follow Us</h3>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#A39D96;display:flex;" title="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M24,0v24H0V0H24z M20,2.7h-3.3c-2.5,0-4.7,2.1-4.7,4.7v3.3H9.3v4H12V24h4v-9.3h4v-4h-4V8c0-0.8,0.5-1.3,1.3-1.3H20V2.7z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#A39D96;display:flex;" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#A39D96;display:flex;" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                <polygon fill="currentColor" points="10.7,9.1 14.5,12 10.7,14.9"/>
+                <path fill="currentColor" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background-color:#2F2C29;padding:14px 24px;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:0.78rem;color:#A39D96;">
+        © 2026 Reedy Creek Seventh-day Adventist Church
+        <span style="margin:0 6px;">|</span>
+        <a href="../privacy.html" style="color:#A39D96;">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../nav.js"></script>
+</body>
+</html>

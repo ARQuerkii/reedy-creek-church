@@ -11,8 +11,13 @@ Every Saturday: Prayer Meeting 9:10am, Sabbath School 9:30am, Church Service 10:
 - [About Us](https://arquerkii.github.io/reedy-creek-church/about.html): Our story and community
 - [What We Believe](https://arquerkii.github.io/reedy-creek-church/beliefs.html): Our beliefs in plain language
 - [Sermons](https://arquerkii.github.io/reedy-creek-church/sermons.html): Latest messages from our YouTube channel
-- [Ministries](https://arquerkii.github.io/reedy-creek-church/ministries.html): Programs for families, youth and young adults, outreach, music, prayer and health
-- [Sabbath School](https://arquerkii.github.io/reedy-creek-church/sabbath-school.html): Saturday Bible study for adults, young adults and children
+- [Ministries](https://arquerkii.github.io/reedy-creek-church/ministries/): Overview of all our ministries
+- [Kids & Families](https://arquerkii.github.io/reedy-creek-church/ministries/kids-families.html): Adventurers, Pathfinders and children's Sabbath School
+- [Young Adults](https://arquerkii.github.io/reedy-creek-church/ministries/young-adults.html): Camps, hikes, run club and Bible study for ages 16+
+- [Community Outreach](https://arquerkii.github.io/reedy-creek-church/ministries/community-outreach.html): The LifeBoat food van, The Movement and community services
+- [Health & Wellness](https://arquerkii.github.io/reedy-creek-church/ministries/health-wellness.html): Wellness courses with ELIA Wellness
+- [Worship & Fellowship](https://arquerkii.github.io/reedy-creek-church/ministries/worship-fellowship.html): Music, prayer, men's ministry and social events
+- [Sabbath School](https://arquerkii.github.io/reedy-creek-church/ministries/sabbath-school.html): Saturday Bible study for adults, young adults and children
 - [Contact](https://arquerkii.github.io/reedy-creek-church/contact.html): Contact form and how to reach the pastor
 
 ## Elsewhere

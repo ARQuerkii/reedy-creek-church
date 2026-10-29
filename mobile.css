@@ -1,9 +1,18 @@
 /*
   Mobile & tablet layout fixes.
-  Every rule lives inside a max-width media query, so nothing here can affect the
-  desktop layout. Most of the site's layout is inline styles, which is why these
-  rules need !important to win.
+  Apart from the line-breaking block just below, every rule lives inside a max-width
+  media query, so nothing here can affect the desktop layout. Most of the site's
+  layout is inline styles, which is why these rules need !important to win.
 */
+
+/* ---------- All widths: line breaking ---------- */
+/* Text that wraps splits into even lines, so no line is left with just a word or two
+   (browsers only balance up to ~6 lines; longer paragraphs wrap normally) */
+body { text-wrap: balance; }
+/* Dropdown menu items stay on one line however long the label */
+.nav-dropdown-item { white-space: nowrap; }
+/* A heading allowed to run wider than the narrow text column it sits in (capped to the screen) */
+.wide-head { width: min(960px, calc(100vw - 48px)); position: relative; left: 50%; transform: translateX(-50%); }
 
 /* ---------- Tablet and below (nav collapses to the hamburger here) ---------- */
 @media (max-width: 860px) {
@@ -37,6 +46,9 @@
     justify-content: center !important;
     line-height: 1.6;
   }
+  /* "Give" and the address wrap onto separate lines here, so drop the divider between them */
+  body > div:first-of-type div > span { display: none !important; }
+  body > div:first-of-type div { column-gap: 14px; }
 
   /* Anything else marked no-wrap may wrap on small screens */
   [style*="white-space:nowrap"] { white-space: normal !important; }
@@ -101,6 +113,8 @@
   footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > * { min-width: 0 !important; justify-self: center; }
   footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > [style*="height:1px"] { grid-column: 1 / -1; justify-self: stretch; }
   footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > a.footer-link { grid-column: 1 / -1; }
+  /* Address + Service Times share a row; Follow Us gets its own row below */
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > :last-child { grid-column: 1 / -1; margin-left: 0 !important; }
   footer li[style*="display:flex"] { flex-direction: column; align-items: center; gap: 0 !important; }
   footer li[style*="display:flex"] span { min-width: 0 !important; }
   footer ul[style*="display:flex"] { flex-direction: column; align-items: center; gap: 10px !important; }

@@ -21,9 +21,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
   <style>
-    * { font-family: 'Jost', sans-serif; box-sizing: border-box; }
+    * { font-family: 'Noto Sans', sans-serif; box-sizing: border-box; }
     body { margin: 0; padding: 0; }
     a { text-decoration: none; }
 
@@ -43,24 +43,24 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #E2811E;
+      background: #FF8200;
       transition: width 0.25s ease;
     }
-    .nav-link:hover { color: #1a1a1a; }
+    .nav-link:hover { color: #3D3935; }
     .nav-link:hover::after { width: 100%; }
     .nav-cta {
       font-size: 11px;
       font-weight: 700;
       color: white;
-      background: #E2811E;
+      background: #FF8200;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 9px 20px;
       text-decoration: none;
       transition: background 0.2s ease;
     }
-    .nav-cta:hover { background: #c9721a; }
-    .footer-link { font-size: 13px; color: #888; }
+    .nav-cta:hover { background: #E67500; }
+    .footer-link { font-size: 13px; color: #B3ADA6; }
     .footer-link:hover { color: #ccc; }
     .footer-logo { transition: opacity 0.2s ease; }
     .footer-logo:hover { opacity: 0.75; }
@@ -74,14 +74,14 @@
       position: absolute; top: 100%; left: 0; margin-top: 14px;
       background: white; box-shadow: 0 10px 28px rgba(0,0,0,0.14);
       min-width: 200px; padding: 8px 0; display: none; flex-direction: column;
-      border-top: 2px solid #E2811E; z-index: 200;
+      border-top: 2px solid #FF8200; z-index: 200;
     }
     .nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item { padding: 11px 20px; font-size: 12px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
-    .nav-dropdown-item:hover { background: #F5F2EB; color: #E2811E; }
+    .nav-dropdown-item:hover { background: #F5F2EB; color: #FF8200; }
 
     .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; }
-    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #1a1a1a; transition: transform 0.2s ease, opacity 0.2s ease; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: #3D3935; transition: transform 0.2s ease, opacity 0.2s ease; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -89,7 +89,7 @@
     .nav-mobile-panel { display: none; flex-direction: column; background: white; border-top: 1px solid #eee; padding: 8px 24px 24px; }
     .nav-mobile-panel.open { display: flex; }
     .nav-mobile-link { padding: 15px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; font-weight: 600; color: #333; letter-spacing: 0.05em; text-transform: uppercase; }
-    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #E2811E; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
+    .nav-mobile-cta { display: block; margin-top: 18px; text-align: center; background: #FF8200; color: white; font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding: 15px; }
 
     @media (max-width: 860px) {
       .nav-desktop { display: none; }
@@ -116,20 +116,20 @@
       padding: 28px 16px 12px;
     }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=3">
+  <link rel="stylesheet" href="mobile.css?v=4">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#1a1a1a;border-bottom:1px solid #2a2a2a;">
+<div style="background:#3D3935;border-bottom:1px solid #57524C;">
   <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
     <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
       Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
     </p>
     <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
       <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#444;">|</span>
-      <a href="https://maps.google.com/maps?q=9+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" style="color:#E2811E;text-decoration:none;">9 Bridgman Drive, Reedy Creek &nbsp;·&nbsp; Get Directions →</a>
+      <span style="margin:0 10px;color:#6B655E;">|</span>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
     </div>
   </div>
 </div>
@@ -139,7 +139,7 @@
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
     <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
       <li class="nav-dropdown">
-        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" style="color:#1a1a1a;">ABOUT US <span class="caret">▾</span></button>
+        <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false" style="color:#3D3935;">ABOUT US <span class="caret">▾</span></button>
         <div class="nav-dropdown-menu">
           <a href="about.html" class="nav-dropdown-item">Who We Are</a>
           <a href="beliefs.html" class="nav-dropdown-item">What We Believe</a>
@@ -149,13 +149,18 @@
       <li class="nav-dropdown">
         <button class="nav-link nav-dropdown-trigger" type="button" aria-expanded="false">MINISTRIES <span class="caret">▾</span></button>
         <div class="nav-dropdown-menu">
-          <a href="ministries.html" class="nav-dropdown-item">Ministries</a>
-          <a href="sabbath-school.html" class="nav-dropdown-item">Sabbath School</a>
+          <a href="ministries/index.html" class="nav-dropdown-item">All Ministries</a>
+          <a href="ministries/kids-families.html" class="nav-dropdown-item">Kids &amp; Families</a>
+          <a href="ministries/young-adults.html" class="nav-dropdown-item">Young Adults</a>
+          <a href="ministries/community-outreach.html" class="nav-dropdown-item">Community Outreach</a>
+          <a href="ministries/health-wellness.html" class="nav-dropdown-item">Health &amp; Wellness</a>
+          <a href="ministries/worship-fellowship.html" class="nav-dropdown-item">Worship &amp; Fellowship</a>
+          <a href="ministries/sabbath-school.html" class="nav-dropdown-item">Sabbath School</a>
         </div>
       </li>
     </ul>
     <a href="index.html" style="display:flex;align-items:center;flex-shrink:0;line-height:0;position:absolute;left:50%;transform:translateX(-50%);">
-      <img src="branding/rc-logo.png" alt="Reedy Creek Adventist Church" style="height:44px;width:auto;display:block;" />
+      <img src="branding/rc-horizontal-colour-dark.svg" alt="Reedy Creek Adventist Church" width="231" height="38" style="height:38px;width:auto;display:block;" />
     </a>
     <ul class="nav-desktop" style="list-style:none;display:flex;gap:28px;margin:0;padding:0;align-items:center;">
       <li><a href="contact.html" class="nav-link">Contact</a></li>
@@ -169,21 +174,21 @@
     <a href="about.html" class="nav-mobile-link">Who We Are</a>
     <a href="beliefs.html" class="nav-mobile-link">What We Believe</a>
     <a href="sermons.html" class="nav-mobile-link">Sermons</a>
-    <a href="ministries.html" class="nav-mobile-link">Ministries</a>
-    <a href="sabbath-school.html" class="nav-mobile-link">Sabbath School</a>
+    <a href="ministries/index.html" class="nav-mobile-link">Ministries</a>
+    <a href="ministries/sabbath-school.html" class="nav-mobile-link">Sabbath School</a>
     <a href="contact.html" class="nav-mobile-link">Contact</a>
     <a href="visit.html" class="nav-mobile-cta">Plan Your Visit</a>
   </div>
 </nav>
 
 <!-- ======= HERO ======= -->
-<section style="position:relative;width:100%;overflow:hidden;background:#141210;min-height:420px;display:flex;align-items:center;">
+<section style="position:relative;width:100%;overflow:hidden;background:#2F2C29;min-height:420px;display:flex;align-items:center;">
   <img src="images/PXL_20260704_013711916.jpg" alt="" aria-hidden="true"
        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:blur(3px) brightness(0.28);transform:scale(1.04);" />
   <div style="position:absolute;inset:0;background:rgba(14,12,10,0.5);"></div>
-  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#E2811E;z-index:2;"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:#FF8200;z-index:2;"></div>
   <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;padding:76px 24px 68px;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 20px;font-weight:600;">ABOUT US</p>
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 20px;font-weight:600;">ABOUT US</p>
     <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:800;color:white;margin:0 0 20px;line-height:1.15;letter-spacing:0.06em;text-transform:uppercase;">WHO WE ARE</h1>
     <p style="font-size:1.1rem;color:rgba(255,255,255,0.75);line-height:1.8;margin:0 auto;max-width:560px;">Who we are, where we've come from, and what we care about.</p>
   </div>
@@ -191,26 +196,26 @@
 
 <!-- ======= OPENING STATEMENT ======= -->
 <section style="background:white;padding:68px 24px;">
-  <div style="max-width:700px;margin:0 auto;text-align:center;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 18px;font-weight:600;">GET TO KNOW US</p>
+  <div style="max-width:730px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 18px;font-weight:600;">GET TO KNOW US</p>
     <p style="font-size:1.25rem;color:#333;line-height:1.9;margin:0;font-weight:400;">Reedy Creek Adventist Church is a small, close-knit community on the Gold Coast - the kind of place where people notice if you weren't there last Saturday. We're Seventh-day Adventist, but our congregation holds people at every stage of belief, from lifelong believers to those still quietly figuring things out. Sabbath brings us back together each week, and there's always a shared lunch afterwards. That's where a lot of the real conversations happen.</p>
   </div>
 </section>
 
 <!-- ======= OUR STORY ======= -->
-<section style="background:#F5F2EB;padding:68px 24px;border-bottom:3px solid #E2811E;">
+<section style="background:#F5F2EB;padding:68px 24px;border-bottom:3px solid #FF8200;">
   <div style="max-width:700px;margin:0 auto;text-align:center;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">OUR STORY</p>
-    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#1a1a1a;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">HOW WE GOT HERE</h2>
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">OUR STORY</p>
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">HOW WE GOT HERE</h2>
     <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Our church has been part of the Reedy Creek and Gold Coast community since 1983 - more than four decades. Over that time we've grown from a small group of families into a congregation of around 100 people, and we still feel like a family.</p>
-    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">Every Saturday night at 6:30, a team from our church takes the LifeBoat food van down to Burleigh Beach. We bring homemade soup and bread from local bakeries for people sleeping rough. It's all part of our <a href="https://lighthousecs.org.au/" target="_blank" rel="noopener" style="color:#E2811E;text-decoration:underline;text-underline-offset:3px;">Lighthouse initiative</a> - and there's a large lighthouse standing in one of our church rooms as a reminder of why we keep showing up. No announcement, no fanfare; it just happens, week after week.</p>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">Every Saturday night at 6:30, a team from our church takes the LifeBoat food van down to Burleigh Beach. We bring homemade soup and bread from local bakeries for people sleeping rough. It's all part of our <a href="https://lighthousecs.org.au/" target="_blank" rel="noopener" style="color:#FF8200;text-decoration:underline;text-underline-offset:3px;">Lighthouse initiative</a> - and there's a large lighthouse standing in one of our church rooms as a reminder of why we keep showing up. No announcement, no fanfare; it just happens, week after week.</p>
   </div>
 </section>
 
 <!-- ======= STORY PHOTO BAND ======= -->
 <!-- ⚠️ Swap in a photo from the Saturday-night Lighthouse run at Burleigh once one is taken; this is The Movement for now -->
 
-<section style="position:relative;height:clamp(260px,34vw,380px);overflow:hidden;border-bottom:3px solid #E2811E;">
+<section style="position:relative;height:clamp(260px,34vw,380px);overflow:hidden;border-bottom:3px solid #FF8200;">
   <img src="images/689484487_1387991120041593_1746279356464794024_n.jpg"
        alt="Volunteers packing food for The Movement, our homeless food pantry"
        style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;" loading="lazy" />
@@ -235,21 +240,21 @@
 -->
 
 <!-- ======= WHAT WE BELIEVE (TEASER) ======= -->
-<section style="background:#F5F2EB;padding:76px 24px;border-bottom:3px solid #E2811E;">
+<section style="background:#F5F2EB;padding:76px 24px;border-bottom:3px solid #FF8200;">
   <div style="max-width:640px;margin:0 auto;text-align:center;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">OUR FAITH</p>
-    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT WE BELIEVE</h2>
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">OUR FAITH</p>
+    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT WE BELIEVE</h2>
     <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 32px;">We're a Christian church rooted in the Bible - Seventh-day Adventist, which means Saturday worship, whole-person health, and a handful of other distinctives that shape how we live.</p>
-    <a href="beliefs.html" style="display:inline-block;background:#1a1a1a;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">SEE WHAT WE BELIEVE →</a>
+    <a href="beliefs.html" style="display:inline-block;background:#3D3935;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">SEE WHAT WE BELIEVE →</a>
   </div>
 </section>
 
 <!-- ======= OUR COMMUNITY ======= -->
-<section style="background:white;padding:76px 24px;border-bottom:3px solid #E2811E;">
+<section style="background:white;padding:76px 24px;border-bottom:3px solid #FF8200;">
   <div style="max-width:1100px;margin:0 auto;">
-    <div style="max-width:640px;margin:0 auto 44px;text-align:center;">
-      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">OUR COMMUNITY</p>
-      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#1a1a1a;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">REAL PEOPLE, REAL MOMENTS</h2>
+    <div style="max-width:880px;margin:0 auto 44px;text-align:center;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">OUR COMMUNITY</p>
+      <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">REAL PEOPLE, REAL MOMENTS</h2>
       <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">A few snapshots of everyday life at Reedy Creek - Sabbath mornings, shared meals, and everything in between.</p>
     </div>
 
@@ -279,12 +284,12 @@
 </section>
 
 <!-- ======= CONNECTION TO THE WIDER CHURCH ======= -->
-<section style="background:#0b0a09;padding:72px 24px;border-bottom:3px solid #E2811E;">
+<section style="background:#2F2C29;padding:72px 24px;border-bottom:3px solid #FF8200;">
   <div style="max-width:720px;margin:0 auto;text-align:center;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">PART OF SOMETHING BIGGER</p>
-    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:white;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">OUR CONNECTION TO THE WIDER CHURCH</h2>
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">PART OF SOMETHING BIGGER</p>
+    <h2 class="wide-head" style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:white;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">OUR CONNECTION TO THE WIDER CHURCH</h2>
     <p style="font-size:1.05rem;color:#bbb;line-height:1.9;margin:0 0 32px;">We're part of the Seventh-day Adventist Church - a global Christian denomination founded in the 1860s and now active in over 200 countries. In Australia, we're connected through the South Queensland Conference and the Adventist Church Australia network. That means when you visit us, you're connecting with a local community that's also part of something much larger.</p>
-    <a href="https://www.adventist.org.au" target="_blank" rel="noopener" style="display:inline-block;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">EXPLORE THE ADVENTIST CHURCH →</a>
+    <a href="https://www.adventist.org.au" target="_blank" rel="noopener" style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">EXPLORE THE ADVENTIST CHURCH →</a>
   </div>
 </section>
 
@@ -293,36 +298,36 @@
   <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
 
     <div>
-      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#E2811E;margin:0 0 14px;font-weight:600;">VISIT US</p>
-      <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#1a1a1a;margin:0 0 28px;letter-spacing:0.1em;text-transform:uppercase;">WHERE & WHEN</h2>
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">VISIT US</p>
+      <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 28px;letter-spacing:0.1em;text-transform:uppercase;">WHERE & WHEN</h2>
 
       <div style="background:white;padding:28px;margin-bottom:20px;">
-        <p style="font-size:1.05rem;font-weight:700;color:#1a1a1a;margin:0 0 4px;">9 Bridgman Drive</p>
+        <p style="font-size:1.05rem;font-weight:700;color:#3D3935;margin:0 0 4px;">9 Bridgman Drive</p>
         <p style="font-size:1rem;color:#555;margin:0 0 18px;">Reedy Creek QLD 4227</p>
-        <a href="https://maps.google.com/maps?q=9+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank"
-           style="display:inline-block;background:#E2811E;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
+        <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank"
+           style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
       </div>
 
       <div style="background:white;padding:28px;margin-bottom:20px;">
         <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;">
           <span style="font-size:0.9rem;color:#777;">Sabbath School</span>
-          <span style="font-size:0.9rem;font-weight:700;color:#1a1a1a;">9:30am, Saturday</span>
+          <span style="font-size:0.9rem;font-weight:700;color:#3D3935;">9:30am, Saturday</span>
         </div>
         <div style="display:flex;justify-content:space-between;padding:8px 0;">
           <span style="font-size:0.9rem;color:#777;">Church Service</span>
-          <span style="font-size:0.9rem;font-weight:700;color:#1a1a1a;">10:45am, Saturday</span>
+          <span style="font-size:0.9rem;font-weight:700;color:#3D3935;">10:45am, Saturday</span>
         </div>
       </div>
 
       <div style="display:flex;gap:14px;flex-wrap:wrap;">
-        <a href="mailto:AndrewFeaveai@adventist.org.au" style="display:inline-block;background:#1a1a1a;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">EMAIL →</a>
-        <a href="https://wa.me/61405684770" target="_blank" style="display:inline-block;background:transparent;color:#1a1a1a;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid #ccc;">WHATSAPP →</a>
+        <a href="mailto:AndrewFeaveai@adventist.org.au" style="display:inline-block;background:#3D3935;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;">EMAIL →</a>
+        <a href="https://wa.me/61405684770" target="_blank" style="display:inline-block;background:transparent;color:#3D3935;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border:1px solid #ccc;">WHATSAPP →</a>
       </div>
     </div>
 
     <div style="border-radius:2px;overflow:hidden;">
       <iframe
-        src="https://maps.google.com/maps?q=9+Bridgman+Drive+Reedy+Creek+QLD+4227&output=embed&z=15"
+        src="https://maps.google.com/maps?q=Reedy+Creek+Seventh-day+Adventist+Church,+9+Bridgman+Drive,+Reedy+Creek+QLD+4227&output=embed&z=15"
         width="100%" height="380" style="border:0;display:block;"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
@@ -331,57 +336,93 @@
   </div>
 </section>
 
+<!-- ======= BULLETIN + GIVE ======= -->
+<section style="background:#F5F2EB;padding:64px 24px;border-top:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+
+    <!-- Weekly bulletin sign-up -->
+    <div style="background:white;padding:40px;display:flex;flex-direction:column;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 12px;font-weight:600;">EVERY WEEK, BEFORE SABBATH</p>
+      <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:800;color:#3D3935;margin:0 0 12px;">Get the Weekly Bulletin</h2>
+      <p style="font-size:0.95rem;color:#666;line-height:1.75;margin:0 0 16px;">Our church bulletin lands in your inbox each week, with:</p>
+      <ul style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:9px;font-size:0.92rem;color:#3D3935;">
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>A short devotional from our pastor</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Service times and this week's speaker</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>The week's Sabbath School lesson</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
+        <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
+      </ul>
+      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+        <input type="hidden" name="ml-submit" value="1" />
+        <input type="hidden" name="anticsrf" value="true" />
+        <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
+        <div style="display:flex;gap:8px;">
+          <input id="bulletin-email" type="email" name="fields[email]" required autocomplete="email" style="flex:1;padding:12px 14px;border:1px solid #ccc;background:white;font-size:0.9rem;min-width:0;" />
+          <button type="submit" style="background:#FF8200;color:white;padding:12px 22px;border:none;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;">Sign Me Up</button>
+        </div>
+        <p style="font-size:0.78rem;color:#888;margin:10px 0 0;">Free, and you can unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <!-- Giving -->
+    <div style="background:#3D3935;padding:40px;display:flex;flex-direction:column;">
+      <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 12px;font-weight:600;">GIVE</p>
+      <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem);font-weight:800;color:white;margin:0 0 12px;">Support Our Church</h2>
+      <p style="font-size:0.95rem;color:#D8D3CD;line-height:1.75;margin:0 0 14px;">Giving is never expected. It's always your choice.</p>
+      <p style="font-size:0.95rem;color:#D8D3CD;line-height:1.75;margin:0 0 24px;">But every gift helps keep our church running and grows its mission, here on the Gold Coast and around the world.</p>
+      <blockquote style="margin:0 0 28px;padding:0 0 0 16px;border-left:3px solid #FF8200;">
+        <p style="font-size:0.95rem;color:white;font-style:italic;line-height:1.7;margin:0 0 6px;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+        <p style="font-size:0.8rem;color:#B3ADA6;margin:0;">2 Corinthians 9:7</p>
+      </blockquote>
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" style="margin-top:auto;align-self:flex-start;display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:15px 36px;">GIVE ONLINE →</a>
+      <p style="font-size:0.78rem;color:#B3ADA6;margin:12px 0 0;">Secure giving through eGiving, the Adventist Church's giving platform.</p>
+    </div>
+
+  </div>
+</section>
 <!-- ======= FOOTER ======= -->
-<footer style="background-color:#2a2a2a;padding:48px 24px 0;">
+<footer style="background-color:#3D3935;padding:48px 24px 0;">
   <div style="max-width:1100px;margin:0 auto;">
     <div style="display:flex;gap:40px;flex-wrap:wrap;margin-bottom:28px;">
       <a href="index.html" class="footer-logo" style="flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;" aria-label="Reedy Creek Adventist Church - home">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148.13 132.98" style="height:90px;width:auto;">
-          <path fill="#E2811E" d="M88.1,76.92c-6,6-8.88,8.84-10.38,16.1-.11.54-.73.54-.73,0v-8.9c0-5.7,5.08-10.92,11.13-17L93,62.28c6.82-6.82,8.46-14.72,3-19.41-.45-.39-.22-.87.38-.6,6.76,3.08,12.09,14.28.5,25.87ZM77,99.78v9c0,.54.62.54.73,0,1.5-7.26,4.39-10.17,10.38-16.16l9.49-9.47c11.59-11.59,13.6-22.81,7.7-30-.39-.48-.82-.19-.56.39,3.9,8.82-5.45,18.17-9.9,22.62L88.1,82.81C82,88.86,77,94.08,77,99.78ZM51.26,71c-11.59,11.59-6.26,22.79.5,25.87.59.27.83-.21.38-.6-5.42-4.7-3.78-12.6,3-19.41L74.44,57.55c6.05-6.05,11.13-11.27,11.13-17v-8.9c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.11-10.38,16.1Zm34.34-46V16c0-.54-.62-.54-.73,0-1.5,7.26-4.39,10.17-10.38,16.16L50.6,56C39,67.58,37,78.79,42.9,86c.39.48.82.19.56-.39-3.9-8.82,5.45-18.17,9.9-22.62l21.1-21.1C80.52,35.84,85.6,30.63,85.6,24.92Zm-37.51,18c-10,10-11.36,20.51-9.23,27.39.18.58.69.62.68,0,0-5.78,1.61-10.75,12.16-21.29L74.44,26.27C80.49,20.22,85.58,15,85.58,9.3V.41c0-.54-.62-.54-.73,0-1.5,7.26-4.4,10.12-10.39,16.11ZM62,115a.36.36,0,0,1-.36-.36v-5.16a.36.36,0,0,1,.36-.36h8.73a.36.36,0,0,0,.36-.36c0-4.64-3.52-7.79-17.52-5.35l-30.24,5.2s-23,23-23.22,23.25a.48.48,0,0,0,.41.81c.42,0,50.31-8.66,50.31-8.66,11.45-1.93,17.7,3.52,19.56,8.62.17.45.7.38.7,0s0-17.22,0-17.22a.36.36,0,0,0-.36-.36Zm36.09-11-10,10C82.07,120.12,77,125.34,77,131v1.59c0,.43.54.5.7,0,1.87-5.11,8.11-10.56,19.56-8.62,0,0,49.89,8.62,50.31,8.66a.48.48,0,0,0,.41-.81c-.19-.22-23.22-23.25-23.22-23.25Zm11.19-35.25c-.18-.58-.69-.62-.68,0,0,5.78-1.61,10.75-12.16,21.29l-8.34,8.34c-3.8,3.8-7.21,7.26-9.23,10.73h8.24l1-1,12-12C110,86.24,111.44,75.69,109.31,68.81ZM77,124.3c0,.54.62.54.73,0a21.4,21.4,0,0,1,4-9.25h-4.4a.36.36,0,0,0-.36.36Z"/>
-        </svg>
-        <img loading="lazy" src="branding/rc-script-white.png" alt="Reedy Creek" width="140" height="39" style="width:140px;height:auto;opacity:0.8;display:block;" />
+        <img loading="lazy" src="branding/rc-alternate-light.svg" alt="Reedy Creek Seventh-day Adventist Church" width="170" height="157" style="width:170px;height:auto;display:block;" />
       </a>
       <div style="flex:1;display:flex;flex-wrap:wrap;gap:36px;">
-        <div style="width:100%;height:1px;background:#3a3a3a;margin-bottom:4px;"></div>
+        <div style="width:100%;height:1px;background:#57524C;margin-bottom:4px;"></div>
         <div style="min-width:150px;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Address</h3>
-          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
+          <p style="color:#B3ADA6;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">
             9 Bridgman Drive<br>Reedy Creek QLD 4227<br>Australia
           </p>
-          <a href="https://maps.google.com/maps?q=9+Bridgman+Drive+Reedy+Creek+QLD+4227" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
+          <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="footer-link">Get directions &rarr;</a>
         </div>
         <div style="min-width:160px;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Service Times</h3>
           <ul style="list-style:none;margin:0;padding:0;font-size:0.82rem;">
             <li style="margin-bottom:10px;display:flex;gap:10px;">
               <span style="color:#aaa;min-width:76px;">Sat, 9:30am</span>
-              <span style="color:#888;">Sabbath School</span>
+              <span style="color:#B3ADA6;">Sabbath School</span>
             </li>
             <li style="display:flex;gap:10px;">
               <span style="color:#aaa;min-width:76px;">Sat, 10:45am</span>
-              <span style="color:#888;">Church Service</span>
+              <span style="color:#B3ADA6;">Church Service</span>
             </li>
           </ul>
         </div>
-        <div style="min-width:160px;">
-          <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Give</h3>
-          <p style="color:#888;font-size:0.82rem;line-height:1.8;margin:0 0 6px;">Support the mission and ministry of our church.</p>
-          <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="footer-link">Give online &rarr;</a>
-        </div>
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:120px;">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:120px;margin-left:auto;">
           <h3 style="color:white;font-size:0.85rem;font-weight:600;margin:0 0 14px;">Follow Us</h3>
           <div style="display:flex;gap:10px;justify-content:center;">
-            <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#777;display:flex;" title="Facebook">
+            <a href="https://facebook.com/ReedyCreekSeventhDayAdventistChurch" target="_blank" style="color:#A39D96;display:flex;" title="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"><path fill="currentColor" d="M24,0v24H0V0H24z M20,2.7h-3.3c-2.5,0-4.7,2.1-4.7,4.7v3.3H9.3v4H12V24h4v-9.3h4v-4h-4V8c0-0.8,0.5-1.3,1.3-1.3H20V2.7z"/></svg>
             </a>
-            <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#777;display:flex;" title="Instagram">
+            <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" style="color:#A39D96;display:flex;" title="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
               </svg>
             </a>
-            <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#777;display:flex;" title="YouTube">
+            <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ" target="_blank" style="color:#A39D96;display:flex;" title="YouTube">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                 <polygon fill="currentColor" points="10.7,9.1 14.5,12 10.7,14.9"/>
                 <path fill="currentColor" d="M24,0H0v24h24.1L24,0z M18.8,18.4c-0.5,0.1-3.6,0.3-6.8,0.3s-6.3,0-6.8-0.3C3.9,18,3.5,15.1,3.5,12s0.4-6,1.7-6.4C5.7,5.3,8.9,5.2,12,5.2s6.3,0.1,6.8,0.3c1.3,0.4,1.7,3.3,1.7,6.4C20.4,15.1,20.1,18,18.8,18.4z"/>
@@ -392,12 +433,12 @@
       </div>
     </div>
   </div>
-  <div style="background-color:#1e1e1e;padding:14px 24px;">
+  <div style="background-color:#2F2C29;padding:14px 24px;">
     <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-      <div style="font-size:0.78rem;color:#555;">
+      <div style="font-size:0.78rem;color:#A39D96;">
         © 2026 Reedy Creek Seventh-day Adventist Church
         <span style="margin:0 6px;">|</span>
-        <a href="privacy.html" style="color:#555;">Privacy Policy</a>
+        <a href="privacy.html" style="color:#A39D96;">Privacy Policy</a>
       </div>
     </div>
   </div>
