@@ -114,7 +114,7 @@ body { text-wrap: balance; }
   footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > [style*="height:1px"] { grid-column: 1 / -1; justify-self: stretch; }
   footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > a.footer-link { grid-column: 1 / -1; }
   /* Address + Service Times share a row; Follow Us gets its own row below */
-  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > :last-child { grid-column: 1 / -1; margin-left: 0 !important; }
+  footer [style*="flex:1;display:flex;flex-wrap:wrap;gap:36px"] > :last-child { grid-column: 1 / -1; }
   footer li[style*="display:flex"] { flex-direction: column; align-items: center; gap: 0 !important; }
   footer li[style*="display:flex"] span { min-width: 0 !important; }
   footer ul[style*="display:flex"] { flex-direction: column; align-items: center; gap: 10px !important; }
