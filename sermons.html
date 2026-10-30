@@ -216,7 +216,12 @@
     try {
       const res = await fetch('sermons.json', { cache: 'no-cache' });
       if (!res.ok) return;
-      const list = (await res.json()).sermons || [];
+      // One message per Sabbath: a second upload within 3 days (e.g. livestream + edited copy) is skipped
+      const list = [];
+      for (const s of (await res.json()).sermons || []) {
+        const t = new Date(s.published);
+        if (!list.some(k => Math.abs(new Date(k.published) - t) < 3 * 864e5)) list.push(s);
+      }
       if (!list.length) return;
       document.getElementById('sermon-main').src = 'https://www.youtube.com/embed/' + list[0].id + '?rel=0';
       const earlier = list.slice(1, 4);
