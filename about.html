@@ -115,8 +115,14 @@
       font-weight: 500;
       padding: 28px 16px 12px;
     }
+    /* Our Story numbers */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
+    .stat { background: white; padding: 26px 16px; border-top: 3px solid #FF8200; }
+    .stat-num { display: block; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: #3D3935; line-height: 1; font-variant-numeric: tabular-nums; }
+    .stat-label { display: block; font-size: 0.85rem; color: #666; line-height: 1.5; margin-top: 10px; }
+    @media (max-width: 560px) { .stats { grid-template-columns: 1fr; gap: 12px; } }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=4">
+  <link rel="stylesheet" href="mobile.css?v=6">
 </head>
 <body>
 
@@ -211,6 +217,12 @@
     <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">HOW WE GOT HERE</h2>
     <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Our church has been part of the Reedy Creek and Gold Coast community since 1983 - more than four decades. Over that time we've grown from a small group of families into a congregation of around 100 people, and we still feel like a family.</p>
     <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">Every Saturday night at 6:30, a team from our church takes the LifeBoat food van down to Burleigh Beach. We bring homemade soup and bread from local bakeries for people sleeping rough. It's all part of our <a href="https://lighthousecs.org.au/" target="_blank" rel="noopener" style="color:#FF8200;text-decoration:underline;text-underline-offset:3px;">Lighthouse initiative</a> - and there's a large lighthouse standing in one of our church rooms as a reminder of why we keep showing up. No announcement, no fanfare; it just happens, week after week.</p>
+    <!-- Numbers that count up when they scroll into view -->
+    <div class="stats">
+      <div class="stat"><span class="stat-num" data-to="1983">1983</span><span class="stat-label">Part of Reedy Creek since</span></div>
+      <div class="stat"><span class="stat-num" data-to="100" data-prefix="~">~100</span><span class="stat-label">People in our church family</span></div>
+      <div class="stat"><span class="stat-num">Every</span><span class="stat-label">Saturday night at Burleigh Beach</span></div>
+    </div>
   </div>
 </section>
 
@@ -445,6 +457,30 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Count the Our Story numbers up from a lower start when they come into view
+  (function () {
+    var nums = [].slice.call(document.querySelectorAll('.stat-num[data-to]'));
+    if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function run(el) {
+      var to = +el.dataset.to, pre = el.dataset.prefix || '', from = to > 1000 ? to - 60 : 0, t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1400, 1), eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + Math.round(from + (to - from) * eased);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      setTimeout(function () { el.textContent = pre + to; }, 1600);   // always finish on the real number
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    // the real numbers stay in place until the count starts, so nothing is ever shown wrong
+    nums.forEach(function (n) { io.observe(n); });
+  })();
+</script>
 
 <script src="nav.js"></script>
 </body>

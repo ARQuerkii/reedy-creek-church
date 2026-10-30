@@ -83,6 +83,46 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Arrows at the end of buttons and links get their own span so they can nudge on hover
+  [].forEach.call(document.querySelectorAll('a, button'), function (el) {
+    var last = el.lastChild;
+    if (last && last.nodeType === 3 && /→\s*$/.test(last.nodeValue)) {
+      last.nodeValue = last.nodeValue.replace(/→\s*$/, '');
+      var arrow = document.createElement('span');
+      arrow.className = 'arw';
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '→';
+      el.appendChild(arrow);
+    }
+  });
+
+  // Headings and cards fade up as they scroll into view, a beat apart within a row.
+  // Anything already on screen when the page loads is left alone, so nothing flickers.
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealSel = 'section h2, .ministry-card, .give-card, .hub-card, .earlier-card, .insta-grid > a, .belief-card, .flow-step, .stat';
+    var reveal = [].filter.call(document.querySelectorAll(revealSel), function (el) {
+      return !el.closest('footer, nav, .photo-strip, .sched, body > section:first-of-type') &&
+        el.getBoundingClientRect().top > window.innerHeight;
+    });
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        el.classList.add('rv-in');
+        revealObs.unobserve(el);
+        // once it's in, drop the stagger so hover effects respond straight away
+        setTimeout(function () { el.style.transitionDelay = ''; el.classList.remove('rv', 'rv-in'); }, 1200);
+      });
+    }, { threshold: 0.15 });
+    reveal.forEach(function (el) {
+      var siblings = [].filter.call(el.parentNode.children, function (c) { return reveal.indexOf(c) > -1; });
+      el.style.transitionDelay = Math.min(siblings.indexOf(el), 5) * 0.08 + 's';
+      el.classList.add('rv');
+      revealObs.observe(el);
+    });
+  }
+
   var fitTimer;
   window.addEventListener('resize', function () {
     clearTimeout(fitTimer);

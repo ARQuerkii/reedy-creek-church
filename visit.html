@@ -184,8 +184,90 @@
       line-height: 1.75;
       margin: 0;
     }
+    /* ---- What to Expect: steps light up as you scroll; the photo follows ---- */
+    .expect { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: start; }
+    .expect .step-row { opacity: 0.4; transition: opacity 0.5s ease; position: relative; }
+    .expect .step-row::before { content: ''; position: absolute; left: -20px; top: 28px; bottom: 28px; width: 3px; background: #FF8200; transform: scaleY(0); transform-origin: top; transition: transform 0.5s ease; }
+    .expect .step-row.lit { opacity: 1; }
+    .expect .step-row.active::before { transform: scaleY(1); }
+    .expect-photo { position: sticky; top: 96px; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 6px; background: #2F2C29; box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
+    .expect-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.04); transition: opacity 0.6s ease, transform 1.2s ease; }
+    .expect-img.on { opacity: 1; transform: none; }
+    @media (max-width: 860px) {
+      .expect { grid-template-columns: 1fr; }
+      .expect-photo { display: none; }
+      .expect .step-row::before { left: -12px; }
+    }
+
+    /* ---- Getting in: numbered stops in driving order beside one big photo ---- */
+    /* stop list | photo | map, all in view at once */
+    .drive { display: grid; grid-template-columns: 270px 1fr; gap: 28px; align-items: center; }
+    .drive-list { order: -1; }
+    /* column widths follow each image's shape (4:3 photo, 1000x1461 map), so the two come out the same height */
+    .drive-media { display: grid; grid-template-columns: 4fr 2.053fr; gap: 12px; }
+    .drive-media > * { min-width: 0; }
+    .drive-photo { position: relative; overflow: hidden; border-radius: 6px; background: #eee; }
+    .drive-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
+    .drive-img.on { opacity: 1; }
+    .drive-nav { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; padding: 14px; background: linear-gradient(to top, rgba(20,18,16,0.75), transparent); }
+    .drive-nav button { width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; background: rgba(61,57,53,0.85); color: white; font-size: 1.1rem; cursor: pointer; transition: background 0.2s ease; }
+    .drive-nav button:hover, .drive-nav button:focus-visible { background: #FF8200; outline: none; }
+    .drive-count { color: white; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .drive-list ol { list-style: none; margin: 0; padding: 0; }
+    .drive-group { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #FF8200; font-weight: 600; margin: 16px 0 4px 15px; }
+    .drive-list > div:first-child .drive-group { margin-top: 0; }
+    /* the current stop's details show on the photo on smaller screens (filled in by the script) */
+    .drive-cap { position: absolute; margin: 0; left: 0; right: 0; bottom: 0; padding: 40px 14px 66px; background: linear-gradient(to top, rgba(20,18,16,0.85), transparent); color: white; pointer-events: none; }
+    .drive-cap strong { display: block; font-size: 0.95rem; }
+    .drive-cap .drive-desc { display: block; font-size: 0.8rem; line-height: 1.5; color: rgba(255,255,255,0.9); }
+    .drive-stop { display: flex; gap: 14px; align-items: flex-start; width: 100%; text-align: left; background: none; border: none; border-left: 3px solid transparent; padding: 10px 12px; font: inherit; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
+    .drive-stop:hover, .drive-stop:focus-visible { background: #F5F2EB; outline: none; }
+    .drive-stop.on { background: #F5F2EB; border-left-color: #FF8200; }
+    .drive-num { flex: 0 0 28px; height: 28px; border-radius: 50%; border: 2px solid #FF8200; color: #FF8200; font-size: 0.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; transition: background 0.2s ease, color 0.2s ease; }
+    .drive-stop.on .drive-num { background: #FF8200; color: white; }
+    .drive-stop strong { display: block; font-size: 0.95rem; color: #3D3935; margin-bottom: 2px; }
+    .drive-desc { display: block; font-size: 0.84rem; color: #666; line-height: 1.6; }
+    /* Aerial map under the photo: pins drop in, and the current stop's pin grows and pulses */
+    .drive-map { position: relative; }
+    .drive-map img { display: block; width: 100%; height: auto; border-radius: 6px; background: #ddd; }
+    .drive-pin { position: absolute; width: 34px; height: 34px; margin: 0; padding: 0; border: none; background: none; cursor: pointer; transform: translate(-50%, -100%); transform-origin: 50% 100%; opacity: 0; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; z-index: 1; }
+    .drive-pin::before { content: ''; position: absolute; inset: 0; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: white; border: 2px solid #3D3935; box-shadow: 0 3px 8px rgba(0,0,0,0.45); transition: background 0.25s ease, border-color 0.25s ease; }
+    .drive-pin span { position: relative; display: block; line-height: 30px; font-size: 0.85rem; font-weight: 800; color: #3D3935; transition: color 0.25s ease; }
+    .drive-pin::after { content: ''; position: absolute; left: 50%; bottom: -6px; width: 14px; height: 6px; margin-left: -7px; border-radius: 50%; border: 2px solid #FF8200; opacity: 0; }
+    .drive-map.in .drive-pin { opacity: 0.9; transform: translate(-50%, -100%); }
+    .drive-map:not(.in) .drive-pin { transform: translate(-50%, -260%); }
+    .drive-map.in .drive-pin.on { opacity: 1; transform: translate(-50%, -100%) scale(1.3); z-index: 2; }
+    .drive-pin.on::before { background: #FF8200; border-color: white; }
+    .drive-pin.on span { color: white; }
+    .drive-map.in .drive-pin.on::after { animation: pin-pulse 1.6s ease-out infinite; }
+    .drive-pin:hover::before, .drive-pin:focus-visible::before { border-color: #FF8200; }
+    .drive-pin:focus-visible { outline: none; }
+    @keyframes pin-pulse { 0% { opacity: 0.9; transform: scale(0.6); } 100% { opacity: 0; transform: scale(2.6); } }
+    .drive-road { position: absolute; left: 28%; top: 13%; transform: translate(-50%, -50%) rotate(-27deg); white-space: nowrap; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.9); pointer-events: none; }
+    /* side by side: the list shows names only (the details sit on the photo), so it never changes
+       height and nothing moves under the cursor; the section runs wider than the text column so the photos can be taller */
+    @media (min-width: 861px) {
+      .drive { grid-template-columns: 275px 1fr; margin: 0 calc(50% - min(620px, 50vw - 24px)); }
+      .drive-stop { padding: 9px 12px; }
+      .drive-list .drive-desc { display: none; }
+    }
+    @media (max-width: 860px) {
+      .drive { grid-template-columns: 1fr; }
+      .drive-list { order: 0; }
+    }
+    /* phones: side by side the map would be tiny, so it sits under the photo,
+       sized so the photo and the whole map fit on screen together (80px for the nav bar) */
+    @media (max-width: 560px) {
+      .drive-media { grid-template-columns: 1fr; gap: 8px; }
+      .drive-photo { aspect-ratio: 4 / 3; }
+      .drive-map { justify-self: center; width: min(100%, calc((100vh - 80px - 75vw) * 0.684)); width: min(100%, calc((100svh - 80px - 75vw) * 0.684)); }
+      .drive-pin { width: 28px; height: 28px; }
+      .drive-pin span { line-height: 24px; font-size: 0.75rem; }
+      .drive-road { font-size: 0.55rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { .expect-img, .drive-img, .drive-pin, .expect .step-row, .expect .step-row::before { transition: none; } .drive-pin.on::after { animation: none !important; } }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=4">
+  <link rel="stylesheet" href="mobile.css?v=6">
 </head>
 <body>
 
@@ -353,53 +435,61 @@
     <div style="max-width:640px;margin:0 auto 44px;text-align:center;">
       <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">NO GUESSWORK</p>
       <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.08em;text-transform:uppercase;">GETTING IN &amp; PARKING</h2>
-      <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">There are two driveways off Bridgman Drive and a few places to park once you're in. Here's what each one actually looks like, so you're not second-guessing at the gate.</p>
+      <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">There are two driveways off Bridgman Drive and a few places to park once you're in. Here's what each one actually looks like - step through them in the order you'll drive in.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-lower-entry-from-road.jpg" alt="The lower driveway entrance seen from Bridgman Drive" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+    <div class="drive">
+      <!-- Photo and map side by side at the same height, so both stay in view together -->
+      <div class="drive-media">
+      <div class="drive-photo">
+        <img src="images/parking-lower-entry-from-road.jpg" alt="The lower driveway entrance seen from Bridgman Drive" class="drive-img on" data-i="0" loading="lazy" />
+        <img src="images/parking-lower-gate.jpg" alt="The lower entrance gate, open, looking into the car park" class="drive-img" data-i="1" loading="lazy" />
+        <img src="images/parking-lower-carpark.jpg" alt="The lower level car park" class="drive-img" data-i="2" loading="lazy" />
+        <img src="images/parking-upper-entry.jpg" alt="The upper entrance at Gate 3, with the church sign" class="drive-img" data-i="3" loading="lazy" />
+        <img src="images/parking-upper-carpark.jpg" alt="Parking along the upper level of the property" class="drive-img" data-i="4" loading="lazy" />
+        <img src="images/parking-back-carpark.jpg" alt="The car park at the rear of the property" class="drive-img" data-i="5" loading="lazy" />
+        <p class="drive-cap" aria-hidden="true"></p>
+        <div class="drive-nav">
+          <button type="button" class="drive-prev" aria-label="Previous stop">&larr;</button>
+          <span class="drive-count" aria-live="polite">Stop 1 of 6</span>
+          <button type="button" class="drive-next" aria-label="Next stop">&rarr;</button>
         </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Lower entrance, from the road.</strong> Coming along Bridgman Drive, this is the first driveway you'll reach.</figcaption>
-      </figure>
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-lower-gate.jpg" alt="The lower entrance gate, open, looking into the car park" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+      </div>
+      <!-- Aerial map of the grounds; pins sit at % positions on the image -->
+      <div class="drive-map">
+        <img src="images/parking-map.jpg" alt="Aerial map of the church grounds with each parking stop numbered" width="1000" height="1461" loading="lazy" />
+        <button type="button" class="drive-pin on" data-i="0" style="left:65.7%;top:8.4%;" aria-label="Stop 1: Lower entrance, from the road"><span>1</span></button>
+        <button type="button" class="drive-pin" data-i="1" style="left:73.1%;top:11%;" aria-label="Stop 2: Through the lower gate"><span>2</span></button>
+        <button type="button" class="drive-pin" data-i="2" style="left:67.8%;top:33.4%;" aria-label="Stop 3: Lower car park"><span>3</span></button>
+        <button type="button" class="drive-pin" data-i="3" style="left:15.5%;top:29.6%;" aria-label="Stop 4: Upper entrance - Gate 3"><span>4</span></button>
+        <button type="button" class="drive-pin" data-i="4" style="left:37.2%;top:30.5%;" aria-label="Stop 5: Upper side parking"><span>5</span></button>
+        <button type="button" class="drive-pin" data-i="5" style="left:47.4%;top:94.8%;" aria-label="Stop 6: Back car park"><span>6</span></button>
+        <span class="drive-road">Bridgman Drive</span>
+      </div>
+      </div>
+      <div class="drive-list">
+        <div>
+        <p class="drive-group">Lower driveway</p>
+        <ol start="1">
+        <li><button type="button" class="drive-stop on" data-i="0" aria-pressed="true"><span class="drive-num">1</span><span><strong>Lower entrance, from the road</strong><span class="drive-desc">Coming along Bridgman Drive, this is the first driveway you'll reach.</span></span></button></li>
+        <li><button type="button" class="drive-stop" data-i="1" aria-pressed="false"><span class="drive-num">2</span><span><strong>Through the lower gate</strong><span class="drive-desc">It opens straight onto a wide, flat car park - you'll usually spot the Lighthouse bus parked here.</span></span></button></li>
+        <li><button type="button" class="drive-stop" data-i="2" aria-pressed="false"><span class="drive-num">3</span><span><strong>Lower car park</strong><span class="drive-desc">The largest of the parking areas, and the easiest to get in and out of.</span></span></button></li>
+        </ol>
         </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Through the lower gate.</strong> It opens straight onto a wide, flat car park - you'll usually spot the Lighthouse bus parked here.</figcaption>
-      </figure>
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-lower-carpark.jpg" alt="The lower level car park" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        <div>
+        <p class="drive-group">Upper driveway</p>
+        <ol start="4">
+        <li><button type="button" class="drive-stop" data-i="3" aria-pressed="false"><span class="drive-num">4</span><span><strong>Upper entrance - Gate 3</strong><span class="drive-desc">Look for the lit Seventh-day Adventist sign; the gate is marked "Gate 3".</span></span></button></li>
+        <li><button type="button" class="drive-stop" data-i="4" aria-pressed="false"><span class="drive-num">5</span><span><strong>Upper side parking</strong><span class="drive-desc">Closest to the top entrance.</span></span></button></li>
+        </ol>
         </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Lower car park.</strong> The largest of the parking areas, and the easiest to get in and out of.</figcaption>
-      </figure>
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-upper-entry.jpg" alt="The upper entrance at Gate 3, with the church sign" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
+        <div>
+        <p class="drive-group">When the front fills up</p>
+        <ol start="6">
+        <li><button type="button" class="drive-stop" data-i="5" aria-pressed="false"><span class="drive-num">6</span><span><strong>Back car park</strong><span class="drive-desc">Extra space around the rear - handy when the front fills up.</span></span></button></li>
+        </ol>
         </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Upper entrance - Gate 3.</strong> Look for the lit Seventh-day Adventist sign; the gate is marked "Gate 3".</figcaption>
-      </figure>
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-upper-carpark.jpg" alt="Parking along the upper level of the property" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
-        </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Upper side parking.</strong> Closest to the top entrance.</figcaption>
-      </figure>
-
-      <figure style="margin:0;">
-        <div style="overflow:hidden;aspect-ratio:4/3;background:#eee;">
-          <img src="images/parking-back-carpark.jpg" alt="The car park at the rear of the property" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" />
-        </div>
-        <figcaption style="font-size:0.85rem;color:#666;line-height:1.6;margin-top:10px;"><strong style="color:#3D3935;">Back car park.</strong> Extra space around the rear - handy when the front fills up.</figcaption>
-      </figure>
-
+      </div>
     </div>
 
     <p style="font-size:0.9rem;color:#666;line-height:1.8;text-align:center;max-width:640px;margin:36px auto 0;">Still not sure? Pull in anywhere and someone will point you in the right direction - there's always a greeter near the entrance on a Saturday morning.</p>
@@ -431,7 +521,8 @@
       <p style="font-size:1rem;color:#aaa;line-height:1.8;margin:0;">A step-by-step of what actually happens from the moment you arrive - so there are no unknowns.</p>
     </div>
 
-    <div style="max-width:720px;margin:0 auto;">
+    <div class="expect">
+      <div class="expect-steps">
 
       <div class="step-row" style="border-bottom:1px solid #57524C;">
         <div class="step-time">Arriving</div>
@@ -481,6 +572,15 @@
         </div>
       </div>
 
+      </div>
+      <div class="expect-photo" aria-hidden="true">
+        <img src="images/507754603_1154602580041121_2879583699485074017_n.jpg" alt="" class="expect-img on" style="object-position:center 35%;" loading="lazy" />
+        <img src="images/schedule/prayer.jpg" alt="" class="expect-img" style="object-position:center 55%;" loading="lazy" />
+        <img src="images/schedule/sabbath-school.jpg" alt="" class="expect-img" style="object-position:center 35%;" loading="lazy" />
+        <img src="images/schedule/intermission.jpg?v=2" alt="" class="expect-img" style="object-position:center;" loading="lazy" />
+        <img src="images/schedule/service.jpg?v=2" alt="" class="expect-img" style="object-position:center;" loading="lazy" />
+        <img src="images/lunch-2026-09-05a.jpg" alt="" class="expect-img" style="object-position:center 40%;" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
@@ -851,6 +951,68 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
+  // Getting in: pick a stop (or step through with the arrows) to see that spot
+  (function () {
+    var stops = [].slice.call(document.querySelectorAll('.drive-stop'));
+    var imgs = [].slice.call(document.querySelectorAll('.drive-img'));
+    var pins = [].slice.call(document.querySelectorAll('.drive-pin'));
+    var map = document.querySelector('.drive-map');
+    var count = document.querySelector('.drive-count');
+    var cap = document.querySelector('.drive-cap');
+    if (!stops.length) return;
+    var cur = 0;
+    function go(i) {
+      cur = (i + stops.length) % stops.length;
+      stops.forEach(function (s, j) { s.classList.toggle('on', j === cur); s.setAttribute('aria-pressed', j === cur); });
+      imgs.forEach(function (im, j) { im.classList.toggle('on', j === cur); });
+      pins.forEach(function (p, j) { p.classList.toggle('on', j === cur); });
+      cap.innerHTML = '';
+      cap.append(stops[cur].querySelector('strong').cloneNode(true), stops[cur].querySelector('.drive-desc').cloneNode(true));
+      count.textContent = 'Stop ' + (cur + 1) + ' of ' + stops.length;
+    }
+    stops.concat(pins).forEach(function (s) {
+      var i = +s.dataset.i;
+      s.addEventListener('click', function () { go(i); });
+      s.addEventListener('mouseenter', function () { if (matchMedia('(hover: hover)').matches) go(i); });
+    });
+    // pins drop onto the map one after another when it scrolls into view
+    if (map) {
+      pins.forEach(function (p, j) { p.style.transitionDelay = j * 0.1 + 's'; });
+      var settle = function () { pins.forEach(function (p) { p.style.transitionDelay = ''; }); };
+      if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var mio = new IntersectionObserver(function (e) {
+          if (e[0].isIntersecting) { map.classList.add('in'); mio.disconnect(); setTimeout(settle, 1200); }
+        }, { threshold: 0.25 });
+        mio.observe(map);
+      } else { map.classList.add('in'); settle(); }
+    }
+    document.querySelector('.drive-prev').addEventListener('click', function () { go(cur - 1); });
+    document.querySelector('.drive-next').addEventListener('click', function () { go(cur + 1); });
+    go(0);
+  })();
+
+  // What to Expect: as you scroll, each step lights up and the photo follows; hovering a step shows its photo too
+  (function () {
+    var rows = [].slice.call(document.querySelectorAll('.expect .step-row'));
+    var imgs = [].slice.call(document.querySelectorAll('.expect-img'));
+    if (!rows.length) return;
+    var scrolled = 0;
+    function show(i) {
+      rows.forEach(function (r, j) { r.classList.toggle('active', j === i); r.classList.toggle('lit', j <= Math.max(i, scrolled)); });
+      imgs.forEach(function (im, j) { im.classList.toggle('on', j === i); });
+    }
+    if (!('IntersectionObserver' in window)) { rows.forEach(function (r) { r.classList.add('lit'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { var i = rows.indexOf(e.target); scrolled = Math.max(scrolled, i); show(i); }
+      });
+    }, { rootMargin: '-40% 0px -45% 0px' });
+    rows.forEach(function (r, i) {
+      io.observe(r);
+      r.addEventListener('mouseenter', function () { show(i); });
+    });
+    show(0);
+  })();
 </script>
 
 <script src="nav.js"></script>

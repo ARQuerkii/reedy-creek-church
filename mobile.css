@@ -9,6 +9,19 @@
 /* Text that wraps splits into even lines, so no line is left with just a word or two
    (browsers only balance up to ~6 lines; longer paragraphs wrap normally) */
 body { text-wrap: balance; }
+/* ---------- All widths: gentle motion (nav.js adds these classes) ---------- */
+/* Headings and cards fade up as they scroll into view */
+.rv { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.rv.rv-in { opacity: 1; transform: none; }
+/* The arrow on buttons and links nudges right on hover */
+.arw { display: inline-block; transition: transform 0.2s ease; }
+a:hover .arw, a:focus-visible .arw, button:hover .arw { transform: translateX(4px); }
+@media (prefers-reduced-motion: reduce) { .arw { transition: none; } }
+
+/* The dropdown triggers (About Us, Ministries) reset their padding, which pulled their hover
+   underline up against the text; give them the same gap as the plain nav links */
+.nav-link.nav-dropdown-trigger { padding-bottom: 3px; line-height: inherit; }
+
 /* Dropdown menu items stay on one line however long the label */
 .nav-dropdown-item { white-space: nowrap; }
 /* A heading allowed to run wider than the narrow text column it sits in (capped to the screen) */

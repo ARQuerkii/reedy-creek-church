@@ -234,20 +234,61 @@
     .insta-grid a:hover .insta-overlay {
       background: rgba(0,0,0,0.25);
     }
+    /* "Now" tag: on a Saturday morning, the current item in the schedule */
+    .now-tag { display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; background: #FF8200; padding: 3px 8px; border-radius: 3px; line-height: 1.4; }
+    .sched-item.now .sched-dot { animation: now-pulse 1.8s ease-out infinite; }
+    @keyframes now-pulse { 0% { box-shadow: 0 0 0 2px #FF8200, 0 0 0 2px rgba(255,130,0,0.5); } 100% { box-shadow: 0 0 0 2px #FF8200, 0 0 0 12px rgba(255,130,0,0); } }
+    /* Instagram grid: the photo's caption slides up on hover */
+    .insta-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 14px 12px; color: white; font-size: 0.82rem; line-height: 1.45; background: linear-gradient(to top, rgba(20,18,16,0.85), transparent); transform: translateY(100%); transition: transform 0.35s ease; pointer-events: none; }
+    .insta-grid a:hover .insta-cap, .insta-grid a:focus-visible .insta-cap { transform: none; }
+    @media (prefers-reduced-motion: reduce) { .sched-item.now .sched-dot { animation: none; } .insta-cap { transition: none; } }
     /* ---- Hero photo strip: a slow, endless scroll of church-life photos ---- */
     .photo-strip { position: relative; z-index: 20; margin-top: calc(-1 * clamp(110px, 11vw, 160px)); overflow: hidden; background: linear-gradient(to bottom, transparent clamp(110px, 11vw, 160px), #fff 0); }
-    .strip-track { display: flex; width: max-content; animation: strip-scroll 140s linear infinite; }
+    .strip-track { display: flex; width: max-content; animation: strip-scroll 175s linear infinite; }
     .strip-set { display: flex; gap: 20px; margin: 0; padding: 0 20px 0 0; list-style: none; }
     .strip-card { flex: 0 0 auto; width: clamp(170px, 19vw, 270px); aspect-ratio: 5 / 6; border-radius: 12px; overflow: hidden; background: #3D3935; box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
     .strip-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-strip.paused .strip-track { animation-play-state: paused; }
+    .strip-toggle { position: absolute; z-index: 2; right: 20px; bottom: 16px; width: 44px; height: 44px; border-radius: 50%; border: 2px solid white; background: #3D3935; color: white; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.35); transition: background 0.2s ease; }
+    .strip-toggle:hover, .strip-toggle:focus-visible { background: #FF8200; outline: none; }
+    .strip-toggle .icon-play { display: none; }
+    .photo-strip.paused .strip-toggle .icon-play { display: block; }
+    .photo-strip.paused .strip-toggle .icon-pause { display: none; }
     @keyframes strip-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     /* No motion for people who've asked for less: the strip becomes a row you can swipe */
     @media (prefers-reduced-motion: reduce) {
       .strip-track { animation: none; width: auto; overflow-x: auto; padding: 0 20px; }
-      .strip-set[aria-hidden="true"] { display: none; }
+      .strip-set[aria-hidden="true"], .strip-toggle { display: none; }
+    }
+    /* ---- Saturday schedule: draws in on scroll; hovering a time lights up its photo ---- */
+    .sched { position: relative; }
+    .sched::before { content: ''; position: absolute; left: -1px; top: 6px; bottom: 6px; width: 2px; background: #FF8200; transform: scaleY(0); transform-origin: top; transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .sched-dot { position: absolute; left: -31px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: #FF8200; border: 2px solid #fff; box-shadow: 0 0 0 2px #FF8200; transform: scale(0); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease; }
+    .sched-item { opacity: 0; transform: translateX(-14px); transition: opacity 0.5s ease, transform 0.5s ease; cursor: default; }
+    .sched.in::before { transform: scaleY(1); }
+    .sched.in .sched-item { opacity: 1; transform: none; }
+    .sched.in .sched-dot { transform: scale(1); }
+    .sched.in .sched-item:nth-child(2), .sched.in .sched-item:nth-child(2) .sched-dot { transition-delay: 0.15s; }
+    .sched.in .sched-item:nth-child(3), .sched.in .sched-item:nth-child(3) .sched-dot { transition-delay: 0.3s; }
+    .sched.in .sched-item:nth-child(4), .sched.in .sched-item:nth-child(4) .sched-dot { transition-delay: 0.45s; }
+    .sched.in .sched-item:nth-child(5), .sched.in .sched-item:nth-child(5) .sched-dot { transition-delay: 0.6s; }
+    .sched.done .sched-item, .sched.done .sched-dot { transition-delay: 0s !important; }
+    /* hover: the item steps forward, the others fade back */
+    .sched.done .sched-item.on { transform: translateX(6px); }
+    .sched.done .sched-item.on .sched-dot { transform: scale(1.35); box-shadow: 0 0 0 2px #FF8200, 0 0 0 7px rgba(255,130,0,0.2); }
+    .sched.has-on .sched-item:not(.on) { opacity: 0.4; }
+    .stack-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
+    .stack-img.shown { opacity: 1; }
+    .stack-img { transition: opacity 0.6s ease, transform 0.6s ease, filter 0.5s ease; }
+    .sched-stack.on .stack-img { transform: scale(1.04); }
+    .sched-stack { min-height: 300px; }
+    .stack-cap { position: absolute; left: 16px; bottom: 16px; z-index: 2; background: rgba(61,57,53,0.88); color: white; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 12px; border-left: 3px solid #FF8200; opacity: 0; transform: translateY(6px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+    .stack-cap.shown { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .sched::before, .sched-item, .sched-dot, .stack-img { transition: none !important; }
     }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=4">
+  <link rel="stylesheet" href="mobile.css?v=6">
   <style>
     /* Base reset the home page was designed against (Tailwind's "preflight"), kept here so the
        full Tailwind script no longer has to load. Must stay last in <head>. */
@@ -374,18 +415,25 @@
 
 <!-- ======= PHOTO STRIP: slowly scrolls, overlapping the bottom of the hero ======= -->
 <section class="photo-strip" aria-label="Life at Reedy Creek">
+  <button type="button" class="strip-toggle" aria-label="Pause the photo slideshow" aria-pressed="false">
+    <svg class="icon-pause" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="9.5" y="2" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+    <svg class="icon-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11a1 1 0 0 0 1.5.86l9-5.5a1 1 0 0 0 0-1.72l-9-5.5A1 1 0 0 0 4 2.5z" fill="currentColor"/></svg>
+  </button>
   <div class="strip-track">
     <ul class="strip-set">
       <li class="strip-card"><img src="images/strip/worship.jpg" alt="A family dedication during the Sabbath service" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/dinner.jpg" alt="Sharing food at an international dinner night" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/strings.jpg" alt="A string ensemble playing at an international dinner night" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-hike.jpg" alt="Young adults on a hike together" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/elia.jpg" alt="ELIA Wellness course graduates with their certificates" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/lunch.jpg" alt="Fellowship lunch after the service" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/pathfinders.jpg" alt="Pathfinders in uniform" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/beach-walk.jpg" alt="A church group walk out to the lighthouse" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/kids-singing.jpg" alt="Pathfinders and kids singing in the Sabbath service" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/movement.jpg" alt="Volunteers setting out food for The Movement" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-run-club.jpg" alt="Friends from young adults at run club" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/evening.jpg" alt="The congregation gathered for worship" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/musicians.jpg" alt="Strings and brass leading music in the service" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-meal.jpg" alt="Young adults sharing a meal outdoors" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-camping.jpg" alt="Young adults camping among the boulders" width="600" height="720" loading="lazy" /></li>
     </ul>
@@ -393,82 +441,93 @@
     <ul class="strip-set" aria-hidden="true">
       <li class="strip-card"><img src="images/strip/worship.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/dinner.jpg" alt="" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/strings.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-hike.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/elia.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/lunch.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/pathfinders.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/beach-walk.jpg" alt="" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/kids-singing.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/movement.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-run-club.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/evening.jpg" alt="" width="600" height="720" loading="lazy" /></li>
+      <li class="strip-card"><img src="images/strip/musicians.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-meal.jpg" alt="" width="600" height="720" loading="lazy" /></li>
       <li class="strip-card"><img src="images/strip/ya-camping.jpg" alt="" width="600" height="720" loading="lazy" /></li>
     </ul>
   </div>
 </section>
+<script>
+  // Pause / play for the photo strip (moving content needs a way to stop it)
+  (function () {
+    var strip = document.querySelector('.photo-strip'), btn = strip.querySelector('.strip-toggle');
+    btn.addEventListener('click', function () {
+      var paused = strip.classList.toggle('paused');
+      btn.setAttribute('aria-pressed', paused);
+      btn.setAttribute('aria-label', (paused ? 'Play' : 'Pause') + ' the photo slideshow');
+    });
+  })();
+</script>
 
 <!-- White space above service times -->
 <div style="height:50px;background:#fff;"></div>
 
 <!-- ======= SERVICE TIMES ======= -->
 <section style="background:#fff;padding:0;overflow:hidden;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:540px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;">
 
-    <!-- Left: stacked church photos -->
-    <div style="display:grid;grid-template-rows:1fr 4px 1fr;overflow:hidden;">
-      <div style="overflow:hidden;">
-        <img loading="lazy" src="images/unnamed.jpg" alt="Church service at Reedy Creek"
-             style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
-      <div style="background:#FF8200;flex-shrink:0;"></div>
-      <div style="overflow:hidden;">
-        <img loading="lazy" src="images/lunch-2026-09-05a.jpg" alt="Fellowship lunch at Reedy Creek"
-             style="width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block;transition:transform 0.6s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
-      </div>
+    <!-- Left: one photo spot - the sanctuary by default, crossfading to each time's photo on hover -->
+    <div class="sched-stack" style="overflow:hidden;position:relative;">
+      <img loading="lazy" src="images/unnamed.jpg" alt="Church service at Reedy Creek" class="stack-img shown" data-for="" style="object-position:center 25%;" />
+      <img loading="lazy" src="images/schedule/prayer.jpg" alt="" class="stack-img" data-for="prayer" style="object-position:center 55%;" />
+      <img loading="lazy" src="images/schedule/sabbath-school.jpg" alt="" class="stack-img" data-for="ss" style="object-position:center 35%;" />
+      <img loading="lazy" src="images/schedule/intermission.jpg?v=2" alt="" class="stack-img" data-for="break" style="object-position:center;" />
+      <img loading="lazy" src="images/schedule/service.jpg?v=2" alt="" class="stack-img" data-for="service" style="object-position:center;" />
+      <img loading="lazy" src="images/lunch-2026-09-05a.jpg" alt="" class="stack-img" data-for="lunch" style="object-position:center 40%;" />
+      <span class="stack-cap" aria-hidden="true"></span>
     </div>
-
     <!-- Right: schedule -->
     <div style="padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:#fff;">
       <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;font-weight:600;margin:0 0 12px;">GOLD COAST, QLD</p>
       <h2 style="font-size:clamp(1.9rem,3.2vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 10px;line-height:1.15;letter-spacing:0.12em;text-transform:uppercase;">EVERY SATURDAY<br>AT REEDY CREEK</h2>
-      <p style="font-size:1rem;color:#666;line-height:1.75;margin:0 0 40px;">Come and meet our warm, community-focused church family.</p>
+      <p style="font-size:1rem;color:#666;line-height:1.75;margin:0 0 28px;">Come and meet our warm, community-focused church family.</p>
 
       <!-- Timeline -->
-      <div style="display:flex;flex-direction:column;gap:0;border-left:2px solid #FF8200;padding-left:24px;margin-bottom:40px;">
+      <div class="sched" style="display:flex;flex-direction:column;gap:0;padding-left:24px;margin-bottom:32px;">
 
-        <div style="position:relative;padding-bottom:28px;">
-          <div style="position:absolute;left:-31px;top:4px;width:14px;height:14px;border-radius:50%;background:#FF8200;border:2px solid #fff;box-shadow:0 0 0 2px #FF8200;"></div>
-          <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">9:10<span style="font-size:0.6em;font-weight:600;">AM</span></p>
-          <p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Prayer Meeting</p>
-          <p style="font-size:0.875rem;color:#888;margin:0;">Prayer, hymns and a short Bible reflection to open the morning</p>
+        <div class="sched-item" data-photo="prayer" style="position:relative;padding-bottom:18px;">
+          <div class="sched-dot"></div>
+          <p style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">9:10<span style="font-size:0.6em;font-weight:600;">AM</span></p>
+          <p style="font-size:0.95rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Prayer Meeting</p>
+          <p style="font-size:0.82rem;color:#888;margin:0;">Prayer, hymns and a short Bible reflection to open the morning</p>
         </div>
 
-        <div style="position:relative;padding-bottom:28px;">
-          <div style="position:absolute;left:-31px;top:4px;width:14px;height:14px;border-radius:50%;background:#FF8200;border:2px solid #fff;box-shadow:0 0 0 2px #FF8200;"></div>
-          <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">9:30<span style="font-size:0.6em;font-weight:600;">AM</span></p>
-          <p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Sabbath School</p>
-          <p style="font-size:0.875rem;color:#888;margin:0;">Kids Connect · Youth · Young Adults · Adults</p>
+        <div class="sched-item" data-photo="ss" style="position:relative;padding-bottom:18px;">
+          <div class="sched-dot"></div>
+          <p style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">9:30<span style="font-size:0.6em;font-weight:600;">AM</span></p>
+          <p style="font-size:0.95rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Sabbath School</p>
+          <p style="font-size:0.82rem;color:#888;margin:0;">Kids Connect · Youth · Young Adults · Adults</p>
         </div>
 
-        <div style="position:relative;padding-bottom:28px;">
-          <div style="position:absolute;left:-31px;top:4px;width:14px;height:14px;border-radius:50%;background:#FF8200;border:2px solid #fff;box-shadow:0 0 0 2px #FF8200;"></div>
-          <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">10:30<span style="font-size:0.6em;font-weight:600;">AM</span></p>
-          <p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Intermission</p>
-          <p style="font-size:0.875rem;color:#888;margin:0;">A chance to refresh and meet some new people</p>
+        <div class="sched-item" data-photo="break" style="position:relative;padding-bottom:18px;">
+          <div class="sched-dot"></div>
+          <p style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">10:30<span style="font-size:0.6em;font-weight:600;">AM</span></p>
+          <p style="font-size:0.95rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Intermission</p>
+          <p style="font-size:0.82rem;color:#888;margin:0;">A chance to refresh and meet some new people</p>
         </div>
 
-        <div style="position:relative;padding-bottom:28px;">
-          <div style="position:absolute;left:-31px;top:4px;width:14px;height:14px;border-radius:50%;background:#FF8200;border:2px solid #fff;box-shadow:0 0 0 2px #FF8200;"></div>
-          <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">10:45<span style="font-size:0.6em;font-weight:600;">AM</span></p>
-          <p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Church Service</p>
-          <p style="font-size:0.875rem;color:#888;margin:0;">Worship. Sermon. Time with God.</p>
+        <div class="sched-item" data-photo="service" style="position:relative;padding-bottom:18px;">
+          <div class="sched-dot"></div>
+          <p style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">10:45<span style="font-size:0.6em;font-weight:600;">AM</span></p>
+          <p style="font-size:0.95rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Church Service</p>
+          <p style="font-size:0.82rem;color:#888;margin:0;">Worship. Sermon. Time with God.</p>
         </div>
 
-        <div style="position:relative;">
-          <div style="position:absolute;left:-31px;top:4px;width:14px;height:14px;border-radius:50%;background:#FF8200;border:2px solid #fff;box-shadow:0 0 0 2px #FF8200;"></div>
-          <p style="font-size:clamp(1.1rem,1.8vw,1.4rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">12:30<span style="font-size:0.6em;font-weight:600;">PM</span></p>
-          <p style="font-size:1rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Fellowship Lunch</p>
-          <p style="font-size:0.875rem;color:#888;margin:0;">Join us for a shared meal after the service - all are welcome</p>
+        <div class="sched-item" data-photo="lunch" style="position:relative;">
+          <div class="sched-dot"></div>
+          <p style="font-size:clamp(1rem,1.5vw,1.2rem);font-weight:800;color:#FF8200;margin:0 0 2px;line-height:1;">12:30<span style="font-size:0.6em;font-weight:600;">PM</span></p>
+          <p style="font-size:0.95rem;font-weight:700;color:#3D3935;margin:0 0 2px;">Fellowship Lunch</p>
+          <p style="font-size:0.82rem;color:#888;margin:0;">Join us for a shared meal after the service - all are welcome</p>
         </div>
 
       </div>
@@ -481,6 +540,53 @@
 
   </div>
 </section>
+<script>
+  // Saturday schedule: draw the timeline when it scrolls into view, and link each time to its photo
+  (function () {
+    var sched = document.querySelector('.sched');
+    if (!sched) return;
+    var items = [].slice.call(sched.querySelectorAll('.sched-item'));
+    function show() { sched.classList.add('in'); setTimeout(function () { sched.classList.add('done'); }, 1500); }
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) show();
+    else {
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { show(); io.disconnect(); } }, { threshold: 0.35 });
+      io.observe(sched);
+    }
+    var stack = document.querySelector('.sched-stack');
+    var layers = stack ? [].slice.call(stack.querySelectorAll('.stack-img')) : [];
+    var cap = stack ? stack.querySelector('.stack-cap') : null;
+    // "Now" tag on Saturday mornings - Gold Coast time is UTC+10 all year (no daylight saving)
+    var gc = new Date(Date.now() + 10 * 3600e3);
+    if (gc.getUTCDay() === 6) {
+      var mins = gc.getUTCHours() * 60 + gc.getUTCMinutes();
+      var slots = [[550, 570], [570, 630], [630, 645], [645, 750], [750, 840]];   // 9:10, 9:30, 10:30, 10:45, 12:30 - 2:00pm
+      slots.forEach(function (s, i) {
+        if (items[i] && mins >= s[0] && mins < s[1]) {
+          items[i].classList.add('now');
+          var tag = document.createElement('span');
+          tag.className = 'now-tag';
+          tag.textContent = 'Now';
+          items[i].querySelector('p:nth-of-type(2)').appendChild(tag);
+        }
+      });
+    }
+    function light(key, item) {
+      var on = key !== null;
+      sched.classList.toggle('has-on', on);
+      items.forEach(function (it) { it.classList.toggle('on', on && it === item); });
+      var layerKey = on ? key : '';
+      layers.forEach(function (l) { l.classList.toggle('shown', l.dataset.for === layerKey || (!layers.some(function (x) { return x.dataset.for === layerKey; }) && l.dataset.for === '')); });
+      if (stack) stack.classList.toggle('on', !!layerKey);
+      if (cap) {
+        if (item && layerKey) cap.textContent = item.querySelector('p:nth-of-type(2)').firstChild.textContent + ' · ' + item.querySelector('p').textContent.toLowerCase();
+        cap.classList.toggle('shown', !!layerKey);
+      }
+    }
+    items.forEach(function (it) {
+      it.addEventListener('mouseenter', function () { if (sched.classList.contains('done')) light(it.dataset.photo, it); });
+      it.addEventListener('mouseleave', function () { light(null); });
+    });  })();
+</script>
 
 <!-- White space below service times -->
 <div style="height:50px;background:#fff;border-bottom:3px solid #FF8200;"></div>
@@ -610,6 +716,18 @@
     </div>
   </div>
 </section>
+<script>
+  // Instagram grid: show each photo's description as a caption on hover
+  [].forEach.call(document.querySelectorAll('.insta-grid a'), function (a) {
+    var img = a.querySelector('img');
+    if (!img || !img.alt) return;
+    var cap = document.createElement('span');
+    cap.className = 'insta-cap';
+    cap.setAttribute('aria-hidden', 'true');
+    cap.textContent = img.alt;
+    a.appendChild(cap);
+  });
+</script>
 
 <!-- ======= NEXT STEPS ======= -->
 <section style="background:white;padding:72px 24px;border-top:3px solid #FF8200;">
