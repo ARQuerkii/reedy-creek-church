@@ -119,7 +119,7 @@
     .now-playing { display: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8200; margin: 0 0 4px; }
     .earlier-card.playing .now-playing { display: block; }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=5">
+  <link rel="stylesheet" href="mobile.css?v=8">
 </head>
 <body>
 
@@ -192,6 +192,7 @@
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 16px;font-weight:600;">SERMONS</p>
     <h1 style="font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;color:#3D3935;margin:0 0 20px;letter-spacing:0.06em;text-transform:uppercase;">MESSAGES FROM REEDY CREEK</h1>
     <p style="font-size:1.05rem;color:#555;line-height:1.9;margin:0;">Every Sabbath we open the Bible and dig in together. Watch recent messages below, or subscribe on YouTube to get notified the moment a new one goes up.</p>
+    <p style="font-size:0.9rem;color:#777;margin:18px 0 0;">The service streams live every Saturday from 10:45am. <a id="live-link" href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ/live" target="_blank" rel="noopener" style="color:#3D3935;font-weight:700;border-bottom:1px solid #3D3935;">Watch live on YouTube →</a></p>
   </div>
 </section>
 
@@ -291,6 +292,22 @@
   </div>
 </section>
 
+<!-- ======= LIVE NOW ======= -->
+<!-- Shown by nav.js during the Saturday service (10:40am - 12:15pm). Preview it any time with sermons.html?live=1 -->
+<section id="live" hidden style="background:#2F2C29;padding:48px 24px 52px;border-bottom:3px solid #FF8200;scroll-margin-top:80px;">
+  <div style="max-width:960px;margin:0 auto;">
+    <p class="live-badge"><span class="live-dot" aria-hidden="true"></span>Live now</p>
+    <h2 style="font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;color:white;margin:0 0 20px;letter-spacing:0.06em;text-transform:uppercase;">Sabbath Service, streaming live</h2>
+    <div style="position:relative;padding-top:56.25%;background:#000;box-shadow:0 12px 32px rgba(0,0,0,0.3);">
+      <iframe id="live-player" title="Live stream of our Sabbath service"
+        style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <p style="font-size:0.9rem;color:#CFC9C2;text-align:center;margin:18px 0 0;">Player not showing the stream, or it hasn't started yet? <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ/live" target="_blank" rel="noopener" style="color:white;font-weight:700;border-bottom:1px solid white;">Watch it on YouTube →</a></p>
+  </div>
+</section>
+
 <!-- ======= FOOTER CTA ======= -->
 <section style="background:#3D3935;padding:56px 24px;">
   <div style="max-width:560px;margin:0 auto;text-align:center;">
@@ -316,7 +333,7 @@
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
       </ul>
-      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+      <form class="bulletin-form" action="https://assets.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
         <input type="hidden" name="ml-submit" value="1" />
         <input type="hidden" name="anticsrf" value="true" />
         <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
@@ -408,6 +425,6 @@
   </div>
 </footer>
 
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>

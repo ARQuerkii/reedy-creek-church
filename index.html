@@ -199,49 +199,11 @@
       border: 0;
     }
 
-    /* ---- Community photo grid (Instagram-style) ---- */
-    .insta-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-    }
-    .insta-grid a {
-      position: relative;
-      overflow: hidden;
-      display: block;
-      aspect-ratio: 1;
-    }
-    .insta-grid a img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .insta-grid a:hover img {
-      transform: scale(1.06);
-      filter: brightness(0.8);
-    }
-    .insta-grid a .insta-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s ease;
-    }
-    .insta-grid a:hover .insta-overlay {
-      background: rgba(0,0,0,0.25);
-    }
     /* "Now" tag: on a Saturday morning, the current item in the schedule */
     .now-tag { display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; background: #FF8200; padding: 3px 8px; border-radius: 3px; line-height: 1.4; }
     .sched-item.now .sched-dot { animation: now-pulse 1.8s ease-out infinite; }
     @keyframes now-pulse { 0% { box-shadow: 0 0 0 2px #FF8200, 0 0 0 2px rgba(255,130,0,0.5); } 100% { box-shadow: 0 0 0 2px #FF8200, 0 0 0 12px rgba(255,130,0,0); } }
-    /* Instagram grid: the photo's caption slides up on hover */
-    .insta-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 14px 12px; color: white; font-size: 0.82rem; line-height: 1.45; background: linear-gradient(to top, rgba(20,18,16,0.85), transparent); transform: translateY(100%); transition: transform 0.35s ease; pointer-events: none; }
-    .insta-grid a:hover .insta-cap, .insta-grid a:focus-visible .insta-cap { transform: none; }
-    @media (prefers-reduced-motion: reduce) { .sched-item.now .sched-dot { animation: none; } .insta-cap { transition: none; } }
+    @media (prefers-reduced-motion: reduce) { .sched-item.now .sched-dot { animation: none; } }
     /* ---- Hero photo strip: a slow, endless scroll of church-life photos ---- */
     .photo-strip { position: relative; z-index: 20; margin-top: calc(-1 * clamp(110px, 11vw, 160px)); overflow: hidden; background: linear-gradient(to bottom, transparent clamp(110px, 11vw, 160px), #fff 0); }
     .strip-track { display: flex; width: max-content; animation: strip-scroll 175s linear infinite; }
@@ -288,7 +250,7 @@
       .sched::before, .sched-item, .sched-dot, .stack-img { transition: none !important; }
     }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=6">
+  <link rel="stylesheet" href="mobile.css?v=8">
   <style>
     /* Base reset the home page was designed against (Tailwind's "preflight"), kept here so the
        full Tailwind script no longer has to load. Must stay last in <head>. */
@@ -312,8 +274,6 @@
     [hidden]{display:none}
   </style></head>
 <body>
-
-<!-- LightWidget (Instagram feed) -->
 
 <!-- ======= TOP BAR ======= -->
 <div style="background:#3D3935;border-bottom:1px solid #57524C;">
@@ -396,8 +356,8 @@
        alt="" aria-hidden="true"
        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:blur(3px) brightness(0.45);transform:scale(1.04);" />
 
-  <!-- Dark scrim -->
-  <div style="position:absolute;inset:0;background:rgba(14,12,10,0.4);"></div>
+  <!-- Grey scrim (brand charcoal, not black) so the white logo stands out -->
+  <div style="position:absolute;inset:0;background:rgba(47,44,41,0.6);"></div>
 
   <!-- Content -->
   <div style="position:relative;z-index:10;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(15px,3.8vw,51px) 24px clamp(150px,15vw,210px);text-align:center;">
@@ -468,6 +428,78 @@
     });
   })();
 </script>
+
+<!-- ======= WE ARE SECTION ======= -->
+<section style="background:white;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <h2 style="font-size:clamp(1.9rem,3.2vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 14px;letter-spacing:0.12em;text-transform:uppercase;">WE ARE REEDY CREEK ADVENTIST CHURCH</h2>
+    <p style="font-size:1rem;color:#555;max-width:860px;margin:0 auto 52px;line-height:1.75;">We'd love to have you join us for fellowship, community and worship on the Gold Coast every Saturday morning.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Card 1: CHILDREN & FAMILIES -->
+      <a href="ministries/kids-families.html" class="card-img-overlay">
+        <img loading="lazy" src="images/IMG-20260329-WA0002.jpg" alt="Children and Families at Reedy Creek" />
+        <div class="overlay-text">
+          <div class="label-small">YOUTH &amp;</div>
+          <div class="label-main">CHILDREN</div>
+        </div>
+      </a>
+
+      <!-- Card 2: YOUNG ADULTS -->
+      <a href="ministries/young-adults.html" class="card-img-overlay">
+        <img loading="lazy" src="images/ya-group-photo.jpg" alt="Young Adults at Reedy Creek" />
+        <div class="overlay-text">
+          <div class="label-small">YOUNG</div>
+          <div class="label-main">ADULTS</div>
+        </div>
+      </a>
+
+      <!-- Card 3: ADULTS -->
+      <a href="ministries/index.html" class="card-img-overlay">
+        <img loading="lazy" src="images/IMG-20260308-WA0004.jpg?v=2" alt="Adults at Reedy Creek" />
+        <div class="overlay-text">
+          <div class="label-main">ADULTS</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======= SERMONS ======= -->
+<section style="background-color:#3D3935;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;font-weight:600;margin:0 0 10px;">FROM THE PULPIT</p>
+        <h2 style="font-size:2.2rem;font-weight:800;color:white;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">SERMONS</h2>
+        <p style="color:#aaa;font-size:0.9rem;margin:0;white-space:nowrap;">Watch our latest service below, or browse the full archive on our YouTube channel.</p>
+      </div>
+      <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ/streams" target="_blank"
+         style="color:white;font-style:italic;font-size:1rem;white-space:nowrap;">View All →</a>
+    </div>
+    <div class="yt-embed-wrap" style="border:2px solid #57524C;">
+      <iframe
+        id="sermon-embed"
+        src="https://www.youtube.com/embed/videoseries?list=UUWf_sIje-5mC1kvIzzwkLqQ&rel=0"
+        title="Latest Sermon - Reedy Creek Adventist Church"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <script>
+      (async function () {
+        // sermons.json is kept up to date by .github/workflows/update-sermons.yml
+        try {
+          const res = await fetch('sermons.json', { cache: 'no-cache' });
+          if (!res.ok) return;
+          const id  = (await res.json()).sermons?.[0]?.id;
+          if (id) document.getElementById('sermon-embed').src = 'https://www.youtube.com/embed/' + id + '?rel=0';
+        } catch (_) {}
+      })();
+    </script>
+  </div>
+</section>
 
 <!-- White space above service times -->
 <div style="height:50px;background:#fff;"></div>
@@ -547,10 +579,21 @@
     if (!sched) return;
     var items = [].slice.call(sched.querySelectorAll('.sched-item'));
     function show() { sched.classList.add('in'); setTimeout(function () { sched.classList.add('done'); }, 1500); }
-    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) show();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) show();
     else {
-      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { show(); io.disconnect(); } }, { threshold: 0.35 });
-      io.observe(sched);
+      // Draw it once it's well onto the screen. Checked on scroll, resize and page load (not just
+      // once up front), so it plays wherever the page opens - first visit, reload or mid-page
+      var check = function () {
+        var r = sched.getBoundingClientRect();
+        if (r.top < innerHeight * 0.8 && r.bottom > innerHeight * 0.1) {
+          show();
+          removeEventListener('scroll', check);
+          removeEventListener('resize', check);
+        }
+      };
+      addEventListener('scroll', check, { passive: true });
+      addEventListener('resize', check);
+      if (document.readyState === 'complete') check(); else addEventListener('load', check);
     }
     var stack = document.querySelector('.sched-stack');
     var layers = stack ? [].slice.call(stack.querySelectorAll('.stack-img')) : [];
@@ -591,78 +634,6 @@
 <!-- White space below service times -->
 <div style="height:50px;background:#fff;border-bottom:3px solid #FF8200;"></div>
 
-<!-- ======= SERMONS ======= -->
-<section style="background-color:#3D3935;padding:72px 24px;">
-  <div style="max-width:1100px;margin:0 auto;">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
-      <div>
-        <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;font-weight:600;margin:0 0 10px;">FROM THE PULPIT</p>
-        <h2 style="font-size:2.2rem;font-weight:800;color:white;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;">SERMONS</h2>
-        <p style="color:#aaa;font-size:0.9rem;margin:0;white-space:nowrap;">Watch our latest service below, or browse the full archive on our YouTube channel.</p>
-      </div>
-      <a href="https://www.youtube.com/channel/UCWf_sIje-5mC1kvIzzwkLqQ/streams" target="_blank"
-         style="color:white;font-style:italic;font-size:1rem;white-space:nowrap;">View All →</a>
-    </div>
-    <div class="yt-embed-wrap" style="border:2px solid #57524C;">
-      <iframe
-        id="sermon-embed"
-        src="https://www.youtube.com/embed/videoseries?list=UUWf_sIje-5mC1kvIzzwkLqQ&rel=0"
-        title="Latest Sermon - Reedy Creek Adventist Church"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <script>
-      (async function () {
-        // sermons.json is kept up to date by .github/workflows/update-sermons.yml
-        try {
-          const res = await fetch('sermons.json', { cache: 'no-cache' });
-          if (!res.ok) return;
-          const id  = (await res.json()).sermons?.[0]?.id;
-          if (id) document.getElementById('sermon-embed').src = 'https://www.youtube.com/embed/' + id + '?rel=0';
-        } catch (_) {}
-      })();
-    </script>
-  </div>
-</section>
-
-<!-- ======= WE ARE SECTION ======= -->
-<section style="background:white;padding:72px 24px;border-bottom:3px solid #FF8200;">
-  <div style="max-width:1100px;margin:0 auto;text-align:center;">
-    <h2 style="font-size:clamp(1.9rem,3.2vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 14px;letter-spacing:0.12em;text-transform:uppercase;">WE ARE REEDY CREEK ADVENTIST CHURCH</h2>
-    <p style="font-size:1rem;color:#555;max-width:860px;margin:0 auto 52px;line-height:1.75;">We'd love to have you join us for fellowship, community and worship on the Gold Coast every Saturday morning.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
-
-      <!-- Card 1: CHILDREN & FAMILIES -->
-      <a href="ministries/kids-families.html" class="card-img-overlay">
-        <img loading="lazy" src="images/IMG-20260329-WA0002.jpg" alt="Children and Families at Reedy Creek" />
-        <div class="overlay-text">
-          <div class="label-small">YOUTH &amp;</div>
-          <div class="label-main">CHILDREN</div>
-        </div>
-      </a>
-
-      <!-- Card 2: YOUNG ADULTS -->
-      <a href="ministries/young-adults.html" class="card-img-overlay">
-        <img loading="lazy" src="images/ya-group-photo.jpg" alt="Young Adults at Reedy Creek" />
-        <div class="overlay-text">
-          <div class="label-small">YOUNG</div>
-          <div class="label-main">ADULTS</div>
-        </div>
-      </a>
-
-      <!-- Card 3: ADULTS -->
-      <a href="ministries/index.html" class="card-img-overlay">
-        <img loading="lazy" src="images/IMG-20260308-WA0004.jpg?v=2" alt="Adults at Reedy Creek" />
-        <div class="overlay-text">
-          <div class="label-main">ADULTS</div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
 <!-- ======= COMMUNITY PHOTOS (Instagram grid) ======= -->
 <section style="background:#3D3935;padding:64px 24px;border-bottom:3px solid #FF8200;">
   <div style="max-width:1100px;margin:0 auto;">
@@ -684,50 +655,16 @@
       </a>
     </div>
 
-    <!-- 6-photo Instagram-style grid of recent church life (Sep-Oct 2026, plus one from June).
-         Keep these photos unique to this grid - don't reuse them elsewhere on the site. -->
-    <div class="insta-grid">
-
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-10-11a.jpg" alt="Church volunteers at a community wellness stall" />
-        <div class="insta-overlay"></div>
-      </a>
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-10-04.jpg" alt="A barbecue in the park with friends from church" />
-        <div class="insta-overlay"></div>
-      </a>
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-09-26.jpg" alt="Church families gathered under a marquee at an outdoor event" />
-        <div class="insta-overlay"></div>
-      </a>
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-10-11b.jpg" alt="Visitors chatting at the church's wellness stall" />
-        <div class="insta-overlay"></div>
-      </a>
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-09-07b.jpg" alt="Celebrating graduates of the church's stress-management course" />
-        <div class="insta-overlay"></div>
-      </a>
-      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank">
-        <img loading="lazy" src="images/community-2026-06-14.jpg" alt="Reedy Creek church community" />
-        <div class="insta-overlay"></div>
-      </a>
-
+    <!-- Live Instagram feed via SnapWidget - it updates itself whenever the church posts -->
+    <script src="https://snapwidget.com/js/snapwidget.js"></script>
+    <!-- The posts themselves aren't clickable (SnapWidget's pop-up doesn't lead to Instagram);
+         a clear layer over the feed sends any click to the church's Instagram instead -->
+    <div style="position:relative;">
+      <iframe src="https://snapwidget.com/embed/d26111de-7311-4d14-89ed-a021676361f0" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" tabindex="-1" style="border:none;overflow:hidden;width:100%;display:block;pointer-events:none;" title="Latest posts from our Instagram"></iframe>
+      <a href="https://www.instagram.com/reedycreek_sda_church/" target="_blank" rel="noopener" aria-label="See our latest posts on Instagram" style="position:absolute;inset:0;"></a>
     </div>
   </div>
 </section>
-<script>
-  // Instagram grid: show each photo's description as a caption on hover
-  [].forEach.call(document.querySelectorAll('.insta-grid a'), function (a) {
-    var img = a.querySelector('img');
-    if (!img || !img.alt) return;
-    var cap = document.createElement('span');
-    cap.className = 'insta-cap';
-    cap.setAttribute('aria-hidden', 'true');
-    cap.textContent = img.alt;
-    a.appendChild(cap);
-  });
-</script>
 
 <!-- ======= NEXT STEPS ======= -->
 <section style="background:white;padding:72px 24px;border-top:3px solid #FF8200;">
@@ -859,7 +796,7 @@
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
       </ul>
-      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+      <form class="bulletin-form" action="https://assets.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
         <input type="hidden" name="ml-submit" value="1" />
         <input type="hidden" name="anticsrf" value="true" />
         <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
@@ -958,6 +895,6 @@
   </div>
 </footer>
 
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>

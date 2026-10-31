@@ -267,7 +267,7 @@
     }
     @media (prefers-reduced-motion: reduce) { .expect-img, .drive-img, .drive-pin, .expect .step-row, .expect .step-row::before { transition: none; } .drive-pin.on::after { animation: none !important; } }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=6">
+  <link rel="stylesheet" href="mobile.css?v=8">
 </head>
 <body>
 
@@ -402,12 +402,16 @@
 
     <div style="display:flex;flex-direction:column;gap:24px;">
 
-      <div style="background:#F5F2EB;padding:32px;">
+      <div style="background:#F5F2EB;">
+        <img loading="lazy" src="images/church-building-front.jpg" alt="The church building, with its tall pitched roof"
+             style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 55%;" />
+        <div style="padding:32px;">
         <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">ADDRESS</p>
         <p style="font-size:1.1rem;font-weight:700;color:#3D3935;margin:0 0 4px;">9 Bridgman Drive</p>
         <p style="font-size:1rem;color:#555;margin:0 0 20px;">Reedy Creek QLD 4227</p>
         <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank"
            style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
+        </div>
       </div>
 
       <div style="background:#F5F2EB;padding:32px;">
@@ -458,11 +462,11 @@
       <!-- Aerial map of the grounds; pins sit at % positions on the image -->
       <div class="drive-map">
         <img src="images/parking-map.jpg" alt="Aerial map of the church grounds with each parking stop numbered" width="1000" height="1461" loading="lazy" />
-        <button type="button" class="drive-pin on" data-i="0" style="left:65.7%;top:8.4%;" aria-label="Stop 1: Lower entrance, from the road"><span>1</span></button>
-        <button type="button" class="drive-pin" data-i="1" style="left:73.1%;top:11%;" aria-label="Stop 2: Through the lower gate"><span>2</span></button>
+        <button type="button" class="drive-pin on" data-i="0" style="left:50.5%;top:10%;" aria-label="Stop 1: Lower entrance, from the road"><span>1</span></button>
+        <button type="button" class="drive-pin" data-i="1" style="left:72.8%;top:17%;" aria-label="Stop 2: Through the lower gate"><span>2</span></button>
         <button type="button" class="drive-pin" data-i="2" style="left:67.8%;top:33.4%;" aria-label="Stop 3: Lower car park"><span>3</span></button>
         <button type="button" class="drive-pin" data-i="3" style="left:15.5%;top:29.6%;" aria-label="Stop 4: Upper entrance - Gate 3"><span>4</span></button>
-        <button type="button" class="drive-pin" data-i="4" style="left:37.2%;top:30.5%;" aria-label="Stop 5: Upper side parking"><span>5</span></button>
+        <button type="button" class="drive-pin" data-i="4" style="left:5.5%;top:75%;" aria-label="Stop 5: Upper side parking"><span>5</span></button>
         <button type="button" class="drive-pin" data-i="5" style="left:47.4%;top:94.8%;" aria-label="Stop 6: Back car park"><span>6</span></button>
         <span class="drive-road">Bridgman Drive</span>
       </div>
@@ -499,12 +503,12 @@
 <!-- ======= PHOTO STRIP ======= -->
 <div style="display:grid;grid-template-columns:repeat(3,1fr);height:280px;">
   <div style="overflow:hidden;">
-    <img loading="lazy" src="images/507754603_1154602580041121_2879583699485074017_n.jpg" alt="Church members smiling together in the foyer"
-         style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+    <img loading="lazy" src="images/church-entrance.jpg" alt="The front entrance of the church, under the tall pitched roof"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 60%;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
   </div>
   <div style="overflow:hidden;">
-    <img loading="lazy" src="images/service-2026-09-05a.jpg" alt="The congregation during a Saturday church service"
-         style="width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
+    <img loading="lazy" src="images/greeters-team.jpg" alt="Greeters waiting at the front doors to welcome people in"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 62%;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'" />
   </div>
   <div style="overflow:hidden;">
     <img loading="lazy" src="images/727466497_1471721318329244_2356942570976319066_n.jpg" alt="A full hall at a church social evening"
@@ -574,11 +578,11 @@
 
       </div>
       <div class="expect-photo" aria-hidden="true">
-        <img src="images/507754603_1154602580041121_2879583699485074017_n.jpg" alt="" class="expect-img on" style="object-position:center 35%;" loading="lazy" />
+        <img src="images/greeters-welcome.jpg" alt="" class="expect-img on" style="object-position:center 65%;" loading="lazy" />
         <img src="images/schedule/prayer.jpg" alt="" class="expect-img" style="object-position:center 55%;" loading="lazy" />
         <img src="images/schedule/sabbath-school.jpg" alt="" class="expect-img" style="object-position:center 35%;" loading="lazy" />
         <img src="images/schedule/intermission.jpg?v=2" alt="" class="expect-img" style="object-position:center;" loading="lazy" />
-        <img src="images/schedule/service.jpg?v=2" alt="" class="expect-img" style="object-position:center;" loading="lazy" />
+        <img src="images/schedule/service-sanctuary.jpg" alt="" class="expect-img" style="object-position:center 70%;" loading="lazy" />
         <img src="images/lunch-2026-09-05a.jpg" alt="" class="expect-img" style="object-position:center 40%;" loading="lazy" />
       </div>
     </div>
@@ -823,7 +827,7 @@
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
       </ul>
-      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+      <form class="bulletin-form" action="https://assets.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
         <input type="hidden" name="ml-submit" value="1" />
         <input type="hidden" name="anticsrf" value="true" />
         <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
@@ -1015,6 +1019,6 @@
   })();
 </script>
 
-<script src="nav.js"></script>
+<script src="nav.js?v=4"></script>
 </body>
 </html>
