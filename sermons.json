@@ -1,6 +1,11 @@
 {
-  "updated": "2026-10-29T18:30:31Z",
+  "updated": "2026-10-31T12:39:15Z",
   "sermons": [
+    {
+      "id": "Jk6xA3smOeE",
+      "title": "John O'Malley | Salvation 101",
+      "published": "2026-10-31T01:02:32Z"
+    },
     {
       "id": "pcBQbB6pcJ0",
       "title": "Work It Out | Bro Enos Torres | 24 Oct 2026",
@@ -35,11 +40,6 @@
       "id": "Ve7Fa5pGNbg",
       "title": "“Weak, but chosen by God to Share the Gospel” | Pastor Andrew Feaveai",
       "published": "2026-09-12T15:27:15Z"
-    },
-    {
-      "id": "QcI3EClym0k",
-      "title": "Breaking the Cycle | Elder Mase Fa\"atoe",
-      "published": "2026-09-05T15:17:16Z"
     }
   ]
 }
