@@ -163,24 +163,22 @@
     .week-tag { display: inline-block; margin-left: 8px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; background: #FF8200; padding: 2px 7px; border-radius: 3px; vertical-align: 1px; }
     .on-dark .week-tag { background: #8B7CFF; color: #12131c; }
   </style>
-  <link rel="stylesheet" href="../mobile.css?v=5">
+  <link rel="stylesheet" href="../mobile.css?v=12">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#3D3935;border-bottom:1px solid #57524C;">
-  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
-      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+<div class="topbar">
+  <div class="topbar-in">
+    <p class="topbar-times">
+      <span>Join us every Saturday</span><span><span class="topbar-time">9:30am</span> Sabbath School</span><span><span class="topbar-time">10:45am</span> Church Service</span>
     </p>
-    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
-      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#6B655E;">|</span>
-      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    <div class="topbar-links">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="topbar-give">Give</a>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="topbar-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="topbar-addr">9 Bridgman Drive, Reedy Creek QLD 4227</span><span class="topbar-dir">Get Directions →</span></a>
     </div>
   </div>
 </div>
-
 <!-- ======= MAIN NAV ======= -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
@@ -252,6 +250,10 @@
     <a href="../ministries/sabbath-school.html" class="anchor-link current" aria-current="page">Sabbath School</a>
   </div>
 </div>
+
+<!-- ======= PHOTO STRIP ======= -->
+<img loading="lazy" src="../images/sabbath-school-sanctuary.jpg" alt="A Sabbath School class meeting at the front of the sanctuary"
+     style="display:block;width:100%;height:clamp(220px,26vw,340px);object-fit:cover;object-position:center 54%;" />
 
 <!-- ======= ADULT QUARTERLY ======= -->
 <section style="background:#F5F2EB;padding:64px 24px;border-bottom:3px solid #FF8200;">
@@ -382,9 +384,14 @@
 </section>
 
 <!-- ======= HOW SABBATH SCHOOL WORKS ======= -->
-<section style="background:#F5F2EB;padding:64px 24px;border-bottom:3px solid #FF8200;">
-  <div style="max-width:720px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:40px;">
+<section style="display:flex;min-height:380px;background:#F5F2EB;border-bottom:3px solid #FF8200;flex-wrap:wrap;">
+  <div style="flex:1 1 360px;min-height:300px;overflow:hidden;position:relative;">
+    <img loading="lazy" src="../images/sabbath-school-group.jpg" alt="Adults in a Sabbath School group with their Bibles and lesson guides"
+         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 85%;display:block;" />
+  </div>
+  <div style="flex:1 1 360px;padding:56px 48px;">
+  <div style="max-width:560px;">
+    <div style="margin-bottom:32px;">
       <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">FIRST TIME?</p>
       <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.08em;text-transform:uppercase;">HOW SABBATH SCHOOL WORKS</h2>
       <p style="font-size:0.95rem;color:#666;line-height:1.8;margin:0;">The main Adult Quarterly class meets downstairs. A handful of smaller groups, including Inverse, meet independently around the main church hall. There's no registration - just ask a greeter when you arrive and they'll point you to the right room.</p>
@@ -427,6 +434,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -490,7 +498,7 @@
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>Upcoming events and special Sabbaths</li>
         <li style="display:flex;gap:10px;"><span style="color:#FF8200;font-weight:800;" aria-hidden="true">&#10003;</span>What's on for fellowship lunch</li>
       </ul>
-      <form class="bulletin-form" action="https://dashboard.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
+      <form class="bulletin-form" action="https://assets.mailerlite.com/jsonp/1398391/forms/168685002099263479/subscribe" method="POST" style="margin-top:auto;">
         <input type="hidden" name="ml-submit" value="1" />
         <input type="hidden" name="anticsrf" value="true" />
         <label for="bulletin-email" style="display:block;font-size:0.82rem;color:#555;margin-bottom:8px;">Your email</label>
@@ -603,6 +611,6 @@
   })();
 </script>
 
-<script src="../nav.js"></script>
+<script src="../nav.js?v=5"></script>
 </body>
 </html>

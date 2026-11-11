@@ -267,24 +267,22 @@
     }
     @media (prefers-reduced-motion: reduce) { .expect-img, .drive-img, .drive-pin, .expect .step-row, .expect .step-row::before { transition: none; } .drive-pin.on::after { animation: none !important; } }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=8">
+  <link rel="stylesheet" href="mobile.css?v=12">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#3D3935;border-bottom:1px solid #57524C;">
-  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
-      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+<div class="topbar">
+  <div class="topbar-in">
+    <p class="topbar-times">
+      <span>Join us every Saturday</span><span><span class="topbar-time">9:30am</span> Sabbath School</span><span><span class="topbar-time">10:45am</span> Church Service</span>
     </p>
-    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
-      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#6B655E;">|</span>
-      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    <div class="topbar-links">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="topbar-give">Give</a>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="topbar-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="topbar-addr">9 Bridgman Drive, Reedy Creek QLD 4227</span><span class="topbar-dir">Get Directions →</span></a>
     </div>
   </div>
 </div>
-
 <!-- ======= MAIN NAV ======= -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
@@ -369,7 +367,7 @@
           <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#FF8200;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">9:30am</div>
           <div>
             <div style="font-size:0.95rem;font-weight:700;color:#3D3935;margin-bottom:3px;">Sabbath School</div>
-            <div style="font-size:0.85rem;color:#777;line-height:1.6;">Bible study and discussion in small groups - for all ages. You don't need any prior knowledge to join in. Kids and youth have their own groups too.</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">Bible study and discussion in small groups - for all ages. You don't need any prior knowledge to join. Kids and youth have their own groups too.</div>
           </div>
         </div>
 
@@ -377,7 +375,7 @@
           <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#FF8200;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">10:30am</div>
           <div>
             <div style="font-size:0.95rem;font-weight:700;color:#3D3935;margin-bottom:3px;">Intermission</div>
-            <div style="font-size:0.85rem;color:#777;line-height:1.6;">A short break to refresh and meet some new people.</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">A short break to refresh, reconnect and meet some new people.</div>
           </div>
         </div>
 
@@ -393,7 +391,7 @@
           <div style="min-width:110px;font-size:0.8rem;font-weight:700;color:#FF8200;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px;">12:30pm</div>
           <div>
             <div style="font-size:0.95rem;font-weight:700;color:#3D3935;margin-bottom:3px;">Fellowship Lunch</div>
-            <div style="font-size:0.85rem;color:#777;line-height:1.6;">After the service, the congregation shares a meal together. It's one of the highlights of the day - and you're genuinely welcome to stay. It's not a members-only thing.</div>
+            <div style="font-size:0.85rem;color:#777;line-height:1.6;">After the service, the congregation shares a meal together. It's one of the highlights of the day - and you're genuinely welcome to stay. It's not a "members-only" thing - visitors first!</div>
           </div>
         </div>
 
@@ -408,7 +406,8 @@
         <div style="padding:32px;">
         <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">ADDRESS</p>
         <p style="font-size:1.1rem;font-weight:700;color:#3D3935;margin:0 0 4px;">9 Bridgman Drive</p>
-        <p style="font-size:1rem;color:#555;margin:0 0 20px;">Reedy Creek QLD 4227</p>
+        <p style="font-size:1rem;color:#555;margin:0 0 12px;">Reedy Creek QLD 4227</p>
+        <p style="font-size:0.9rem;color:#555;line-height:1.7;margin:0 0 20px;">We share the site with <a href="https://www.graceview.qld.edu.au/" target="_blank" rel="noopener" style="color:#3D3935;text-decoration:underline;text-underline-offset:3px;">Graceview Adventist College</a>.</p>
         <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank"
            style="display:inline-block;background:#FF8200;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:12px 24px;">GET DIRECTIONS →</a>
         </div>
@@ -429,6 +428,16 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ======= WHY SATURDAY? ======= -->
+<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #FF8200;">
+  <div style="max-width:760px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">THE SABBATH</p>
+    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">WHY SATURDAY?</h2>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Seventh-day Adventists worship on Saturday - the seventh day of the week - following the Biblical Sabbath, which runs from sundown Friday to sundown Saturday. It's a day set apart for rest, worship and community.</p>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">If you've always attended Sunday church, Saturday might feel different at first. Most people say it quickly becomes one of their favourite parts of the week.</p>
   </div>
 </section>
 
@@ -496,7 +505,7 @@
       </div>
     </div>
 
-    <p style="font-size:0.9rem;color:#666;line-height:1.8;text-align:center;max-width:640px;margin:36px auto 0;">Still not sure? Pull in anywhere and someone will point you in the right direction - there's always a greeter near the entrance on a Saturday morning.</p>
+    <p style="font-size:0.9rem;color:#666;line-height:1.8;text-align:center;max-width:640px;margin:36px auto 0;">Still not sure? Pull in anywhere and someone will point you in the right direction - there will always be someone near the entrance to greet you on a Saturday morning.</p>
   </div>
 </section>
 
@@ -592,8 +601,8 @@
 <!-- ======= WHAT TO WEAR ======= -->
 <section style="display:flex;min-height:340px;border-bottom:3px solid #FF8200;flex-wrap:wrap;">
   <div style="flex:1 1 360px;min-height:280px;overflow:hidden;">
-    <img loading="lazy" src="images/community-2026-06-07.jpg" alt="A mix of casual and dressed-up outfits among the congregation"
-         style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;" />
+    <img loading="lazy" src="images/PXL_20260704_013711916.jpg" alt="The congregation during a service, in a mix of casual and smart outfits"
+         style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;" />
   </div>
   <div style="flex:1 1 360px;background:#F5F2EB;display:flex;align-items:center;padding:56px 48px;">
     <div style="max-width:420px;">
@@ -601,16 +610,6 @@
       <h2 style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT TO WEAR</h2>
       <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">Come as you are. Some people dress formally, most are smart casual - wear whatever you're comfortable in. There is no dress code.</p>
     </div>
-  </div>
-</section>
-
-<!-- ======= WHY SATURDAY? ======= -->
-<section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #FF8200;">
-  <div style="max-width:760px;margin:0 auto;text-align:center;">
-    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">THE SABBATH</p>
-    <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">WHY SATURDAY?</h2>
-    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Seventh-day Adventists worship on Saturday - the seventh day of the week - following the Biblical Sabbath, which runs from sundown Friday to sundown Saturday. It's a day set apart for rest, worship and community.</p>
-    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">If you've always attended Sunday church, Saturday might feel different at first. Most people say it quickly becomes one of their favourite parts of the week.</p>
   </div>
 </section>
 
@@ -632,13 +631,13 @@
       <div style="background:white;padding:32px;">
         <div style="width:40px;height:3px;background:#FF8200;margin-bottom:20px;"></div>
         <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">During Sabbath School</h3>
-        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">At 9:30am, children and young people meet in their own age-group classes - Beginners, Primary, Juniors and Teens all run at the same time as the adult sessions. When you arrive, let one of our greeters know you have kids with you and they'll show you where to go.</p>
+        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">At 9:30am, children and young people meet in their own age-group classes - Beginners, Primary, Juniors and Teens all run at the same time as the adult sessions. When you arrive, let whoever greets you know you have kids with you and they'll show you where to go.</p>
       </div>
 
       <div style="background:white;padding:32px;">
         <div style="width:40px;height:3px;background:#FF8200;margin-bottom:20px;"></div>
         <h3 style="font-size:0.95rem;font-weight:800;color:#3D3935;margin:0 0 10px;letter-spacing:0.06em;text-transform:uppercase;">During the Service</h3>
-        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">Children are welcome in the main service. There's a children's story moment during the service - a short, age-appropriate talk just for the kids before they head to their own space or rejoin the family.</p>
+        <p style="font-size:0.875rem;color:#666;line-height:1.75;margin:0;">Children are welcome in the main service. There's a short children's story during the service, just for the kids, before they head to their own space or rejoin the family.</p>
       </div>
 
     </div>
@@ -680,8 +679,8 @@
     <div>
       <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">LET US KNOW YOU'RE COMING</p>
       <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 20px;letter-spacing:0.1em;text-transform:uppercase;">PLANNING TO VISIT?</h2>
-      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 16px;">You don't need to register to come along - just show up. But if you'd like us to know you're coming, fill in this form and our pastor will reach out personally before you arrive.</p>
-      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">No spam. Just a friendly hello and help with any questions.</p>
+      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 16px;">You don't need to register to come along - just show up. But if you'd like us to know you're coming, fill in this form and our pastor will say hello personally when you arrive.</p>
+      <p style="font-size:1rem;color:#555;line-height:1.8;margin:0;">We're also happy to help with any questions.</p>
     </div>
 
     <form style="display:flex;flex-direction:column;gap:16px;">
@@ -703,7 +702,7 @@
       </div>
       <!-- ⚠️ NEEDS ACTION: This form needs a backend to send submissions to the pastor. Options: Formspree, Netlify Forms, or a mailto: action as a simple fallback. -->
       <button type="submit" style="background:#FF8200;color:white;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:16px 32px;border:none;cursor:pointer;font-family:'Noto Sans',sans-serif;transition:background 0.2s;" onmouseover="this.style.background='#E67500'" onmouseout="this.style.background='#FF8200'">RESERVE MY SPOT →</button>
-      <p style="font-size:0.8rem;color:#aaa;margin:0;line-height:1.6;">We'll reply within 24 hours. Your details won't be shared with anyone.</p>
+      <p style="font-size:0.8rem;color:#aaa;margin:0;line-height:1.6;">Your details won't be shared with anyone.</p>
     </form>
 
   </div>
@@ -787,7 +786,7 @@
           Is the fellowship lunch really free and open to everyone?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-answer">Yes. It's a shared meal - people bring food and it's laid out for everyone. There's no cost, no sign-up and no awkward invitation required. Just stay after the service and join in.</div>
+        <div class="faq-answer">Yes. It's a shared meal - people bring food and it's laid out for everyone. There's no cost, just come along.</div>
       </div>
     </div>
   </div>
@@ -1019,6 +1018,6 @@
   })();
 </script>
 
-<script src="nav.js?v=4"></script>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

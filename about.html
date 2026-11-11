@@ -122,24 +122,22 @@
     .stat-label { display: block; font-size: 0.85rem; color: #666; line-height: 1.5; margin-top: 10px; }
     @media (max-width: 560px) { .stats { grid-template-columns: 1fr; gap: 12px; } }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=8">
+  <link rel="stylesheet" href="mobile.css?v=12">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#3D3935;border-bottom:1px solid #57524C;">
-  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
-      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+<div class="topbar">
+  <div class="topbar-in">
+    <p class="topbar-times">
+      <span>Join us every Saturday</span><span><span class="topbar-time">9:30am</span> Sabbath School</span><span><span class="topbar-time">10:45am</span> Church Service</span>
     </p>
-    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
-      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#6B655E;">|</span>
-      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    <div class="topbar-links">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="topbar-give">Give</a>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="topbar-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="topbar-addr">9 Bridgman Drive, Reedy Creek QLD 4227</span><span class="topbar-dir">Get Directions →</span></a>
     </div>
   </div>
 </div>
-
 <!-- ======= MAIN NAV ======= -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
@@ -206,7 +204,7 @@
 <section style="background:white;padding:68px 24px;">
   <div style="max-width:730px;margin:0 auto;text-align:center;">
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 18px;font-weight:600;">GET TO KNOW US</p>
-    <p style="font-size:1.25rem;color:#333;line-height:1.9;margin:0;font-weight:400;">Reedy Creek Adventist Church is a small, close-knit community on the Gold Coast - the kind of place where people notice if you weren't there last Saturday. We're Seventh-day Adventist, but our congregation holds people at every stage of belief, from lifelong believers to those still quietly figuring things out. Sabbath brings us back together each week, and there's always a shared lunch afterwards. That's where a lot of the real conversations happen.</p>
+    <p style="font-size:1.25rem;color:#333;line-height:1.9;margin:0;font-weight:400;">Reedy Creek Adventist Church is a small, close-knit church community on the Gold Coast - the kind of place where people notice if you weren't there last Saturday. We're Seventh-day Adventist, but our congregation holds people at every stage of belief, from lifelong believers to those still quietly figuring things out. Sabbath brings us back together each week, and there's always a shared lunch afterwards. That's where real-life connections happen.</p>
   </div>
 </section>
 
@@ -215,14 +213,23 @@
   <div style="max-width:700px;margin:0 auto;text-align:center;">
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">OUR STORY</p>
     <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">HOW WE GOT HERE</h2>
-    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Our church has been part of the Reedy Creek and Gold Coast community since 1983 - more than four decades. Over that time we've grown from a small group of families into a congregation of around 100 people, and we still feel like a family.</p>
-    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">Every Saturday night at 6:30, a team from our church takes the LifeBoat food van down to Burleigh Beach. We bring homemade soup and bread from local bakeries for people sleeping rough. It's all part of our <a href="https://lighthousecs.org.au/" target="_blank" rel="noopener" style="color:#FF8200;text-decoration:underline;text-underline-offset:3px;">Lighthouse initiative</a> - and there's a large lighthouse standing in one of our church rooms as a reminder of why we keep showing up. No announcement, no fanfare; it just happens, week after week.</p>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">Our church has been part of the Reedy Creek and Gold Coast community since 1983 - more than four decades. Over that time we've grown from a small group of families into a congregation of around 100 people, and we still feel like a family.</p>
     <!-- Numbers that count up when they scroll into view -->
     <div class="stats">
       <div class="stat"><span class="stat-num" data-to="1983">1983</span><span class="stat-label">Part of Reedy Creek since</span></div>
-      <div class="stat"><span class="stat-num" data-to="100" data-prefix="~">~100</span><span class="stat-label">People in our church family</span></div>
+      <div class="stat"><span class="stat-num" data-to="20" data-suffix="+">20+</span><span class="stat-label">Cultures in our church family</span></div>
       <div class="stat"><span class="stat-num">Every</span><span class="stat-label">Saturday night at Burleigh Beach</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ======= LIGHTHOUSE & THE MOVEMENT ======= -->
+<section style="background:white;padding:68px 24px;">
+  <div style="max-width:700px;margin:0 auto;text-align:center;">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">SERVING OUR CITY</p>
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.2rem);font-weight:800;color:#3D3935;margin:0 0 24px;letter-spacing:0.1em;text-transform:uppercase;">LIGHTHOUSE &amp; THE MOVEMENT</h2>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0 0 16px;">Every Saturday night at 6:30, a team from our church takes the LifeBoat food van down to Burleigh Beach. We bring homemade soup and bread from local bakeries for people sleeping rough, as part of our <a href="https://lighthousecs.org.au/" target="_blank" rel="noopener" style="color:#FF8200;text-decoration:underline;text-underline-offset:3px;">Lighthouse initiative</a>. There's a large lighthouse standing in one of our church rooms as a reminder of why we keep doing what we're doing.</p>
+    <p style="font-size:1.05rem;color:#555;line-height:1.85;margin:0;">We also help out with <a href="https://www.facebook.com/TheMovementGoldCoastHO/" target="_blank" rel="noopener" style="color:#FF8200;text-decoration:underline;text-underline-offset:3px;">The Movement</a>, a Gold Coast charity that runs a food pantry in Southport. It gives meals, food and essentials to people who are homeless or struggling to make ends meet.</p>
   </div>
 </section>
 
@@ -231,11 +238,11 @@
 
 <section style="position:relative;height:clamp(260px,34vw,380px);overflow:hidden;border-bottom:3px solid #FF8200;">
   <img src="images/689484487_1387991120041593_1746279356464794024_n.jpg"
-       alt="Volunteers packing food for The Movement, our homeless food pantry"
+       alt="Volunteers packing food for The Movement, a Southport food pantry"
        style="width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block;" loading="lazy" />
   <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(14,12,10,0.72) 0%, rgba(14,12,10,0.15) 45%, rgba(14,12,10,0) 70%);"></div>
   <p style="position:absolute;left:0;right:0;bottom:0;margin:0;padding:0 24px 22px;text-align:center;color:rgba(255,255,255,0.92);font-size:0.9rem;letter-spacing:0.02em;">
-    The Movement - our homeless food pantry
+    Packing food for The Movement in Southport
   </p>
 </section>
 
@@ -258,7 +265,7 @@
   <div style="max-width:640px;margin:0 auto;text-align:center;">
     <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#FF8200;margin:0 0 14px;font-weight:600;">OUR FAITH</p>
     <h2 style="font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;color:#3D3935;margin:0 0 16px;letter-spacing:0.1em;text-transform:uppercase;">WHAT WE BELIEVE</h2>
-    <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 32px;">We're a Christian church rooted in the Bible - Seventh-day Adventist, which means Saturday worship, whole-person health, and a handful of other distinctives that shape how we live.</p>
+    <p style="font-size:1rem;color:#555;line-height:1.8;margin:0 0 32px;">We're a Christian church with the Bible as our strong foundation. We worship on the seventh-day Sabbath. That's why we meet on Saturdays! Like any other Christian church, we look forward to the soon return ("the advent") of Jesus Christ.</p>
     <a href="beliefs.html" style="display:inline-block;background:#3D3935;color:white;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;">SEE WHAT WE BELIEVE →</a>
   </div>
 </section>
@@ -476,15 +483,15 @@
     var nums = [].slice.call(document.querySelectorAll('.stat-num[data-to]'));
     if (!nums.length || !('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     function run(el) {
-      var to = +el.dataset.to, pre = el.dataset.prefix || '', from = to > 1000 ? to - 60 : 0, t0 = null;
+      var to = +el.dataset.to, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '', from = to > 1000 ? to - 60 : 0, t0 = null;
       function step(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / 1400, 1), eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = pre + Math.round(from + (to - from) * eased);
+        el.textContent = pre + Math.round(from + (to - from) * eased) + suf;
         if (p < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
-      setTimeout(function () { el.textContent = pre + to; }, 1600);   // always finish on the real number
+      setTimeout(function () { el.textContent = pre + to + suf; }, 1600);   // always finish on the real number
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
@@ -494,6 +501,6 @@
   })();
 </script>
 
-<script src="nav.js?v=4"></script>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

@@ -104,24 +104,22 @@
       gap: 12px;
     }
   </style>
-  <link rel="stylesheet" href="mobile.css?v=8">
+  <link rel="stylesheet" href="mobile.css?v=12">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#3D3935;border-bottom:1px solid #57524C;">
-  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
-      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+<div class="topbar">
+  <div class="topbar-in">
+    <p class="topbar-times">
+      <span>Join us every Saturday</span><span><span class="topbar-time">9:30am</span> Sabbath School</span><span><span class="topbar-time">10:45am</span> Church Service</span>
     </p>
-    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
-      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#6B655E;">|</span>
-      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    <div class="topbar-links">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="topbar-give">Give</a>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="topbar-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="topbar-addr">9 Bridgman Drive, Reedy Creek QLD 4227</span><span class="topbar-dir">Get Directions →</span></a>
     </div>
   </div>
 </div>
-
 <!-- ======= MAIN NAV ======= -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
@@ -187,22 +185,22 @@
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
         <h2 style="font-size:1rem;font-weight:800;color:#3D3935;margin:0;letter-spacing:0.03em;text-transform:uppercase;">Rooted in the Bible</h2>
-        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We're a Christian church, and everything we do starts with Scripture. If we can't point to it in the Bible, we hold it loosely.</p>
+        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We're a Christian church, and everything we do starts with Scripture.</p>
       </div>
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
         <h2 style="font-size:1rem;font-weight:800;color:#3D3935;margin:0;letter-spacing:0.03em;text-transform:uppercase;">Saturday Worship</h2>
-        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We worship on Saturday - the biblical seventh-day Sabbath, running sundown Friday to sundown Saturday - as a day set apart for rest and community.</p>
+        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We worship on Saturday - the biblical seventh-day Sabbath, running sundown Friday to sundown Saturday - as a day set apart for rest, worship, family time and community.</p>
       </div>
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
         <h2 style="font-size:1rem;font-weight:800;color:#3D3935;margin:0;letter-spacing:0.03em;text-transform:uppercase;">Whole-Person Health</h2>
-        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We believe physical, mental and spiritual health are connected - which is part of why health and lifestyle show up so often in what we do.</p>
+        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We believe physical, mental and spiritual health are connected, which is why we emphasise a healthy lifestyle.</p>
       </div>
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
         <h2 style="font-size:1rem;font-weight:800;color:#3D3935;margin:0;letter-spacing:0.03em;text-transform:uppercase;">A Global Family</h2>
-        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We're part of a worldwide denomination of around 22 million people across 200+ countries - so wherever you travel, there's likely a familiar Sabbath waiting.</p>
+        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We're part of a worldwide denomination of around 22 million people across 200+ countries - so wherever you travel, there's likely to be a church nearby.</p>
       </div>
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
@@ -212,7 +210,7 @@
       <div class="belief-card">
         <div style="width:36px;height:3px;background:#FF8200;"></div>
         <h2 style="font-size:1rem;font-weight:800;color:#3D3935;margin:0;letter-spacing:0.03em;text-transform:uppercase;">Living with Hope</h2>
-        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We believe Jesus is coming back, and that shapes how we live now - less about predicting dates, more about living like it matters today.</p>
+        <p style="font-size:0.9rem;color:#666;line-height:1.75;margin:0;">We believe Jesus is coming back, and that shapes how we live today.</p>
       </div>
     </div>
   </div>
@@ -338,6 +336,6 @@
   </div>
 </footer>
 
-<script src="nav.js?v=4"></script>
+<script src="nav.js?v=5"></script>
 </body>
 </html>

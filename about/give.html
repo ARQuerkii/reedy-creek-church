@@ -138,24 +138,22 @@
     @media (prefers-reduced-motion: reduce) { .min-card { transition: none; } }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../mobile.css?v=8">
+  <link rel="stylesheet" href="../mobile.css?v=12">
 </head>
 <body>
 
 <!-- ======= TOP BAR ======= -->
-<div style="background:#3D3935;border-bottom:1px solid #57524C;">
-  <div style="max-width:1200px;margin:0 auto;padding:7px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <p style="margin:0;font-size:11px;font-weight:500;color:#bbb;letter-spacing:0.05em;white-space:nowrap;">
-      Join us every Saturday &nbsp;|&nbsp; 9:30am Sabbath School &nbsp;|&nbsp; 10:45am Church Service
+<div class="topbar">
+  <div class="topbar-in">
+    <p class="topbar-times">
+      <span>Join us every Saturday</span><span><span class="topbar-time">9:30am</span> Sabbath School</span><span><span class="topbar-time">10:45am</span> Church Service</span>
     </p>
-    <div style="display:flex;align-items:center;font-size:11px;font-weight:500;letter-spacing:0.05em;white-space:nowrap;">
-      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" style="color:#bbb;text-decoration:none;">Give</a>
-      <span style="margin:0 10px;color:#6B655E;">|</span>
-      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" style="color:#FF8200;text-decoration:none;">9 Bridgman Drive, Reedy Creek QLD 4227 &nbsp;·&nbsp; Get Directions →</a>
+    <div class="topbar-links">
+      <a href="https://egiving.org.au/Reedy%20Creek%20SDA%20Church" target="_blank" rel="noopener" class="topbar-give">Give</a>
+      <a href="https://maps.google.com/?cid=9611903285471579899" target="_blank" rel="noopener" class="topbar-map"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span class="topbar-addr">9 Bridgman Drive, Reedy Creek QLD 4227</span><span class="topbar-dir">Get Directions →</span></a>
     </div>
   </div>
 </div>
-
 <!-- ======= MAIN NAV ======= -->
 <nav style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(0,0,0,0.08);padding:0 24px;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;">
@@ -244,26 +242,12 @@
   </figure>
 </section>
 
-<!-- ======= TWO WAYS TO GIVE ======= -->
+<!-- ======= TITHES & OFFERINGS ======= -->
 <section style="background:#F5F2EB;padding:72px 24px;border-bottom:3px solid #FF8200;">
-  <div style="max-width:1000px;margin:0 auto;">
-    <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
-      <p class="give-eyebrow">THE BASICS</p>
-      <h2 class="give-h2">Two ways to give</h2>
-      <p class="give-lead">Adventists give in two ways, and each one does a different job.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
-      <div class="give-card">
-        <span class="give-pill">Tithe</span>
-        <h3>A tenth, returned to God</h3>
-        <p>Many Adventists return a tenth of their income as tithe. It's an act of worship - a way of saying everything we have comes from God.</p>
-      </div>
-      <div class="give-card">
-        <span class="give-pill">Offerings</span>
-        <h3>Any amount, for a set purpose</h3>
-        <p>Offerings are freewill gifts on top of tithe. Each Sabbath's offering has a set purpose - often our own local church budget, and sometimes world mission or disaster relief.</p>
-      </div>
-    </div>
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p class="give-eyebrow">THE BASICS</p>
+    <h2 class="give-h2">Tithes &amp; offerings</h2>
+    <p class="give-lead">Tithes and offerings are gratefully accepted.</p>
   </div>
 </section>
 
@@ -277,11 +261,11 @@
     </div>
     <div class="min-grid">
       <a href="../ministries/kids-families.html" class="min-card"><h3>Kids &amp; Families</h3><p>Adventurers, Pathfinders and Sabbath School.</p></a>
-      <a href="../ministries/young-adults.html" class="min-card"><h3>Young Adults</h3><p>Camps, hikes, run club and Bible study for ages 16 and up.</p></a>
+      <a href="../ministries/young-adults.html" class="min-card"><h3>Young Adults</h3><p>Camps, hikes and Bible study for ages 16 and up.</p></a>
       <a href="../ministries/community-outreach.html" class="min-card"><h3>Community Outreach</h3><p>The LifeBoat food van and The Movement.</p></a>
       <a href="../ministries/health-wellness.html" class="min-card"><h3>Health &amp; Wellness</h3><p>Wellness courses all year round with ELIA Wellness.</p></a>
       <a href="../ministries/worship-fellowship.html" class="min-card"><h3>Worship &amp; Fellowship</h3><p>Music, media, prayer, men's catch-ups and social nights.</p></a>
-      <a href="../ministries/sabbath-school.html" class="min-card"><h3>Sabbath School</h3><p>Bible study for every age, Saturdays at 9:30am.</p></a>
+      <a href="../ministries/sabbath-school.html" class="min-card"><h3>Sabbath School</h3><p>Bible studies and discussions for every age, Saturdays at 9:30am.</p></a>
     </div>
   </div>
 </section>
@@ -394,6 +378,6 @@
   </div>
 </footer>
 
-<script src="../nav.js?v=4"></script>
+<script src="../nav.js?v=5"></script>
 </body>
 </html>
