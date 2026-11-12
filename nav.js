@@ -42,6 +42,53 @@ document.addEventListener('DOMContentLoaded', function () {
   var hamburger = document.getElementById('navHamburgerBtn');
   var mobilePanel = document.getElementById('navMobilePanel');
   if (hamburger && mobilePanel) {
+    // Build the mobile menu from the desktop nav so the two always match: dropdowns become
+    // accordions, plain links stay links. (The links already in the panel are the no-script fallback.)
+    var cta = mobilePanel.querySelector('.nav-mobile-cta');
+    var built = document.createDocumentFragment();
+    [].forEach.call(document.querySelectorAll('.nav-desktop > li'), function (li) {
+      var trigger = li.querySelector('.nav-dropdown-trigger');
+      if (!trigger) {
+        var plain = li.querySelector('.nav-link');
+        if (!plain) return;   // the desktop "Plan Your Visit" button - the panel keeps its own
+        var link = plain.cloneNode(true);
+        link.className = 'nav-mobile-link';
+        built.appendChild(link);
+        return;
+      }
+      var group = document.createElement('div');
+      group.className = 'nav-mobile-group';
+      var toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'nav-mobile-link nav-mobile-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.innerHTML = trigger.firstChild.nodeValue.trim() + ' <span class="caret" aria-hidden="true">▾</span>';
+      var sub = document.createElement('div');
+      sub.className = 'nav-mobile-sub';
+      [].forEach.call(li.querySelectorAll('.nav-dropdown-item'), function (item) {
+        var a = item.cloneNode(true);
+        a.className = 'nav-mobile-sublink';
+        // the page you're on is marked, and its group starts open
+        if (a.href.split('#')[0] === location.href.split(/[?#]/)[0]) {
+          a.setAttribute('aria-current', 'page');
+          group.classList.add('open');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+        sub.appendChild(a);
+      });
+      toggle.addEventListener('click', function () {
+        var isOpen = group.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+      group.appendChild(toggle);
+      group.appendChild(sub);
+      built.appendChild(group);
+    });
+    if (built.childNodes.length) {
+      [].slice.call(mobilePanel.children).forEach(function (c) { if (c !== cta) c.remove(); });
+      mobilePanel.insertBefore(built, cta);
+    }
+
     hamburger.addEventListener('click', function () {
       var isOpen = mobilePanel.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);

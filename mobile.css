@@ -5,6 +5,12 @@
   layout is inline styles, which is why these rules need !important to win.
 */
 
+/* ---------- All widths: headings in Advent Sans (the church's brand typeface) ---------- */
+/* Only the regular weight exists, so bold headings are thickened by the browser.
+   Body text stays in Noto Sans; anything Advent Sans lacks (e.g. the → arrow) falls back to it. */
+@font-face { font-family: 'Advent Sans'; src: url('fonts/advent-sans-spd.otf') format('opentype'); font-display: swap; }
+h1, h2, h3, h4 { font-family: 'Advent Sans', 'Noto Sans', sans-serif; }
+
 /* ---------- All widths: line breaking ---------- */
 /* Text that wraps splits into even lines, so no line is left with just a word or two
    (browsers only balance up to ~6 lines; longer paragraphs wrap normally) */
@@ -39,6 +45,36 @@ a:hover .arw, a:focus-visible .arw, button:hover .arw { transform: translateX(4p
 @media (max-width: 560px) { .live-pop { left: 16px; right: 16px; bottom: 16px; width: auto; } }
 @media (prefers-reduced-motion: reduce) { .live-pop { transition: none; } .live-dot { animation: none; } }
 
+/* ---------- Mobile menu (nav.js builds it from the desktop nav) ---------- */
+/* About Us and Ministries open in place, like the desktop dropdowns */
+.nav-mobile-panel { max-height: calc(100svh - 64px); overflow-y: auto; }
+.nav-mobile-toggle { display: flex; justify-content: space-between; align-items: center; width: 100%; background: none; border: 0; border-bottom: 1px solid #f0f0f0; font-family: inherit; text-align: left; cursor: pointer; }
+.nav-mobile-toggle .caret { font-size: 14px; color: #A39D96; transition: transform 0.2s ease; }
+.nav-mobile-group.open .nav-mobile-toggle .caret { transform: rotate(180deg); color: #FF8200; }
+.nav-mobile-sub { display: none; padding: 4px 0 10px 14px; border-bottom: 1px solid #f0f0f0; }
+.nav-mobile-group.open .nav-mobile-sub { display: block; }
+.nav-mobile-group.open .nav-mobile-toggle { border-bottom-color: transparent; }
+.nav-mobile-sublink { display: block; padding: 11px 0; font-size: 14px; color: #57524C; text-decoration: none; }
+.nav-mobile-sublink[aria-current="page"] { color: #FF8200; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .nav-mobile-toggle .caret { transition: none; } }
+
+/* ---------- Top info bar (service times, Give, directions) ---------- */
+/* Dividers are drawn dots rather than typed "|", so screen readers don't read them out */
+.topbar { background: #3D3935; border-bottom: 1px solid #57524C; font-size: 11.5px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.5; }
+.topbar-in { max-width: 1200px; margin: 0 auto; padding: 8px 24px; display: flex; align-items: center; justify-content: space-between; gap: 6px 24px; flex-wrap: wrap; }
+.topbar-times, .topbar-links { margin: 0; display: flex; align-items: center; flex-wrap: wrap; }
+.topbar-times { color: #BDB7B0; }
+.topbar-times > span, .topbar-links > a { white-space: nowrap; }
+.topbar-times > span + span::before, .topbar-links > a + a::before { content: ""; display: inline-block; width: 3px; height: 3px; margin: 0 12px; border-radius: 50%; background: #7A746D; vertical-align: middle; }
+.topbar-time { color: white; font-weight: 600; }
+.topbar a { text-decoration: none; display: inline-flex; align-items: center; }
+.topbar-give { color: #BDB7B0; }
+.topbar-give:hover, .topbar-give:focus-visible { color: white; }
+.topbar-map { color: #DDD8D2; gap: 6px; }
+.topbar-map svg { width: 11px; height: 11px; flex-shrink: 0; fill: #FF8200; }
+.topbar-dir { color: #FF8200; font-weight: 600; margin-left: 8px; }
+.topbar-map:hover .topbar-dir, .topbar-map:focus-visible .topbar-dir { text-decoration: underline; }
+
 /* Dropdown menu items stay on one line however long the label */
 .nav-dropdown-item { white-space: nowrap; }
 /* A heading allowed to run wider than the narrow text column it sits in (capped to the screen) */
@@ -61,24 +97,12 @@ a:hover .arw, a:focus-visible .arw, button:hover .arw { transform: translateX(4p
     flex-shrink: 0 !important;
   }
 
-  /* Top info bar: let it wrap and stack instead of forcing the page wider */
-  body > div:first-of-type > div {
-    flex-direction: column !important;
-    justify-content: center !important;
-    gap: 4px !important;
-    padding: 8px 16px !important;
-    text-align: center;
-  }
-  body > div:first-of-type p,
-  body > div:first-of-type div {
-    white-space: normal !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    line-height: 1.6;
-  }
-  /* "Give" and the address wrap onto separate lines here, so drop the divider between them */
-  body > div:first-of-type div > span { display: none !important; }
-  body > div:first-of-type div { column-gap: 14px; }
+  /* Top info bar: two centred lines - times, then Give and directions */
+  .topbar-in { flex-direction: column; gap: 3px; padding: 7px 16px; }
+  .topbar-times, .topbar-links { justify-content: center; }
+  /* "Join us every Saturday" gets its own line, with the two times beneath it */
+  .topbar-times > span:first-child { flex-basis: 100%; text-align: center; }
+  .topbar-times > span:nth-child(2)::before { display: none; }
 
   /* Anything else marked no-wrap may wrap on small screens */
   [style*="white-space:nowrap"] { white-space: normal !important; }
@@ -153,6 +177,15 @@ a:hover .arw, a:focus-visible .arw, button:hover .arw { transform: translateX(4p
   /* Tighten the generous desktop section spacing a little */
   section[style*="padding:72px 24px"],
   section[style*="padding:76px 24px"] { padding-top: 52px !important; padding-bottom: 52px !important; }
+}
+
+/* ---------- Small phones: top bar ---------- */
+@media (max-width: 560px) {
+  .topbar { letter-spacing: 0.02em; }
+  /* The address doesn't fit beside the directions link, so it's hidden visually here -
+     screen readers still read it as part of the link (it's in the footer and on the Visit page too) */
+  .topbar-addr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .topbar-dir { margin-left: 0; }
 }
 
 /* ---------- Very narrow phones ---------- */
