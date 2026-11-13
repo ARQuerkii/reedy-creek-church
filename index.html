@@ -579,7 +579,14 @@
     var sched = document.querySelector('.sched');
     if (!sched) return;
     var items = [].slice.call(sched.querySelectorAll('.sched-item'));
-    function show() { sched.classList.add('in'); setTimeout(function () { sched.classList.add('done'); }, 1500); }
+    var hovered = null;   // the stage under the cursor, so it can light up the moment the timeline finishes drawing
+    function show() {
+      sched.classList.add('in');
+      setTimeout(function () {
+        sched.classList.add('done');
+        if (hovered) light(hovered.dataset.photo, hovered);
+      }, 1500);
+    }
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) show();
     else {
       // Draw it once it's well onto the screen. Checked on scroll, resize and page load (not just
@@ -626,9 +633,15 @@
         cap.classList.toggle('shown', !!layerKey);
       }
     }
+    // mousemove as well as mouseenter: a cursor already resting on a stage still lights it once it moves at all
+    function enter(it) {
+      hovered = it;
+      if (sched.classList.contains('done') && !it.classList.contains('on')) light(it.dataset.photo, it);
+    }
     items.forEach(function (it) {
-      it.addEventListener('mouseenter', function () { if (sched.classList.contains('done')) light(it.dataset.photo, it); });
-      it.addEventListener('mouseleave', function () { light(null); });
+      it.addEventListener('mouseenter', function () { enter(it); });
+      it.addEventListener('mousemove', function () { enter(it); });
+      it.addEventListener('mouseleave', function () { hovered = null; light(null); });
     });  })();
 </script>
 
