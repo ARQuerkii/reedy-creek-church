@@ -1,6 +1,11 @@
 {
-  "updated": "2026-11-07T19:27:31Z",
+  "updated": "2026-11-14T10:32:08Z",
   "sermons": [
+    {
+      "id": "0AVKsjRwHYU",
+      "title": "You Are That Man | Melvin Dawson",
+      "published": "2026-11-14T01:21:10Z"
+    },
     {
       "id": "A9-1UJRf87U",
       "title": "The Gospel Begins in Genesis | Dr Tas Walker - Creation Ministries International",
@@ -35,11 +40,6 @@
       "id": "lH3ZPmI3dJo",
       "title": "Until He Comes | Elder Henry Suluvale",
       "published": "2026-10-10T15:09:48Z"
-    },
-    {
-      "id": "WV8IuuqnyuY",
-      "title": "The Keys To Living A Healthy and More Abundant Life | Dr Tony Espinet",
-      "published": "2026-10-03T15:50:31Z"
     }
   ]
 }
