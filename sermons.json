@@ -1,6 +1,21 @@
 {
-  "updated": "2026-11-21T19:20:53Z",
+  "updated": "2026-11-28T17:36:18Z",
   "sermons": [
+    {
+      "id": "zAFG1h7H9HY",
+      "title": "Pathfinder & Adventurers Investiture",
+      "published": "2026-11-28T15:05:04Z"
+    },
+    {
+      "id": "Q33aLoIvobA",
+      "title": "Pathfinders & Adventurers - Investiture Sabbath",
+      "published": "2026-11-27T23:53:50Z"
+    },
+    {
+      "id": "4J24g7JR59M",
+      "title": "The Keys To Living A Healthy and More Abundant Life | Dr Tony Espinet",
+      "published": "2026-11-27T23:52:41Z"
+    },
     {
       "id": "aQy19pvNg3k",
       "title": "Communion Service | Pr Andrew Feaveai",
@@ -25,21 +40,6 @@
       "id": "Jk6xA3smOeE",
       "title": "John O'Malley | Salvation 101",
       "published": "2026-10-31T18:15:32Z"
-    },
-    {
-      "id": "pcBQbB6pcJ0",
-      "title": "Work It Out | Bro Enos Torres | 24 Oct 2026",
-      "published": "2026-10-25T02:02:30Z"
-    },
-    {
-      "id": "bs1JMdJzV5Q",
-      "title": "Work it Out | Enos Torres",
-      "published": "2026-10-24T16:25:47Z"
-    },
-    {
-      "id": "BEemSsf4nlE",
-      "title": "God Still Speaks Today | Pathfinders Day",
-      "published": "2026-10-17T18:00:28Z"
     }
   ]
 }
